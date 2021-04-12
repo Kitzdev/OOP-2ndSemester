@@ -1,4 +1,4 @@
-package SemesterDua.UTS.NoEmpatSingleInheritance.src;
+package OOP2ndSemester.UTS.NoEmpatSingleInheritance.src;
 
 public class Guru extends Pendidik
 {

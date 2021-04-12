@@ -1,4 +1,4 @@
-package SemesterDua.PertemuanDua.src.class3atribute2method;
+package OOP2ndSemester.PertemuanDua.src.class3atribute2method;
 
 public class clsPet
 {

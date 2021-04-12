@@ -1,4 +1,4 @@
-package SemesterDua.PertemuanTiga.src.TotalGajiPegawai;
+package OOP2ndSemester.PertemuanTiga.src.TotalGajiPegawai;
 
 public class clsPegawai
 {

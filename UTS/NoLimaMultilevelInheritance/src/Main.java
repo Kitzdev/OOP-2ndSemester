@@ -1,4 +1,4 @@
-package SemesterDua.UTS.NoLimaMultilevelInheritance.src;
+package OOP2ndSemester.UTS.NoLimaMultilevelInheritance.src;
 
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;

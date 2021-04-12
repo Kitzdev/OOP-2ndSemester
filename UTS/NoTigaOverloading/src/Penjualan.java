@@ -1,4 +1,4 @@
-package SemesterDua.UTS.NoTigaOverloading.src;
+package OOP2ndSemester.UTS.NoTigaOverloading.src;
 
 public class Penjualan 
 {

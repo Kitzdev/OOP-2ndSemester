@@ -1,4 +1,4 @@
-package SemesterDua.UTS.NoSatuAbstraksi.src;
+package OOP2ndSemester.UTS.NoSatuAbstraksi.src;
 
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;

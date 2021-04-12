@@ -1,4 +1,4 @@
-package SemesterDua.PertemuanEmpat.src.TugasSatu;
+package OOP2ndSemester.PertemuanEmpat.src.TugasSatu;
 
 public class clsPenyewa
 {

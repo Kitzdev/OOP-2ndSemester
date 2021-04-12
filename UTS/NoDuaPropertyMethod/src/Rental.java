@@ -1,4 +1,4 @@
-package SemesterDua.UTS.NoDuaPropertyMethod.src;
+package OOP2ndSemester.UTS.NoDuaPropertyMethod.src;
 
 public class Rental 
 {

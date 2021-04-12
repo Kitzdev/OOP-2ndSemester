@@ -1,4 +1,4 @@
-package SemesterDua.PertemuanEmpat.src.TugasDua;
+package OOP2ndSemester.PertemuanEmpat.src.TugasDua;
 
 import java.util.Scanner;
 

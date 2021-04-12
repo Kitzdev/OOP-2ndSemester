@@ -1,4 +1,4 @@
-package SemesterDua.UTS.NoEnamHierarchicalInheritance.src;
+package OOP2ndSemester.UTS.NoEnamHierarchicalInheritance.src;
 
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;

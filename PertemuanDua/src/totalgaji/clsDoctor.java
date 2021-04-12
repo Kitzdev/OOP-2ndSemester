@@ -1,4 +1,4 @@
-package SemesterDua.PertemuanDua.src.totalgaji;
+package OOP2ndSemester.PertemuanDua.src.totalgaji;
 
 public class clsDoctor
 {

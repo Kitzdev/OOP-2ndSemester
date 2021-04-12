@@ -1,4 +1,4 @@
-package SemesterDua.UTS.NoEnamHierarchicalInheritance.src;
+package OOP2ndSemester.UTS.NoEnamHierarchicalInheritance.src;
 
 public class Pendidik 
 {

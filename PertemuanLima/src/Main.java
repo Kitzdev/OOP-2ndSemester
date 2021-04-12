@@ -1,4 +1,4 @@
-package SemesterDua.PertemuanLima.src;
+package OOP2ndSemester.PertemuanLima.src;
 
 import java.util.Scanner;
 

@@ -1,4 +1,4 @@
-package SemesterDua.PertemuanEmpat.src.TugasSatu;
+package OOP2ndSemester.PertemuanEmpat.src.TugasSatu;
 
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
