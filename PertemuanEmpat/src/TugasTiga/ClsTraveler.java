@@ -1,4 +1,4 @@
-package SemesterDua.PertemuanEmpat.src.TugasTiga;
+package OOP2ndSemester.PertemuanEmpat.src.TugasTiga;
 
 public class ClsTraveler
 {
