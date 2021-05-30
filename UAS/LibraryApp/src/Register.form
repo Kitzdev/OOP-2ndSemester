@@ -156,8 +156,8 @@
                           </Group>
                           <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="newPasswordTextField2" min="-2" pref="185" max="-2" attributes="0"/>
-                              <Component id="newPasswordTextField1" min="-2" pref="185" max="-2" attributes="0"/>
+                              <Component id="newRePasswordTextField" min="-2" pref="185" max="-2" attributes="0"/>
+                              <Component id="newPasswordTextField" min="-2" pref="185" max="-2" attributes="0"/>
                               <Component id="newUsernameTextField" min="-2" pref="185" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
@@ -194,7 +194,7 @@
                                   </Group>
                                   <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="newPasswordTextField1" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
+                                      <Component id="newPasswordTextField" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
                                       <Component id="passwordLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="NIMTextField" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
                                       <Component id="NIMLabel" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -207,7 +207,7 @@
                                   <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="rePasswordLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="newPasswordTextField2" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
+                                      <Component id="newRePasswordTextField" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
                               </Group>
@@ -217,12 +217,10 @@
                               </Group>
                           </Group>
                           <Component id="registerButton" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jPanel3" max="32767" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
@@ -362,6 +360,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Login"/>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="loginButtonMouseClicked"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="bodyHeaderLabel3">
           <Properties>
@@ -379,9 +380,9 @@
             <Property name="text" type="java.lang.String" value="Semester"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JPasswordField" name="newPasswordTextField1">
+        <Component class="javax.swing.JPasswordField" name="newPasswordTextField">
         </Component>
-        <Component class="javax.swing.JPasswordField" name="newPasswordTextField2">
+        <Component class="javax.swing.JPasswordField" name="newRePasswordTextField">
         </Component>
         <Container class="javax.swing.JPanel" name="jPanel3">
           <Properties>

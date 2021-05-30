@@ -34,8 +34,8 @@ public class Register extends javax.swing.JFrame {
         loginButton = new javax.swing.JButton();
         bodyHeaderLabel3 = new javax.swing.JLabel();
         passwordLabel2 = new javax.swing.JLabel();
-        newPasswordTextField1 = new javax.swing.JPasswordField();
-        newPasswordTextField2 = new javax.swing.JPasswordField();
+        newPasswordTextField = new javax.swing.JPasswordField();
+        newRePasswordTextField = new javax.swing.JPasswordField();
         jPanel3 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -125,6 +125,11 @@ public class Register extends javax.swing.JFrame {
 
         loginButton.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         loginButton.setText("Login");
+        loginButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                loginButtonMouseClicked(evt);
+            }
+        });
 
         bodyHeaderLabel3.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
         bodyHeaderLabel3.setText("Please insert your data");
@@ -191,8 +196,8 @@ public class Register extends javax.swing.JFrame {
                             .addComponent(rePasswordLabel))
                         .addGap(28, 28, 28)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(newPasswordTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(newPasswordTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(newRePasswordTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(newPasswordTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(newUsernameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(19, 19, 19))))
             .addGroup(jPanel2Layout.createSequentialGroup()
@@ -221,7 +226,7 @@ public class Register extends javax.swing.JFrame {
                                     .addComponent(namaLabel))
                                 .addGap(26, 26, 26)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(newPasswordTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(newPasswordTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(passwordLabel)
                                     .addComponent(NIMTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(NIMLabel))
@@ -232,17 +237,15 @@ public class Register extends javax.swing.JFrame {
                                 .addGap(14, 14, 14)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(rePasswordLabel)
-                                    .addComponent(newPasswordTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(newRePasswordTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(24, 24, 24))
                             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(semesterTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(passwordLabel2)))
-                        .addComponent(registerButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(registerButton))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                        .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGap(19, 19, 19)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(haveAccountButton)
@@ -274,6 +277,12 @@ public class Register extends javax.swing.JFrame {
            sex = 'F';
        }
        
+        while(!IsRePasswordCorrect())
+        {
+            JOptionPane.showMessageDialog(null, "Password and Retype Password"
+                    + " must contain the same value");
+        }
+        
         try {
             
             DBConnection.AccessDatabase();
@@ -296,6 +305,27 @@ public class Register extends javax.swing.JFrame {
         
     }//GEN-LAST:event_registerButtonMouseClicked
 
+    private void loginButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginButtonMouseClicked
+        dispose();
+        Login loginForm = new Login();
+        loginForm.setVisible(true);
+    }//GEN-LAST:event_loginButtonMouseClicked
+
+    private boolean IsRePasswordCorrect()
+    {
+        String password = newPasswordTextField.getText();
+        String rePassword = newRePasswordTextField.getText();
+        
+        if(password.equals(rePassword))
+        {
+            return true;
+            
+        } else
+        {
+            return false;
+        }
+    }
+    
     public static void main(String args[]) {
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -315,7 +345,6 @@ public class Register extends javax.swing.JFrame {
         }
         
         java.awt.EventQueue.invokeLater(new Runnable() {
-            
             public void run() {
                 new Register().setVisible(true);
             }
@@ -338,8 +367,8 @@ public class Register extends javax.swing.JFrame {
     private javax.swing.JLabel minimizeButton;
     private javax.swing.JLabel namaLabel;
     private javax.swing.JTextField namaTextField;
-    private javax.swing.JPasswordField newPasswordTextField1;
-    private javax.swing.JPasswordField newPasswordTextField2;
+    private javax.swing.JPasswordField newPasswordTextField;
+    private javax.swing.JPasswordField newRePasswordTextField;
     private javax.swing.JLabel newUsernameLabel;
     private javax.swing.JTextField newUsernameTextField;
     private javax.swing.JLabel passwordLabel;
