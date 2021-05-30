@@ -6,6 +6,7 @@ public class Login extends javax.swing.JFrame {
     boolean isAdmin = false;
     String adminUsername = "admin";
     String passwordUsername = "admin";
+    int NIM = 0;
     
     public Login() {
         initComponents();
@@ -17,6 +18,8 @@ public class Login extends javax.swing.JFrame {
         headerPanel = new javax.swing.JPanel();
         closeButton = new javax.swing.JLabel();
         minmimizeButton = new javax.swing.JLabel();
+        headerLabel = new javax.swing.JLabel();
+        headerLabelLogin = new javax.swing.JLabel();
         bodyPanel = new javax.swing.JPanel();
         bodyHeader1 = new javax.swing.JLabel();
         bodyHeader2 = new javax.swing.JLabel();
@@ -51,12 +54,22 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
+        headerLabel.setFont(new java.awt.Font("Verdana", 1, 30)); // NOI18N
+        headerLabel.setText("Library");
+
+        headerLabelLogin.setFont(new java.awt.Font("Verdana", 3, 14)); // NOI18N
+        headerLabelLogin.setText("Login");
+
         javax.swing.GroupLayout headerPanelLayout = new javax.swing.GroupLayout(headerPanel);
         headerPanel.setLayout(headerPanelLayout);
         headerPanelLayout.setHorizontalGroup(
             headerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, headerPanelLayout.createSequentialGroup()
-                .addGap(0, 290, Short.MAX_VALUE)
+                .addGap(26, 26, 26)
+                .addComponent(headerLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(headerLabelLogin)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 95, Short.MAX_VALUE)
                 .addComponent(minmimizeButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(closeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -64,9 +77,15 @@ public class Login extends javax.swing.JFrame {
         headerPanelLayout.setVerticalGroup(
             headerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(headerPanelLayout.createSequentialGroup()
-                .addGroup(headerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(closeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(minmimizeButton))
+                .addGroup(headerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(headerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(closeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(minmimizeButton))
+                    .addGroup(headerPanelLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(headerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(headerLabelLogin)
+                            .addComponent(headerLabel))))
                 .addGap(2, 2, 2))
         );
 
@@ -205,6 +224,8 @@ public class Login extends javax.swing.JFrame {
                 
             } else {
                 
+                setNIM();
+                System.out.println(NIM);
                 usernameTextField.setText("");
                 passwordTextField.setText("");
                 dispose();
@@ -245,6 +266,24 @@ public class Login extends javax.swing.JFrame {
         setState(JFrame.ICONIFIED);
     }//GEN-LAST:event_minmimizeButtonMouseClicked
 
+    private void setNIM()
+    {
+        try {
+            
+            DBConnection.AccessDatabase();
+            DBConnection.sql = "SELECT * FROM tabel_anggota WHERE username "
+                    + "= '" + usernameTextField.getText() + "' AND password "
+                    + "= '" + passwordTextField.getText() + "';";
+            DBConnection.statement = DBConnection.connection.createStatement();
+            DBConnection.resultSet = DBConnection.statement.executeQuery
+                                             (DBConnection.sql);
+            DBConnection.resultSet.next();
+            NIM = DBConnection.resultSet.getInt(4);
+            
+        } catch (Exception exception) {
+        }
+    }
+    
     public static void main(String args[]) {
         
         try {
@@ -295,6 +334,8 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel bodyHeader2;
     private javax.swing.JPanel bodyPanel;
     private javax.swing.JLabel closeButton;
+    private javax.swing.JLabel headerLabel;
+    private javax.swing.JLabel headerLabelLogin;
     private javax.swing.JPanel headerPanel;
     private javax.swing.JButton loginButton;
     private javax.swing.JLabel minmimizeButton;
