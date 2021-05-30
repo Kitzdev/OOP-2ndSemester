@@ -16,6 +16,8 @@ public class Register extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         minimizeButton = new javax.swing.JLabel();
         closeButton = new javax.swing.JLabel();
+        headerLabel = new javax.swing.JLabel();
+        headerLabelRegister = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         namaLabel = new javax.swing.JLabel();
         NIMLabel = new javax.swing.JLabel();
@@ -57,12 +59,22 @@ public class Register extends javax.swing.JFrame {
             }
         });
 
+        headerLabel.setFont(new java.awt.Font("Verdana", 1, 30)); // NOI18N
+        headerLabel.setText("Library");
+
+        headerLabelRegister.setFont(new java.awt.Font("Verdana", 3, 14)); // NOI18N
+        headerLabelRegister.setText("Register");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(652, Short.MAX_VALUE)
+                .addGap(31, 31, 31)
+                .addComponent(headerLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(headerLabelRegister)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 431, Short.MAX_VALUE)
                 .addComponent(minimizeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(closeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -72,6 +84,12 @@ public class Register extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                 .addComponent(closeButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(minimizeButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(headerLabel)
+                    .addComponent(headerLabelRegister))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel1);
@@ -294,7 +312,7 @@ public class Register extends javax.swing.JFrame {
                     namaTextField.getText() + "','" + NIMTextField.getText() +
                     "','" + sex + "','" + semesterTextField.getText() + "')";
             DBConnection.statement = DBConnection.connection.createStatement();
-            DBConnection.statement.executeUpdate(DBConnection.sql);
+            DBConnection.statement.executeQuery(DBConnection.sql);
             JOptionPane.showMessageDialog(null, "Data successly saved");
             
         } catch (Exception exception) {
@@ -359,6 +377,8 @@ public class Register extends javax.swing.JFrame {
     private javax.swing.JLabel bodyHeaderLabel3;
     private javax.swing.JLabel closeButton;
     private javax.swing.JLabel haveAccountButton;
+    private javax.swing.JLabel headerLabel;
+    private javax.swing.JLabel headerLabelRegister;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
