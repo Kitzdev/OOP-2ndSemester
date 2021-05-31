@@ -3,9 +3,8 @@ import javax.swing.JOptionPane;
 
 public class Login extends javax.swing.JFrame {
     
-    boolean isAdmin = false;
     String adminUsername = "admin";
-    String passwordUsername = "admin";
+    String adminPassword = "admin";
     int NIM = 0;
     
     public Login() {
@@ -215,12 +214,13 @@ public class Login extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Username or Password "
                         + "input is wrong");
                 
-            } else if(isAdmin){
+            } else if(IsAdmin()){
                 
                 usernameTextField.setText("");
                 passwordTextField.setText("");
                 dispose();
-                DBConnection.statement.close();
+                Admin admin = new Admin();
+                admin.setVisible(true);
                 
             } else {
                 
@@ -229,7 +229,6 @@ public class Login extends javax.swing.JFrame {
                 usernameTextField.setText("");
                 passwordTextField.setText("");
                 dispose();
-                DBConnection.statement.close();
                 MainMenu mainMenu = new MainMenu();
                 mainMenu.setVisible(true);
             }
@@ -281,6 +280,19 @@ public class Login extends javax.swing.JFrame {
             NIM = DBConnection.resultSet.getInt(4);
             
         } catch (Exception exception) {
+        }
+    }
+    
+    private boolean IsAdmin()
+    {
+        if(adminUsername.equals(usernameTextField.getText()) && 
+                adminPassword.equals(passwordTextField.getText()))
+        {
+            return true;
+            
+        } else
+        {
+            return false;
         }
     }
     
