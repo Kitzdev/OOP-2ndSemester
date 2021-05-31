@@ -173,6 +173,7 @@ public class Admin extends javax.swing.JFrame {
     }//GEN-LAST:event_closeButtonMouseClicked
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        dispose();
         AddBook addBook = new AddBook();
         addBook.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed

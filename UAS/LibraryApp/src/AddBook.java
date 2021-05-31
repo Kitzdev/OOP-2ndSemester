@@ -5,7 +5,7 @@ import javax.swing.JOptionPane;
 
 public class AddBook extends javax.swing.JFrame {
 
-    String kodeBuku;
+    int kodeBuku;
     
     public AddBook() {
         initComponents();
@@ -78,17 +78,19 @@ public class AddBook extends javax.swing.JFrame {
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(headerLabelAddBook)
-                    .addComponent(closeButton)
-                    .addComponent(minimizeButton))
-                .addContainerGap())
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(headerLabel)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(headerLabel)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(closeButton)
+                            .addComponent(minimizeButton)
+                            .addComponent(headerLabelAddBook))))
+                .addContainerGap())
         );
 
         getContentPane().add(jPanel1);
@@ -169,24 +171,24 @@ public class AddBook extends javax.swing.JFrame {
                 .addGap(31, 31, 31)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(namaLabel)
-                    .addComponent(judulBukuTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(judulBukuTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(23, 23, 23)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(namaLabel1)
-                    .addComponent(penulisBukuTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(penulisBukuTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(28, 28, 28)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(namaLabel2)
-                    .addComponent(penerbitBukuTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(penerbitBukuTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(27, 27, 27)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(namaLabel3)
-                    .addComponent(halamanBukuTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(halamanBukuTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(22, 22, 22)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(namaLabel4)
-                    .addComponent(jumlahBukuTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
+                    .addComponent(jumlahBukuTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
                 .addComponent(jButton1)
                 .addContainerGap())
         );
@@ -216,7 +218,7 @@ public class AddBook extends javax.swing.JFrame {
                     + "','" + penulisBukuTextField.getText() + "','"
                     + penerbitBukuTextField.getText() + "','" 
                     + halamanBukuTextField.getText() + "','"
-                    + jumlahBukuTextField.getText() +"');";                  
+                    + jumlahBukuTextField.getText() +"');";   
             DBConnection.statement = DBConnection.connection.createStatement();
             DBConnection.statement.executeUpdate(DBConnection.sql);
             JOptionPane.showMessageDialog(null, "Data buku baru berhasil"
@@ -238,33 +240,32 @@ public class AddBook extends javax.swing.JFrame {
         try {
             
             DBConnection.AccessDatabase();
-            DBConnection.sql = "SELECT kode_buku from tabel_buku";
+            DBConnection.sql = "SELECT kode_buku FROM tabel_buku;";
             DBConnection.statement = DBConnection.connection.createStatement();
-            DBConnection.statement.executeUpdate(DBConnection.sql);
             DBConnection.resultSet = DBConnection.statement.executeQuery
-                                             (DBConnection.sql);
+                                                (DBConnection.sql);
+            DBConnection.resultSet.next();
+            int rowCount = DBConnection.resultSet.getRow();
             
-            if(DBConnection.resultSet.next())
+            if(rowCount == 0)
             {
-                while(DBConnection.resultSet.next())
-                {   
-                }
-
-                String kodeContainer = DBConnection.resultSet.getString(1);
-
-                //kode_buku generator
-                int container = 0;
-                container = Integer.parseInt(kodeContainer);
-                container++;
-                kodeBuku = Integer.toString(container);
+                kodeBuku = 0;
+                System.out.println("Selesai1");
                 
             } else
             {
-                kodeBuku = "0";
+                while(DBConnection.resultSet.next())
+                {
+                    kodeBuku = DBConnection.resultSet.getInt(1);
+                }
+                
+                kodeBuku++;
+                System.out.println("Selesai");
             }
   
         } catch (Exception exception) {
             
+            JOptionPane.showMessageDialog(null, "Something wrong happened");
         }
     }
     

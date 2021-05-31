@@ -209,18 +209,18 @@ public class Login extends javax.swing.JFrame {
             DBConnection.resultSet.next();
             int rowCount = DBConnection.resultSet.getRow();
             
-            if(rowCount == 0){
-                
-                JOptionPane.showMessageDialog(null, "Username or Password "
-                        + "input is wrong");
-                
-            } else if(IsAdmin()){
+            if(IsAdmin()){
                 
                 usernameTextField.setText("");
                 passwordTextField.setText("");
                 dispose();
                 Admin admin = new Admin();
                 admin.setVisible(true);
+                
+            } else if(rowCount == 0){
+                
+                JOptionPane.showMessageDialog(null, "Username or Password "
+                        + "input is wrong");
                 
             } else {
                 
