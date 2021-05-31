@@ -92,18 +92,18 @@ public class BookProperty extends javax.swing.JFrame {
 
         theBookTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null}
             },
             new String [] {
-                "Kode Buku", "Judul Buku", "Penulis Buku", "Penerbit Buku", "Halaman Buku", "Jumlah Buku"
+                "Kode Buku", "Judul Buku"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class
+                java.lang.Integer.class, java.lang.String.class
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -111,6 +111,10 @@ public class BookProperty extends javax.swing.JFrame {
             }
         });
         jScrollPane1.setViewportView(theBookTable);
+        if (theBookTable.getColumnModel().getColumnCount() > 0) {
+            theBookTable.getColumnModel().getColumn(0).setMinWidth(200);
+            theBookTable.getColumnModel().getColumn(0).setMaxWidth(200);
+        }
 
         bodyLabel.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         bodyLabel.setText("Masukkan Kode Buku");
@@ -190,9 +194,41 @@ public class BookProperty extends javax.swing.JFrame {
 
     private void cariBukuButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cariBukuButtonActionPerformed
 
-        dispose();
-        BookProperty bookProperty = new BookProperty();
-        bookProperty.setVisible(true);
+        try {
+            
+            String kodeBuku = kodeBukuTextField.getText();
+            DBConnection.AccessDatabase();
+            DBConnection.sql = "SELECT * FROM tabel_buku WHERE kode_buku = "
+                    + kodeBuku + ";";
+            DBConnection.statement = DBConnection.connection.createStatement();
+            DBConnection.resultSet = DBConnection.statement.executeQuery
+                                            (DBConnection.sql);
+            
+            if(DBConnection.resultSet.next())
+            {
+                String judulBuku = DBConnection.resultSet.getString(2);
+                String penulisBuku = DBConnection.resultSet.getString(3);
+                String penerbitBuku = DBConnection.resultSet.getString(4);
+                int halamanBuku = DBConnection.resultSet.getInt(5);
+                int jumlahBuku = DBConnection.resultSet.getInt(6);
+
+                JOptionPane.showMessageDialog(null, "Kode Buku = " + kodeBuku 
+                        + "\nJudul Buku = " + judulBuku + "\nPenulis Buku = "
+                        + penulisBuku + "\nPenerbit Buku = " + penerbitBuku 
+                        + "\nHalaman Buku = " + halamanBuku + "\nJumlah Buku = " 
+                        + jumlahBuku);
+                
+            } else
+            {
+                JOptionPane.showMessageDialog(null, "Cannot find book with that "
+                        + "code");
+            }
+            
+        } catch (Exception exception) {
+            
+            JOptionPane.showMessageDialog(null, "Failed to retriev data from "
+                    + "database");
+        }
     }//GEN-LAST:event_cariBukuButtonActionPerformed
 
     private void ubahBukuButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ubahBukuButtonActionPerformed
@@ -234,17 +270,11 @@ public class BookProperty extends javax.swing.JFrame {
             DefaultTableModel bookTable = new DefaultTableModel();
             bookTable.addColumn("Kode Buku");
             bookTable.addColumn("Judul Buku");
-            bookTable.addColumn("Penulis Buku");
-            bookTable.addColumn("Penerbit Buku");
-            bookTable.addColumn("Halaman Buku");
-            bookTable.addColumn("Jumlah Buku");
             
             while(DBConnection.resultSet.next())
             {
                 bookTable.addRow(new Object[]{DBConnection.resultSet.getString
-                (1),DBConnection.resultSet.getString(2), DBConnection.resultSet.
-                getString(3), DBConnection.resultSet.getString(4), DBConnection.
-                resultSet.getInt(5), DBConnection.resultSet.getInt(6)});
+                (1),DBConnection.resultSet.getString(2)});
             }
             
             theBookTable.setModel(bookTable);
