@@ -117,6 +117,11 @@ public class Admin extends javax.swing.JFrame {
         });
 
         dataPeminjamButton.setText("Data Peminjaman");
+        dataPeminjamButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dataPeminjamButtonActionPerformed(evt);
+            }
+        });
 
         historiPeminjamanButton.setText("Histori Peminjaman");
 
@@ -197,6 +202,7 @@ public class Admin extends javax.swing.JFrame {
     }//GEN-LAST:event_ubahBukuButtonActionPerformed
 
     private void hapusBukuButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hapusBukuButtonActionPerformed
+        
         dispose();
         BookProperty bookProperty = new BookProperty();
         bookProperty.setVisible(true);
@@ -205,6 +211,13 @@ public class Admin extends javax.swing.JFrame {
     private void minimizeButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_minimizeButtonMouseClicked
         setState(JFrame.ICONIFIED);
     }//GEN-LAST:event_minimizeButtonMouseClicked
+
+    private void dataPeminjamButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dataPeminjamButtonActionPerformed
+        
+        dispose();
+        BorrowerTable borrowerTable = new BorrowerTable();
+        borrowerTable.setVisible(true);
+    }//GEN-LAST:event_dataPeminjamButtonActionPerformed
 
     public static void main(String args[]) {
        
