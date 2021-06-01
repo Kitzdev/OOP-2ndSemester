@@ -98,6 +98,11 @@ public class MainMenu extends javax.swing.JFrame {
         });
 
         historiPeminjamanButton.setText("Histori Peminjaman");
+        historiPeminjamanButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                historiPeminjamanButtonActionPerformed(evt);
+            }
+        });
 
         pinjamBukuButton.setText("Pinjam Buku");
         pinjamBukuButton.addActionListener(new java.awt.event.ActionListener() {
@@ -170,6 +175,13 @@ public class MainMenu extends javax.swing.JFrame {
     private void pinjamBukuButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pinjamBukuButtonActionPerformed
         
     }//GEN-LAST:event_pinjamBukuButtonActionPerformed
+
+    private void historiPeminjamanButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_historiPeminjamanButtonActionPerformed
+        
+        dispose();
+        BorrowingHistory borrowingHistory = new BorrowingHistory(NIM);
+        borrowingHistory.setVisible(true);
+    }//GEN-LAST:event_historiPeminjamanButtonActionPerformed
 
     public static void main(String args[]) {
 

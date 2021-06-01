@@ -1,10 +1,17 @@
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.util.Date;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
-public class BorrowerTable extends javax.swing.JFrame {
+public class BorrowingHistory extends javax.swing.JFrame {
 
-    public BorrowerTable() {
+    int NIM;
+    
+    public BorrowingHistory(int NIM) {
+        
+        this.NIM = NIM;
         initComponents();
         ShowData();
     }
@@ -17,13 +24,12 @@ public class BorrowerTable extends javax.swing.JFrame {
         headerLabelAdmin = new javax.swing.JLabel();
         closeButton = new javax.swing.JLabel();
         minimizeButton = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        theBorrowerTable = new javax.swing.JTable();
-        backButton = new javax.swing.JButton();
+        jPanel4 = new javax.swing.JPanel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        borrowingHistoryTable = new javax.swing.JTable();
+        backButton2 = new javax.swing.JButton();
         insertCodeLabel = new javax.swing.JLabel();
         kodeTextField = new javax.swing.JTextField();
-        cekPeminjamButton = new javax.swing.JButton();
         cekBukuButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -35,7 +41,7 @@ public class BorrowerTable extends javax.swing.JFrame {
         headerLabel.setText("Library");
 
         headerLabelAdmin.setFont(new java.awt.Font("Verdana", 3, 14)); // NOI18N
-        headerLabelAdmin.setText("Borrower");
+        headerLabelAdmin.setText("BorrowingHistory");
 
         closeButton.setFont(new java.awt.Font("Verdana", 1, 36)); // NOI18N
         closeButton.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -64,7 +70,7 @@ public class BorrowerTable extends javax.swing.JFrame {
                 .addComponent(headerLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(headerLabelAdmin)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 398, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 395, Short.MAX_VALUE)
                 .addComponent(minimizeButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(closeButton)
@@ -84,11 +90,11 @@ public class BorrowerTable extends javax.swing.JFrame {
         );
 
         getContentPane().add(jPanel1);
-        jPanel1.setBounds(0, 0, 680, 70);
+        jPanel1.setBounds(0, 0, 740, 70);
 
-        jPanel2.setBackground(new java.awt.Color(255, 215, 0));
+        jPanel4.setBackground(new java.awt.Color(255, 215, 0));
 
-        theBorrowerTable.setModel(new javax.swing.table.DefaultTableModel(
+        borrowingHistoryTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
                 {null, null, null, null, null},
@@ -97,41 +103,37 @@ public class BorrowerTable extends javax.swing.JFrame {
                 {null, null, null, null, null}
             },
             new String [] {
-                "Kode Peminjaman", "Kode Buku", "NIM Peminjam", "Jumlah Peminjaman", "Tanggal Peminjaman"
+                "Kode Peminjaman", "Kode Buku", "Jumlah Peminjaman", "Tanggal Peminjaman", "Tanggal Pengembalian"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.String.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
             };
 
             public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(theBorrowerTable);
-        if (theBorrowerTable.getColumnModel().getColumnCount() > 0) {
-            theBorrowerTable.getColumnModel().getColumn(0).setMinWidth(135);
-            theBorrowerTable.getColumnModel().getColumn(0).setMaxWidth(135);
-            theBorrowerTable.getColumnModel().getColumn(1).setMinWidth(100);
-            theBorrowerTable.getColumnModel().getColumn(1).setMaxWidth(100);
-            theBorrowerTable.getColumnModel().getColumn(2).setMinWidth(125);
-            theBorrowerTable.getColumnModel().getColumn(2).setMaxWidth(125);
-            theBorrowerTable.getColumnModel().getColumn(3).setMinWidth(150);
-            theBorrowerTable.getColumnModel().getColumn(3).setMaxWidth(150);
+        jScrollPane3.setViewportView(borrowingHistoryTable);
+        if (borrowingHistoryTable.getColumnModel().getColumnCount() > 0) {
+            borrowingHistoryTable.getColumnModel().getColumn(0).setMinWidth(135);
+            borrowingHistoryTable.getColumnModel().getColumn(0).setMaxWidth(135);
+            borrowingHistoryTable.getColumnModel().getColumn(1).setMinWidth(90);
+            borrowingHistoryTable.getColumnModel().getColumn(1).setMaxWidth(90);
+            borrowingHistoryTable.getColumnModel().getColumn(2).setMinWidth(150);
+            borrowingHistoryTable.getColumnModel().getColumn(2).setMaxWidth(150);
         }
 
-        backButton.setFont(new java.awt.Font("Verdana", 0, 15)); // NOI18N
-        backButton.setText("Back");
-        backButton.addActionListener(new java.awt.event.ActionListener() {
+        backButton2.setFont(new java.awt.Font("Verdana", 0, 15)); // NOI18N
+        backButton2.setText("Back");
+        backButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                backButtonActionPerformed(evt);
+                backButton2ActionPerformed(evt);
             }
         });
 
         insertCodeLabel.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         insertCodeLabel.setText("Insert Code");
-
-        cekPeminjamButton.setText("Cek Peminjam");
 
         cekBukuButton.setText("Cek Buku");
         cekBukuButton.addActionListener(new java.awt.event.ActionListener() {
@@ -140,48 +142,43 @@ public class BorrowerTable extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 680, Short.MAX_VALUE)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 740, Short.MAX_VALUE)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(backButton, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(162, 162, 162)
-                        .addComponent(cekBukuButton)
-                        .addGap(152, 152, 152)
-                        .addComponent(cekPeminjamButton))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(182, 182, 182)
+                        .addComponent(backButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(177, 177, 177)
                         .addComponent(insertCodeLabel)
-                        .addGap(45, 45, 45)
-                        .addComponent(kodeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(55, 55, 55)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(kodeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cekBukuButton))))
+                .addContainerGap(245, Short.MAX_VALUE))
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(40, 40, 40)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(32, 32, 32)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(28, 28, 28)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(insertCodeLabel)
                     .addComponent(kodeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(cekBukuButton, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(cekPeminjamButton))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(backButton)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
+                .addComponent(cekBukuButton)
+                .addGap(18, 18, 18)
+                .addComponent(backButton2)
                 .addContainerGap())
         );
 
-        getContentPane().add(jPanel2);
-        jPanel2.setBounds(0, 70, 680, 350);
+        getContentPane().add(jPanel4);
+        jPanel4.setBounds(0, 70, 740, 360);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -194,29 +191,28 @@ public class BorrowerTable extends javax.swing.JFrame {
     }//GEN-LAST:event_closeButtonMouseClicked
 
     private void minimizeButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_minimizeButtonMouseClicked
-        
         setState(JFrame.ICONIFIED);
     }//GEN-LAST:event_minimizeButtonMouseClicked
 
-    private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
-        
+    private void backButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButton2ActionPerformed
+
         dispose();
-        Admin admin = new Admin();
-        admin.setVisible(true);
-    }//GEN-LAST:event_backButtonActionPerformed
+        MainMenu mainMenu = new MainMenu(NIM);
+        mainMenu.setVisible(true);
+    }//GEN-LAST:event_backButton2ActionPerformed
 
     private void cekBukuButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cekBukuButtonActionPerformed
         
         try {
-            
+
             int kodeBuku = Integer.parseInt(kodeTextField.getText());
             DBConnection.AccessDatabase();
             DBConnection.sql = "SELECT * FROM tabel_buku WHERE kode_buku = "
-                    + kodeBuku + ";";
+            + kodeBuku + ";";
             DBConnection.statement = DBConnection.connection.createStatement();
             DBConnection.resultSet = DBConnection.statement.executeQuery
-                                            (DBConnection.sql);
-            
+                                     (DBConnection.sql);
+
             if(DBConnection.resultSet.next())
             {
                 String judulBuku = DBConnection.resultSet.getString(2);
@@ -225,81 +221,136 @@ public class BorrowerTable extends javax.swing.JFrame {
                 int halamanBuku = DBConnection.resultSet.getInt(5);
                 int jumlahBuku = DBConnection.resultSet.getInt(6);
 
-                JOptionPane.showMessageDialog(null, "Kode Buku = " + kodeBuku 
-                        + "\nJudul Buku = " + judulBuku + "\nPenulis Buku = "
-                        + penulisBuku + "\nPenerbit Buku = " + penerbitBuku 
-                        + "\nHalaman Buku = " + halamanBuku + "\nJumlah Buku = " 
-                        + jumlahBuku);
-                
+                JOptionPane.showMessageDialog(null, "Kode Buku = " + kodeBuku
+                    + "\nJudul Buku = " + judulBuku + "\nPenulis Buku = "
+                    + penulisBuku + "\nPenerbit Buku = " + penerbitBuku
+                    + "\nHalaman Buku = " + halamanBuku + "\nJumlah Buku = "
+                    + jumlahBuku);
+
             } else
             {
                 JOptionPane.showMessageDialog(null, "Cannot find book with that"
-                        + " code");
+                    + " code");
             }
-            
+
         } catch (Exception exception) {
-            
+
             JOptionPane.showMessageDialog(null, "Failed to retrieve data from "
-                    + "database");
+                + "database");
         }
     }//GEN-LAST:event_cekBukuButtonActionPerformed
 
     private void ShowData()
     {
+        int jumlahPeminjaman = SetJumlahPeminjaman();
+        Date tanggalPeminjaman = SetTanggalPeminjaman();
+        
         try {
             
             DBConnection.AccessDatabase();
-            DBConnection.sql = "SELECT * FROM tabel_peminjaman;";
+            DBConnection.sql = "SELECT * FROM tabel_pengembalian WHERE "
+                               + "NIM_anggota = " + NIM + ";";
             DBConnection.statement = DBConnection.connection.createStatement();
             DBConnection.resultSet = DBConnection.statement.executeQuery
                                      (DBConnection.sql);
             
-            DefaultTableModel borrowTable = new DefaultTableModel();
-            borrowTable.addColumn("Kode Peminjaman");
-            borrowTable.addColumn("Kode Buku");
-            borrowTable.addColumn("NIM Peminjaman");
-            borrowTable.addColumn("Jumlah Peminjaman");
-            borrowTable.addColumn("Tanggal Peminjaman");
+            DefaultTableModel theTable = new DefaultTableModel();
+            theTable.addColumn("Kode Peminjaman");
+            theTable.addColumn("Kode Buku");
+            theTable.addColumn("Jumlah Peminjaman");
+            theTable.addColumn("Tanggal Peminjaman");
+            theTable.addColumn("Tanggal Pengembalian");
             
             while(DBConnection.resultSet.next())
             {
-                borrowTable.addRow(new Object[]{DBConnection.resultSet.getInt
-                (1),DBConnection.resultSet.getInt(2), DBConnection.resultSet.
-                        getInt(3), DBConnection.resultSet.getInt(4), 
-                        DBConnection.resultSet.getDate(5)});
+                theTable.addRow(new Object[]{DBConnection.resultSet.getInt
+                (2),DBConnection.resultSet.getInt(3), jumlahPeminjaman, 
+                tanggalPeminjaman, DBConnection.resultSet.getDate(5)});
             }
             
-            theBorrowerTable.setModel(borrowTable);
+            borrowingHistoryTable.setModel(theTable);
             
         } catch (Exception Exception) {
+                        System.out.println("Here1");
+            JOptionPane.showMessageDialog(null, "Failed to retrieve data from "
+                    + "database");
+        }
+    }
+    
+    private int SetJumlahPeminjaman()
+    {
+        int container = 0;
+        
+        try {
+                 
+            DBConnection.AccessDatabase();
+            DBConnection.sql = "SELECT * FROM tabel_peminjaman WHERE "
+                               + "NIM_peminjam = " + NIM + ";";
+            DBConnection.statement = DBConnection.connection.createStatement();
+            DBConnection.resultSet = DBConnection.statement.executeQuery
+                                     (DBConnection.sql);
+            
+            DBConnection.resultSet.next();
+            container = DBConnection.resultSet.getInt(4);                       
+            
+        } catch (Exception Exception) {
+            
             JOptionPane.showMessageDialog(null, "Failed to retrieve data from "
                     + "database");
         }
         
+        return container;
     }
     
+    
+    private Date SetTanggalPeminjaman()
+    {
+        Date date = new Date();
+        
+        try {
+                       
+            DBConnection.AccessDatabase();
+            DBConnection.sql = "SELECT * FROM tabel_peminjaman "+ "WHERE "
+                               + "NIM_peminjam = " + NIM + ";";
+            DBConnection.statement = DBConnection.connection.createStatement();
+            DBConnection.resultSet = DBConnection.statement.executeQuery
+                                     (DBConnection.sql);
+            
+            DBConnection.resultSet.next();
+            date = DBConnection.resultSet.getDate(5);           
+            
+        } catch (Exception Exception) {
+                        
+            JOptionPane.showMessageDialog(null, "Failed to retrieve data from "
+                    + "database");
+        }
+
+        return date;
+    }
+    
+    
+    
     public static void main(String args[]) {
-  
+        
         java.awt.EventQueue.invokeLater(new Runnable() {
+            
             public void run() {
-                new BorrowerTable().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton backButton;
+    private javax.swing.JButton backButton2;
+    private javax.swing.JTable borrowingHistoryTable;
     private javax.swing.JButton cekBukuButton;
-    private javax.swing.JButton cekPeminjamButton;
     private javax.swing.JLabel closeButton;
     private javax.swing.JLabel headerLabel;
     private javax.swing.JLabel headerLabelAdmin;
     private javax.swing.JLabel insertCodeLabel;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTextField kodeTextField;
     private javax.swing.JLabel minimizeButton;
-    private javax.swing.JTable theBorrowerTable;
     // End of variables declaration//GEN-END:variables
 }

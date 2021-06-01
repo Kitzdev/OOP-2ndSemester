@@ -225,7 +225,6 @@ public class Login extends javax.swing.JFrame {
             } else {
                 
                 setNIM();
-                System.out.println(NIM);
                 usernameTextField.setText("");
                 passwordTextField.setText("");
                 dispose();
