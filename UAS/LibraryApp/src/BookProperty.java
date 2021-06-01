@@ -196,7 +196,7 @@ public class BookProperty extends javax.swing.JFrame {
 
         try {
             
-            String kodeBuku = kodeBukuTextField.getText();
+            int kodeBuku = Integer.parseInt(kodeBukuTextField.getText());
             DBConnection.AccessDatabase();
             DBConnection.sql = "SELECT * FROM tabel_buku WHERE kode_buku = "
                     + kodeBuku + ";";
@@ -220,28 +220,98 @@ public class BookProperty extends javax.swing.JFrame {
                 
             } else
             {
-                JOptionPane.showMessageDialog(null, "Cannot find book with that "
-                        + "code");
+                JOptionPane.showMessageDialog(null, "Cannot find book with that"
+                        + " code");
             }
             
         } catch (Exception exception) {
             
-            JOptionPane.showMessageDialog(null, "Failed to retriev data from "
+            JOptionPane.showMessageDialog(null, "Failed to retrieve data from "
                     + "database");
         }
     }//GEN-LAST:event_cariBukuButtonActionPerformed
 
     private void ubahBukuButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ubahBukuButtonActionPerformed
 
-        dispose();
-        BookProperty bookProperty = new BookProperty();
-        bookProperty.setVisible(true);
+        int kodeBuku;
+        String judulBuku;
+        String penulisBuku;
+        String penerbitBuku;
+        int halamanBuku;
+        int jumlahBuku;
+                
+        try {
+            
+            dispose();
+            kodeBuku = Integer.parseInt(kodeBukuTextField.getText());
+            DBConnection.AccessDatabase();
+            DBConnection.sql = "SELECT * FROM tabel_buku WHERE kode_buku = "
+                    + kodeBuku + ";";
+            DBConnection.statement = DBConnection.connection.createStatement();
+            DBConnection.resultSet = DBConnection.statement.executeQuery
+                                                    (DBConnection.sql);
+            
+            if(DBConnection.resultSet.next())
+            {
+                judulBuku = DBConnection.resultSet.getString(2);
+                penulisBuku = DBConnection.resultSet.getString(3);
+                penerbitBuku = DBConnection.resultSet.getString(4);
+                halamanBuku = DBConnection.resultSet.getInt(5);
+                jumlahBuku = DBConnection.resultSet.getInt(6);
+                
+                UpdateBook updateBook = new UpdateBook(kodeBuku, judulBuku, 
+                        penulisBuku, penerbitBuku, halamanBuku, jumlahBuku);
+                updateBook.setVisible(true);
+                
+            } else
+            {
+                JOptionPane.showMessageDialog(null, "Cannot find book with that"
+                        + " code");
+            }
+                
+            
+        } catch(Exception exception)
+        {
+            JOptionPane.showMessageDialog(null, "Failed to retrieve data from"
+                    + "database");
+        }
+                                       
     }//GEN-LAST:event_ubahBukuButtonActionPerformed
 
     private void hapusBukuButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hapusBukuButtonActionPerformed
-        dispose();
-        BookProperty bookProperty = new BookProperty();
-        bookProperty.setVisible(true);
+        
+        try
+        {
+            String kodeBuku = kodeBukuTextField.getText();
+            DBConnection.AccessDatabase();
+            DBConnection.sql = "SELECT * FROM tabel_buku WHERE kode_buku = "
+                    + kodeBuku + ";";
+            DBConnection.statement = DBConnection.connection.createStatement();
+            DBConnection.resultSet = DBConnection.statement.executeQuery
+                                            (DBConnection.sql);
+            
+            if(DBConnection.resultSet.next())
+            {
+                DBConnection.sql = "DELETE FROM tabel_buku WHERE kode_buku = "
+                    + kodeBuku + ";";
+                DBConnection.statement = DBConnection.connection.createStatement
+                                         ();
+                DBConnection.statement.executeUpdate(DBConnection.sql);
+                JOptionPane.showMessageDialog(null, "Book has been deleted");
+                
+            } else
+            {
+                JOptionPane.showMessageDialog(null, "Cannot find book with that"
+                        + " code");
+            }
+            
+            ShowData();
+            
+        } catch (Exception exception) {
+            
+            JOptionPane.showMessageDialog(null, "Failed to retrieve data from "
+                    + "database");
+        }
     }//GEN-LAST:event_hapusBukuButtonActionPerformed
 
     private void minimizeButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_minimizeButtonMouseClicked
