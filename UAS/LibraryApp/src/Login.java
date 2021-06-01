@@ -229,7 +229,7 @@ public class Login extends javax.swing.JFrame {
                 usernameTextField.setText("");
                 passwordTextField.setText("");
                 dispose();
-                MainMenu mainMenu = new MainMenu();
+                MainMenu mainMenu = new MainMenu(NIM);
                 mainMenu.setVisible(true);
             }
             
