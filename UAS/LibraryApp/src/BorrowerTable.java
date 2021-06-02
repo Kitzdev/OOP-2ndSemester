@@ -271,10 +271,9 @@ public class BorrowerTable extends javax.swing.JFrame {
 
                 JOptionPane.showMessageDialog(null, "Kode Peminjaman = " 
                         + kodePeminjaman + "\nKode Buku= " + kodeBuku + 
-                        "\nNIM Peminjam = " + penulisBuku + "\nPenerbit Buku = " 
-                        + NIMPeminjam + "\njumlahPeminjaman = " + 
-                        jumlahPeminjaman + "\nTanggal Peminjaman = " 
-                        + tanggalPeminjaman);
+                        "\nNIM Peminjam = " + + NIMPeminjam + 
+                        "\njumlahPeminjaman = " + jumlahPeminjaman + 
+                        "\nTanggal Peminjaman = " + tanggalPeminjaman);
                 
             } else
             {
