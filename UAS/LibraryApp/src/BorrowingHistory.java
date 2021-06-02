@@ -242,8 +242,8 @@ public class BorrowingHistory extends javax.swing.JFrame {
 
     private void ShowData()
     {
-        int jumlahPeminjaman = SetJumlahPeminjaman();
-        Date tanggalPeminjaman = SetTanggalPeminjaman();
+        int jumlahPeminjaman;
+        Date tanggalPeminjaman;
         
         try {
             
@@ -261,11 +261,16 @@ public class BorrowingHistory extends javax.swing.JFrame {
             theTable.addColumn("Tanggal Peminjaman");
             theTable.addColumn("Tanggal Pengembalian");
             
+            int row = 1;
+            
             while(DBConnection.resultSet.next())
             {
+                jumlahPeminjaman = SetJumlahPeminjaman(row);
+                tanggalPeminjaman = SetTanggalPeminjaman(row);
                 theTable.addRow(new Object[]{DBConnection.resultSet.getInt
                 (2),DBConnection.resultSet.getInt(3), jumlahPeminjaman, 
                 tanggalPeminjaman, DBConnection.resultSet.getDate(5)});
+                row++;
             }
             
             borrowingHistoryTable.setModel(theTable);
@@ -277,7 +282,7 @@ public class BorrowingHistory extends javax.swing.JFrame {
         }
     }
     
-    private int SetJumlahPeminjaman()
+    private int SetJumlahPeminjaman(int row)
     {
         int container = 0;
         
@@ -289,8 +294,12 @@ public class BorrowingHistory extends javax.swing.JFrame {
             DBConnection.statement = DBConnection.connection.createStatement();
             DBConnection.resultSet = DBConnection.statement.executeQuery
                                      (DBConnection.sql);
+            while(row != 0)
+            {
+                DBConnection.resultSet.next();
+                row--;
+            }
             
-            DBConnection.resultSet.next();
             container = DBConnection.resultSet.getInt(4);                       
             
         } catch (Exception Exception) {
@@ -303,7 +312,7 @@ public class BorrowingHistory extends javax.swing.JFrame {
     }
     
     
-    private Date SetTanggalPeminjaman()
+    private Date SetTanggalPeminjaman(int row)
     {
         Date date = new Date();
         
@@ -316,7 +325,12 @@ public class BorrowingHistory extends javax.swing.JFrame {
             DBConnection.resultSet = DBConnection.statement.executeQuery
                                      (DBConnection.sql);
             
-            DBConnection.resultSet.next();
+            while(row != 0)
+            {
+                DBConnection.resultSet.next();
+                row--;
+            }
+            
             date = DBConnection.resultSet.getDate(5);           
             
         } catch (Exception Exception) {
@@ -327,9 +341,7 @@ public class BorrowingHistory extends javax.swing.JFrame {
 
         return date;
     }
-    
-    
-    
+     
     public static void main(String args[]) {
         
         java.awt.EventQueue.invokeLater(new Runnable() {

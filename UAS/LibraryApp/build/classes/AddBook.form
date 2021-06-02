@@ -138,15 +138,15 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <Component id="namaLabel1" min="-2" max="-2" attributes="0"/>
+                          <Component id="penulisBukuLabel" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="namaLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="namaLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="namaLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="namaLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="halamanBukuLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="penerbitBukuLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="judulBukuLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jumlahBukuLabel" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
@@ -172,7 +172,7 @@
               </Group>
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="205" max="-2" attributes="0"/>
-                  <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+                  <Component id="addBookButton" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
               </Group>
           </Group>
@@ -182,38 +182,38 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="namaLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="judulBukuLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="judulBukuTextField" alignment="3" min="-2" pref="29" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="namaLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="penulisBukuLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="penulisBukuTextField" alignment="3" min="-2" pref="29" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="namaLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="penerbitBukuLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="penerbitBukuTextField" alignment="3" min="-2" pref="29" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="namaLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="halamanBukuLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="halamanBukuTextField" alignment="3" min="-2" pref="29" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="namaLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jumlahBukuLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jumlahBukuTextField" alignment="3" min="-2" pref="29" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace pref="14" max="32767" attributes="0"/>
-                  <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+                  <Component id="addBookButton" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JLabel" name="namaLabel">
+        <Component class="javax.swing.JLabel" name="judulBukuLabel">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Verdana" size="14" style="0"/>
@@ -228,7 +228,7 @@
             </Property>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="namaLabel1">
+        <Component class="javax.swing.JLabel" name="penulisBukuLabel">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Verdana" size="14" style="0"/>
@@ -243,7 +243,7 @@
             </Property>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="namaLabel2">
+        <Component class="javax.swing.JLabel" name="penerbitBukuLabel">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Verdana" size="14" style="0"/>
@@ -258,7 +258,7 @@
             </Property>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="namaLabel3">
+        <Component class="javax.swing.JLabel" name="halamanBukuLabel">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Verdana" size="14" style="0"/>
@@ -273,7 +273,7 @@
             </Property>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="namaLabel4">
+        <Component class="javax.swing.JLabel" name="jumlahBukuLabel">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Verdana" size="14" style="0"/>
@@ -288,12 +288,12 @@
             </Property>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton1">
+        <Component class="javax.swing.JButton" name="addBookButton">
           <Properties>
             <Property name="text" type="java.lang.String" value="Add Book"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="addBookButtonActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>

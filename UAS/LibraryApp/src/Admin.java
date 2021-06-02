@@ -124,6 +124,11 @@ public class Admin extends javax.swing.JFrame {
         });
 
         historiPeminjamanButton.setText("Histori Peminjaman");
+        historiPeminjamanButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                historiPeminjamanButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -218,6 +223,13 @@ public class Admin extends javax.swing.JFrame {
         BorrowerTable borrowerTable = new BorrowerTable();
         borrowerTable.setVisible(true);
     }//GEN-LAST:event_dataPeminjamButtonActionPerformed
+
+    private void historiPeminjamanButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_historiPeminjamanButtonActionPerformed
+        
+        dispose();
+        BorrowerHistory borrowerHistory = new BorrowerHistory();
+        borrowerHistory.setVisible(true);
+    }//GEN-LAST:event_historiPeminjamanButtonActionPerformed
 
     public static void main(String args[]) {
        

@@ -20,17 +20,17 @@ public class AddBook extends javax.swing.JFrame {
         closeButton = new javax.swing.JLabel();
         minimizeButton = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        namaLabel = new javax.swing.JLabel();
+        judulBukuLabel = new javax.swing.JLabel();
         judulBukuTextField = new javax.swing.JTextField();
-        namaLabel1 = new javax.swing.JLabel();
+        penulisBukuLabel = new javax.swing.JLabel();
         penerbitBukuTextField = new javax.swing.JTextField();
-        namaLabel2 = new javax.swing.JLabel();
+        penerbitBukuLabel = new javax.swing.JLabel();
         penulisBukuTextField = new javax.swing.JTextField();
-        namaLabel3 = new javax.swing.JLabel();
+        halamanBukuLabel = new javax.swing.JLabel();
         jumlahBukuTextField = new javax.swing.JTextField();
-        namaLabel4 = new javax.swing.JLabel();
+        jumlahBukuLabel = new javax.swing.JLabel();
         halamanBukuTextField = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        addBookButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
@@ -98,35 +98,35 @@ public class AddBook extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(255, 215, 0));
 
-        namaLabel.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
-        namaLabel.setText("Judul Buku");
+        judulBukuLabel.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        judulBukuLabel.setText("Judul Buku");
 
         judulBukuTextField.setFont(new java.awt.Font("Verdana", 0, 15)); // NOI18N
 
-        namaLabel1.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
-        namaLabel1.setText("Penulis Buku");
+        penulisBukuLabel.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        penulisBukuLabel.setText("Penulis Buku");
 
         penerbitBukuTextField.setFont(new java.awt.Font("Verdana", 0, 15)); // NOI18N
 
-        namaLabel2.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
-        namaLabel2.setText("Penerbit Buku");
+        penerbitBukuLabel.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        penerbitBukuLabel.setText("Penerbit Buku");
 
         penulisBukuTextField.setFont(new java.awt.Font("Verdana", 0, 15)); // NOI18N
 
-        namaLabel3.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
-        namaLabel3.setText("Halaman Buku");
+        halamanBukuLabel.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        halamanBukuLabel.setText("Halaman Buku");
 
         jumlahBukuTextField.setFont(new java.awt.Font("Verdana", 0, 15)); // NOI18N
 
-        namaLabel4.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
-        namaLabel4.setText("Jumlah Buku");
+        jumlahBukuLabel.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        jumlahBukuLabel.setText("Jumlah Buku");
 
         halamanBukuTextField.setFont(new java.awt.Font("Verdana", 0, 15)); // NOI18N
 
-        jButton1.setText("Add Book");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        addBookButton.setText("Add Book");
+        addBookButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                addBookButtonActionPerformed(evt);
             }
         });
 
@@ -138,14 +138,14 @@ public class AddBook extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(namaLabel1)
+                        .addComponent(penulisBukuLabel)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(namaLabel3)
-                            .addComponent(namaLabel2)
-                            .addComponent(namaLabel)
-                            .addComponent(namaLabel4))
+                            .addComponent(halamanBukuLabel)
+                            .addComponent(penerbitBukuLabel)
+                            .addComponent(judulBukuLabel)
+                            .addComponent(jumlahBukuLabel))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
@@ -162,7 +162,7 @@ public class AddBook extends javax.swing.JFrame {
                                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(205, 205, 205)
-                .addComponent(jButton1)
+                .addComponent(addBookButton)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -170,26 +170,26 @@ public class AddBook extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(31, 31, 31)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(namaLabel)
+                    .addComponent(judulBukuLabel)
                     .addComponent(judulBukuTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(23, 23, 23)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(namaLabel1)
+                    .addComponent(penulisBukuLabel)
                     .addComponent(penulisBukuTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(28, 28, 28)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(namaLabel2)
+                    .addComponent(penerbitBukuLabel)
                     .addComponent(penerbitBukuTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(27, 27, 27)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(namaLabel3)
+                    .addComponent(halamanBukuLabel)
                     .addComponent(halamanBukuTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(22, 22, 22)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(namaLabel4)
+                    .addComponent(jumlahBukuLabel)
                     .addComponent(jumlahBukuTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
-                .addComponent(jButton1)
+                .addComponent(addBookButton)
                 .addContainerGap())
         );
 
@@ -206,7 +206,7 @@ public class AddBook extends javax.swing.JFrame {
         admin.setVisible(true);
     }//GEN-LAST:event_closeButtonMouseClicked
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void addBookButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBookButtonActionPerformed
         try {
             
             DBConnection.AccessDatabase();
@@ -229,7 +229,7 @@ public class AddBook extends javax.swing.JFrame {
             
         } catch (Exception exception) {
         }
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_addBookButtonActionPerformed
 
     private void minimizeButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_minimizeButtonMouseClicked
         setState(JFrame.ICONIFIED);
@@ -279,22 +279,22 @@ public class AddBook extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton addBookButton;
     private javax.swing.JLabel closeButton;
+    private javax.swing.JLabel halamanBukuLabel;
     private javax.swing.JTextField halamanBukuTextField;
     private javax.swing.JLabel headerLabel;
     private javax.swing.JLabel headerLabelAddBook;
-    private javax.swing.JButton jButton1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JLabel judulBukuLabel;
     private javax.swing.JTextField judulBukuTextField;
+    private javax.swing.JLabel jumlahBukuLabel;
     private javax.swing.JTextField jumlahBukuTextField;
     private javax.swing.JLabel minimizeButton;
-    private javax.swing.JLabel namaLabel;
-    private javax.swing.JLabel namaLabel1;
-    private javax.swing.JLabel namaLabel2;
-    private javax.swing.JLabel namaLabel3;
-    private javax.swing.JLabel namaLabel4;
+    private javax.swing.JLabel penerbitBukuLabel;
     private javax.swing.JTextField penerbitBukuTextField;
+    private javax.swing.JLabel penulisBukuLabel;
     private javax.swing.JTextField penulisBukuTextField;
     // End of variables declaration//GEN-END:variables
 }
