@@ -174,6 +174,9 @@ public class MainMenu extends javax.swing.JFrame {
 
     private void pinjamBukuButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pinjamBukuButtonActionPerformed
         
+        dispose();
+        BorrowBook borrowBook = new BorrowBook(NIM);
+        borrowBook.setVisible(true);
     }//GEN-LAST:event_pinjamBukuButtonActionPerformed
 
     private void historiPeminjamanButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_historiPeminjamanButtonActionPerformed

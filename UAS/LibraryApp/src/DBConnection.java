@@ -24,7 +24,7 @@ public class DBConnection {
         } catch(SQLException exception)
         {
            String exceptionSentence = exception.getMessage();
-           JOptionPane.showMessageDialog(null, "Gagal terkoneksi ke databse");
+           JOptionPane.showMessageDialog(null, "Failed to connect to database");
            System.out.println(exceptionSentence);
         }
     }

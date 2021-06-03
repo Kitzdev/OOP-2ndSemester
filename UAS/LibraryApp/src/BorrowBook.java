@@ -1,12 +1,16 @@
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
-public class ShowBook extends javax.swing.JFrame {
+public class BorrowBook extends javax.swing.JFrame {
 
     int NIM;
     
-    public ShowBook(int NIM) {
+    public BorrowBook(int NIM) {
         
         this.NIM = NIM;
         initComponents();
@@ -26,8 +30,10 @@ public class ShowBook extends javax.swing.JFrame {
         theBookTable = new javax.swing.JTable();
         backButton = new javax.swing.JButton();
         insertCodeLabel = new javax.swing.JLabel();
-        kodeTextField = new javax.swing.JTextField();
-        cekBukuButton = new javax.swing.JButton();
+        jumlahBukuTextField = new javax.swing.JTextField();
+        pinjamBukuButton = new javax.swing.JButton();
+        insertCodeLabel1 = new javax.swing.JLabel();
+        kodeBukuTextField = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
@@ -38,7 +44,7 @@ public class ShowBook extends javax.swing.JFrame {
         headerLabel.setText("Library");
 
         headerLabelAdmin.setFont(new java.awt.Font("Verdana", 3, 14)); // NOI18N
-        headerLabelAdmin.setText("ShowBook");
+        headerLabelAdmin.setText("BorrowBook");
 
         closeButton.setFont(new java.awt.Font("Verdana", 1, 36)); // NOI18N
         closeButton.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -67,7 +73,7 @@ public class ShowBook extends javax.swing.JFrame {
                 .addComponent(headerLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(headerLabelAdmin)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 419, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 284, Short.MAX_VALUE)
                 .addComponent(minimizeButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(closeButton)
@@ -87,24 +93,24 @@ public class ShowBook extends javax.swing.JFrame {
         );
 
         getContentPane().add(jPanel1);
-        jPanel1.setBounds(0, 0, 710, 70);
+        jPanel1.setBounds(0, 0, 590, 70);
 
         jPanel2.setBackground(new java.awt.Color(255, 215, 0));
 
         theBookTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null}
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
             },
             new String [] {
-                "Kode Buku", "Judul Buku"
+                "Kode Buku", "Judul Buku", "Penulis Buku"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.Object.class
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -112,10 +118,6 @@ public class ShowBook extends javax.swing.JFrame {
             }
         });
         jScrollPane1.setViewportView(theBookTable);
-        if (theBookTable.getColumnModel().getColumnCount() > 0) {
-            theBookTable.getColumnModel().getColumn(0).setMinWidth(200);
-            theBookTable.getColumnModel().getColumn(0).setMaxWidth(200);
-        }
 
         backButton.setFont(new java.awt.Font("Verdana", 0, 15)); // NOI18N
         backButton.setText("Back");
@@ -126,33 +128,41 @@ public class ShowBook extends javax.swing.JFrame {
         });
 
         insertCodeLabel.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
-        insertCodeLabel.setText("Insert Code");
+        insertCodeLabel.setText("Book Code");
 
-        cekBukuButton.setText("Cek Buku");
-        cekBukuButton.addActionListener(new java.awt.event.ActionListener() {
+        pinjamBukuButton.setText("Pinjam Buku");
+        pinjamBukuButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cekBukuButtonActionPerformed(evt);
+                pinjamBukuButtonActionPerformed(evt);
             }
         });
+
+        insertCodeLabel1.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        insertCodeLabel1.setText("Book Count");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 710, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 590, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(24, 24, 24)
+                .addComponent(insertCodeLabel)
+                .addGap(18, 18, 18)
+                .addComponent(kodeBukuTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(insertCodeLabel1)
+                .addGap(18, 18, 18)
+                .addComponent(jumlahBukuTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(39, 39, 39))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(backButton, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(177, 177, 177)
-                        .addComponent(insertCodeLabel)
-                        .addGap(67, 67, 67)
-                        .addComponent(kodeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(315, 315, 315)
-                        .addComponent(cekBukuButton)))
+                        .addGap(233, 233, 233)
+                        .addComponent(pinjamBukuButton)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -163,16 +173,18 @@ public class ShowBook extends javax.swing.JFrame {
                 .addGap(28, 28, 28)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(insertCodeLabel)
-                    .addComponent(kodeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
-                .addComponent(cekBukuButton)
-                .addGap(18, 18, 18)
+                    .addComponent(jumlahBukuTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(insertCodeLabel1)
+                    .addComponent(kodeBukuTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
+                .addComponent(pinjamBukuButton)
+                .addGap(2, 2, 2)
                 .addComponent(backButton)
                 .addContainerGap())
         );
 
         getContentPane().add(jPanel2);
-        jPanel2.setBounds(0, 70, 710, 360);
+        jPanel2.setBounds(0, 70, 590, 330);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -180,11 +192,12 @@ public class ShowBook extends javax.swing.JFrame {
     private void closeButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closeButtonMouseClicked
 
         dispose();
-        Admin admin = new Admin();
-        admin.setVisible(true);
+        MainMenu mainMenu = new MainMenu(NIM);
+        mainMenu.setVisible(true);
     }//GEN-LAST:event_closeButtonMouseClicked
 
     private void minimizeButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_minimizeButtonMouseClicked
+        
         setState(JFrame.ICONIFIED);
     }//GEN-LAST:event_minimizeButtonMouseClicked
 
@@ -195,68 +208,138 @@ public class ShowBook extends javax.swing.JFrame {
         mainMenu.setVisible(true);
     }//GEN-LAST:event_backButtonActionPerformed
 
-    private void cekBukuButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cekBukuButtonActionPerformed
-
-        try {
-
-            int kodeBuku = Integer.parseInt(kodeTextField.getText());
+    private void pinjamBukuButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pinjamBukuButtonActionPerformed
+        java.sql.Date sqlDate = new java.sql.Date(new java.util.Date().
+                                                  getTime());
+        int kodePeminjaman;
+        int kodeBuku = Integer.parseInt(kodeBukuTextField.getText());
+        int jumlahBuku = Integer.parseInt(jumlahBukuTextField.getText());
+        int bukuTersedia = 0;
+        
+        try
+        {  
             DBConnection.AccessDatabase();
             DBConnection.sql = "SELECT * FROM tabel_buku WHERE kode_buku = "
-            + kodeBuku + ";";
+                               + kodeBuku + ";";
             DBConnection.statement = DBConnection.connection.createStatement();
             DBConnection.resultSet = DBConnection.statement.executeQuery
             (DBConnection.sql);
-
+            
             if(DBConnection.resultSet.next())
             {
-                String judulBuku = DBConnection.resultSet.getString(2);
-                String penulisBuku = DBConnection.resultSet.getString(3);
-                String penerbitBuku = DBConnection.resultSet.getString(4);
-                int halamanBuku = DBConnection.resultSet.getInt(5);
-                int jumlahBuku = DBConnection.resultSet.getInt(6);
-
-                JOptionPane.showMessageDialog(null, "Kode Buku = " + kodeBuku
-                    + "\nJudul Buku = " + judulBuku + "\nPenulis Buku = "
-                    + penulisBuku + "\nPenerbit Buku = " + penerbitBuku
-                    + "\nHalaman Buku = " + halamanBuku + "\nJumlah Buku = "
-                    + jumlahBuku);
-
+                bukuTersedia = DBConnection.resultSet.getInt(6);
+                
+                if(jumlahBuku <= bukuTersedia)
+                {
+                    kodePeminjaman = SetKodePeminjaman();
+                    
+                    DBConnection.AccessDatabase();
+                    DBConnection.sql = "INSERT INTO `tabel_peminjaman`"
+                                       + "(`kode_peminjaman`, `kode_buku`, "
+                                       + "`NIM_peminjam`,"+ "`jumlah_peminjaman`, "
+                                       + "`tanggal_peminjaman`) " + "VALUES ('" 
+                                       + kodePeminjaman + "','" + kodeBuku + "','" 
+                                       + NIM + "','" + 1 + "','" + sqlDate + "');";
+                    DBConnection.statement = DBConnection.connection.
+                                             createStatement();
+                    DBConnection.statement.executeUpdate(DBConnection.sql);
+                    
+                    bukuTersedia--;
+            
+                    DBConnection.AccessDatabase();                   
+                    DBConnection.sql = "UPDATE `tabel_buku` SET `jumlah_buku` "
+                                       + "= '" + bukuTersedia + "' WHERE "
+                                       + "kode_buku = '" + kodeBuku + "';";
+                    DBConnection.statement = DBConnection.connection.
+                                             createStatement();
+                    DBConnection.statement.executeUpdate(DBConnection.sql);
+                    
+                    JOptionPane.showMessageDialog(null, "Book succesfully "
+                        + "borrowed!");
+            
+                } else
+                {
+                    JOptionPane.showMessageDialog(null, "Book with that count"
+                            + " is not available");
+                }
+                
             } else
             {
                 JOptionPane.showMessageDialog(null, "Cannot find book with that"
                     + " code");
             }
+            
 
         } catch (Exception exception) {
 
             JOptionPane.showMessageDialog(null, "Failed to retrieve data from "
                 + "database");
         }
-    }//GEN-LAST:event_cekBukuButtonActionPerformed
-
-    private void ShowData()
-    {
-        try {
+    }//GEN-LAST:event_pinjamBukuButtonActionPerformed
+    
+    private void InsertPeminjaman(int kodePeminjaman, int kodeBuku, int jumlahBuku)
+    {      
+        try
+        {
             
+                       
+        } catch(Exception exception)
+        {
+            JOptionPane.showMessageDialog(null, "Error");
+        }
+    }
+    private int SetKodePeminjaman()
+    {
+        int container = 0;
+        
+        try 
+        {
+            DBConnection.AccessDatabase();
+            DBConnection.sql = "SELECT * FROM tabel_peminjaman;";
+            DBConnection.statement = DBConnection.connection.createStatement();
+            DBConnection.resultSet = DBConnection.statement.executeQuery
+            (DBConnection.sql);
+            
+            while(DBConnection.resultSet.next())
+            {
+                container = DBConnection.resultSet.getInt(1);
+            }
+            
+        } catch (Exception exception) {
+            
+            JOptionPane.showMessageDialog(null, "Failed to retrieve data from "
+                + "database");
+        }
+        
+        return ++container;
+    }
+    
+    private void ShowData()    
+    {
+         try 
+         {            
             DBConnection.AccessDatabase();
             DBConnection.sql = "SELECT * FROM tabel_buku;";
             DBConnection.statement = DBConnection.connection.createStatement();
             DBConnection.resultSet = DBConnection.statement.executeQuery
-                                    (DBConnection.sql);
+                                     (DBConnection.sql);
             
             DefaultTableModel bookTable = new DefaultTableModel();
             bookTable.addColumn("Kode Buku");
             bookTable.addColumn("Judul Buku");
+            bookTable.addColumn("Penulis Buku");
             
             while(DBConnection.resultSet.next())
             {
                 bookTable.addRow(new Object[]{DBConnection.resultSet.getString
-                (1),DBConnection.resultSet.getString(2)});
+                (1),DBConnection.resultSet.getString(2), 
+                DBConnection.resultSet.getString(3)});
             }
             
             theBookTable.setModel(bookTable);
             
-        } catch (Exception Exception) {
+        } catch (Exception exception) {
+            
             JOptionPane.showMessageDialog(null, "Failed to retrieve data from "
                     + "database");
         }
@@ -265,7 +348,6 @@ public class ShowBook extends javax.swing.JFrame {
     public static void main(String args[]) {
 
         java.awt.EventQueue.invokeLater(new Runnable() {
-            
             public void run() {
             }
         });
@@ -273,16 +355,18 @@ public class ShowBook extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backButton;
-    private javax.swing.JButton cekBukuButton;
     private javax.swing.JLabel closeButton;
     private javax.swing.JLabel headerLabel;
     private javax.swing.JLabel headerLabelAdmin;
     private javax.swing.JLabel insertCodeLabel;
+    private javax.swing.JLabel insertCodeLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField kodeTextField;
+    private javax.swing.JTextField jumlahBukuTextField;
+    private javax.swing.JTextField kodeBukuTextField;
     private javax.swing.JLabel minimizeButton;
+    private javax.swing.JButton pinjamBukuButton;
     private javax.swing.JTable theBookTable;
     // End of variables declaration//GEN-END:variables
 }
