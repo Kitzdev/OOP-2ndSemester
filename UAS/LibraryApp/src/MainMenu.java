@@ -112,6 +112,11 @@ public class MainMenu extends javax.swing.JFrame {
         });
 
         kembalikanBukuButton.setText("Kembalikan Buku");
+        kembalikanBukuButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                kembalikanBukuButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -185,6 +190,13 @@ public class MainMenu extends javax.swing.JFrame {
         BorrowingHistory borrowingHistory = new BorrowingHistory(NIM);
         borrowingHistory.setVisible(true);
     }//GEN-LAST:event_historiPeminjamanButtonActionPerformed
+
+    private void kembalikanBukuButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kembalikanBukuButtonActionPerformed
+        
+        dispose();
+        ReturnBook returnBook = new ReturnBook(NIM);
+        returnBook.setVisible(true);
+    }//GEN-LAST:event_kembalikanBukuButtonActionPerformed
 
     public static void main(String args[]) {
 

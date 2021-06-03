@@ -70,7 +70,7 @@ public class BorrowingHistory extends javax.swing.JFrame {
                 .addComponent(headerLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(headerLabelAdmin)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 395, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 385, Short.MAX_VALUE)
                 .addComponent(minimizeButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(closeButton)
@@ -90,7 +90,7 @@ public class BorrowingHistory extends javax.swing.JFrame {
         );
 
         getContentPane().add(jPanel1);
-        jPanel1.setBounds(0, 0, 740, 70);
+        jPanel1.setBounds(0, 0, 730, 70);
 
         jPanel4.setBackground(new java.awt.Color(255, 215, 0));
 
@@ -103,7 +103,7 @@ public class BorrowingHistory extends javax.swing.JFrame {
                 {null, null, null, null, null}
             },
             new String [] {
-                "Kode Peminjaman", "Kode Buku", "Jumlah Peminjaman", "Tanggal Peminjaman", "Tanggal Pengembalian"
+                "Kode Pengembalian", "Kode Buku", "Jumlah Peminjaman", "Tanggal Peminjaman", "Tanggal Pengembalian"
             }
         ) {
             Class[] types = new Class [] {
@@ -116,12 +116,16 @@ public class BorrowingHistory extends javax.swing.JFrame {
         });
         jScrollPane3.setViewportView(borrowingHistoryTable);
         if (borrowingHistoryTable.getColumnModel().getColumnCount() > 0) {
-            borrowingHistoryTable.getColumnModel().getColumn(0).setMinWidth(135);
-            borrowingHistoryTable.getColumnModel().getColumn(0).setMaxWidth(135);
+            borrowingHistoryTable.getColumnModel().getColumn(0).setMinWidth(150);
+            borrowingHistoryTable.getColumnModel().getColumn(0).setMaxWidth(150);
             borrowingHistoryTable.getColumnModel().getColumn(1).setMinWidth(90);
             borrowingHistoryTable.getColumnModel().getColumn(1).setMaxWidth(90);
             borrowingHistoryTable.getColumnModel().getColumn(2).setMinWidth(150);
             borrowingHistoryTable.getColumnModel().getColumn(2).setMaxWidth(150);
+            borrowingHistoryTable.getColumnModel().getColumn(3).setMinWidth(160);
+            borrowingHistoryTable.getColumnModel().getColumn(3).setMaxWidth(160);
+            borrowingHistoryTable.getColumnModel().getColumn(4).setMinWidth(170);
+            borrowingHistoryTable.getColumnModel().getColumn(4).setMaxWidth(170);
         }
 
         backButton2.setFont(new java.awt.Font("Verdana", 0, 15)); // NOI18N
@@ -146,7 +150,6 @@ public class BorrowingHistory extends javax.swing.JFrame {
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 740, Short.MAX_VALUE)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
@@ -159,7 +162,8 @@ public class BorrowingHistory extends javax.swing.JFrame {
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(kodeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(cekBukuButton))))
-                .addContainerGap(245, Short.MAX_VALUE))
+                .addContainerGap(235, Short.MAX_VALUE))
+            .addComponent(jScrollPane3)
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -178,7 +182,7 @@ public class BorrowingHistory extends javax.swing.JFrame {
         );
 
         getContentPane().add(jPanel4);
-        jPanel4.setBounds(0, 70, 740, 360);
+        jPanel4.setBounds(0, 70, 730, 360);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -255,7 +259,7 @@ public class BorrowingHistory extends javax.swing.JFrame {
                                      (DBConnection.sql);
             
             DefaultTableModel theTable = new DefaultTableModel();
-            theTable.addColumn("Kode Peminjaman");
+            theTable.addColumn("Kode Pengembalian");
             theTable.addColumn("Kode Buku");
             theTable.addColumn("Jumlah Peminjaman");
             theTable.addColumn("Tanggal Peminjaman");
@@ -268,15 +272,15 @@ public class BorrowingHistory extends javax.swing.JFrame {
                 jumlahPeminjaman = SetJumlahPeminjaman(row);
                 tanggalPeminjaman = SetTanggalPeminjaman(row);
                 theTable.addRow(new Object[]{DBConnection.resultSet.getInt
-                (2),DBConnection.resultSet.getInt(3), jumlahPeminjaman, 
-                tanggalPeminjaman, DBConnection.resultSet.getDate(5)});
+                (1),DBConnection.resultSet.getInt(2), jumlahPeminjaman, 
+                tanggalPeminjaman, DBConnection.resultSet.getDate(4)});
                 row++;
             }
             
             borrowingHistoryTable.setModel(theTable);
             
         } catch (Exception Exception) {
-                        System.out.println("Here1");
+
             JOptionPane.showMessageDialog(null, "Failed to retrieve data from "
                     + "database");
         }
