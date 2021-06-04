@@ -28,7 +28,7 @@
     <Property name="useNullLayout" type="boolean" value="true"/>
   </Layout>
   <SubComponents>
-    <Container class="javax.swing.JPanel" name="jPanel1">
+    <Container class="javax.swing.JPanel" name="headerPanel">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="0" green="8c" red="ff" type="rgb"/>
@@ -112,7 +112,7 @@
         </Component>
       </SubComponents>
     </Container>
-    <Container class="javax.swing.JPanel" name="jPanel2">
+    <Container class="javax.swing.JPanel" name="bodyPanel">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="0" green="d7" red="ff" type="rgb"/>
@@ -134,7 +134,7 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
-                          <Component id="bodyHeaderLabel3" min="-2" max="-2" attributes="0"/>
+                          <Component id="insertDataLabel" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
@@ -152,7 +152,7 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="1" max="-2" attributes="0">
                               <Group type="102" attributes="0">
-                                  <Component id="passwordLabel2" min="-2" max="-2" attributes="0"/>
+                                  <Component id="semesterLabel" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="32767" attributes="0"/>
                                   <Component id="semesterTextField" min="-2" pref="105" max="-2" attributes="0"/>
                               </Group>
@@ -165,7 +165,7 @@
                       </Group>
                   </Group>
                   <EmptySpace pref="42" max="32767" attributes="0"/>
-                  <Component id="jPanel3" min="-2" max="-2" attributes="0"/>
+                  <Component id="dividerPanel" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
@@ -173,7 +173,7 @@
                           <EmptySpace min="-2" pref="89" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
-                          <Component id="bodyHeaderLabel2" min="-2" max="-2" attributes="0"/>
+                          <Component id="createAccountLabel" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
@@ -210,8 +210,8 @@
                           <Group type="103" groupAlignment="1" attributes="0">
                               <Group type="102" attributes="0">
                                   <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="bodyHeaderLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="bodyHeaderLabel2" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
+                                      <Component id="insertDataLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="createAccountLabel" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
@@ -241,14 +241,14 @@
                               </Group>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="semesterTextField" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
-                                  <Component id="passwordLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="semesterLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <Component id="registerButton" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jPanel3" max="32767" attributes="0"/>
+                          <Component id="dividerPanel" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
@@ -310,7 +310,7 @@
             <Property name="text" type="java.lang.String" value="Password"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="bodyHeaderLabel2">
+        <Component class="javax.swing.JLabel" name="createAccountLabel">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Verdana" size="18" style="1"/>
@@ -392,7 +392,7 @@
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="loginButtonMouseClicked"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JLabel" name="bodyHeaderLabel3">
+        <Component class="javax.swing.JLabel" name="insertDataLabel">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Verdana" size="18" style="1"/>
@@ -400,7 +400,7 @@
             <Property name="text" type="java.lang.String" value="Please insert your data"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="passwordLabel2">
+        <Component class="javax.swing.JLabel" name="semesterLabel">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Verdana" size="14" style="0"/>
@@ -412,7 +412,7 @@
         </Component>
         <Component class="javax.swing.JPasswordField" name="newRePasswordTextField">
         </Component>
-        <Container class="javax.swing.JPanel" name="jPanel3">
+        <Container class="javax.swing.JPanel" name="dividerPanel">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="0" green="8c" red="ff" type="rgb"/>

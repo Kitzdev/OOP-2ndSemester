@@ -1,5 +1,3 @@
-package OOP2ndSemester.UTS.NoDuaPropertyMethod.src;
-
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 import java.util.Scanner;

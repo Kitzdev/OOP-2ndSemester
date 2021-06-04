@@ -1,19 +1,20 @@
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
-public class Login extends javax.swing.JFrame {
-    
+public class Login extends javax.swing.JFrame 
+{ 
     String adminUsername = "admin";
     String adminPassword = "admin";
     int NIM = 0;
     
-    public Login() {
+    public Login() 
+    {
         initComponents();
     }
     
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() {
-
+    private void initComponents() 
+    {
         headerPanel = new javax.swing.JPanel();
         closeButton = new javax.swing.JLabel();
         minmimizeButton = new javax.swing.JLabel();
@@ -39,16 +40,20 @@ public class Login extends javax.swing.JFrame {
         closeButton.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         closeButton.setText("X");
         closeButton.setToolTipText("");
-        closeButton.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
+        closeButton.addMouseListener(new java.awt.event.MouseAdapter() 
+        {
+            public void mouseClicked(java.awt.event.MouseEvent evt) 
+            {
                 closeButtonMouseClicked(evt);
             }
         });
 
         minmimizeButton.setFont(new java.awt.Font("Arial", 1, 48)); // NOI18N
         minmimizeButton.setText("-");
-        minmimizeButton.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
+        minmimizeButton.addMouseListener(new java.awt.event.MouseAdapter() 
+        {
+            public void mouseClicked(java.awt.event.MouseEvent evt) 
+            {
                 minmimizeButtonMouseClicked(evt);
             }
         });
@@ -102,16 +107,20 @@ public class Login extends javax.swing.JFrame {
 
         loginButton.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         loginButton.setText("Login");
-        loginButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        loginButton.addActionListener(new java.awt.event.ActionListener() 
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt) 
+            {
                 loginButtonActionPerformed(evt);
             }
         });
 
         registerButton.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         registerButton.setText("Register");
-        registerButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        registerButton.addActionListener(new java.awt.event.ActionListener() 
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt) 
+            {
                 registerButtonActionPerformed(evt);
             }
         });
@@ -195,35 +204,38 @@ public class Login extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
-        
-        try{
-            
+    private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) 
+    {//GEN-FIRST:event_loginButtonActionPerformed      
+        try
+        {           
+            //For security reason, we do not use getText() for password field.
+            String passwordContainer = String.valueOf(passwordTextField.getPassword());
+
             DBConnection.AccessDatabase();
             DBConnection.sql = "SELECT * FROM tabel_anggota WHERE username "
                     + "= '" + usernameTextField.getText() + "' AND password "
-                    + "= '" + passwordTextField.getText() + "';"; 
+                    + "= '" + passwordContainer + "';"; 
             DBConnection.statement = DBConnection.connection.createStatement();
             DBConnection.resultSet = DBConnection.statement.executeQuery
                                      (DBConnection.sql);
             DBConnection.resultSet.next();
             int rowCount = DBConnection.resultSet.getRow();
             
-            if(IsAdmin()){
-                
+            if(IsAdmin())
+            {                
                 usernameTextField.setText("");
                 passwordTextField.setText("");
                 dispose();
                 Admin admin = new Admin();
                 admin.setVisible(true);
                 
-            } else if(rowCount == 0){
-                
+            } else if(rowCount == 0)
+            {           
                 JOptionPane.showMessageDialog(null, "Username or Password "
                         + "input is wrong");
                 
-            } else {
-                
+            } else 
+            {              
                 setNIM();
                 usernameTextField.setText("");
                 passwordTextField.setText("");
@@ -232,60 +244,69 @@ public class Login extends javax.swing.JFrame {
                 mainMenu.setVisible(true);
             }
             
-        } catch(Exception exception){
-            
+        } catch(Exception exception)
+        {           
             JOptionPane.showMessageDialog(null, "Something wrong happened");
             System.out.println(exception.getMessage());
         }
     }//GEN-LAST:event_loginButtonActionPerformed
 
-    private void registerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerButtonActionPerformed
-        
-        try {
-            
+    private void registerButtonActionPerformed(java.awt.event.ActionEvent evt) 
+    {//GEN-FIRST:event_registerButtonActionPerformed     
+        try 
+        {           
             usernameTextField.setText("");
             passwordTextField.setText("");
             dispose();
             Register registerForm = new Register();
             registerForm.setVisible(true);
             
-        } catch (Exception exception) {
-            
+        } catch (Exception exception) 
+        {           
             JOptionPane.showMessageDialog(null, "Failed close Statement");
             System.out.println(exception.getMessage());
         }
     }//GEN-LAST:event_registerButtonActionPerformed
 
-    private void closeButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closeButtonMouseClicked
+    private void closeButtonMouseClicked(java.awt.event.MouseEvent evt) 
+    {//GEN-FIRST:event_closeButtonMouseClicked       
         System.exit(0);
     }//GEN-LAST:event_closeButtonMouseClicked
 
-    private void minmimizeButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_minmimizeButtonMouseClicked
+    private void minmimizeButtonMouseClicked(java.awt.event.MouseEvent evt) 
+    {//GEN-FIRST:event_minmimizeButtonMouseClicked      
         setState(JFrame.ICONIFIED);
     }//GEN-LAST:event_minmimizeButtonMouseClicked
 
     private void setNIM()
     {
-        try {
-            
+        try 
+        {            
+            //For security reason, we do not use getText() for password field.
+            String passwordContainer = String.valueOf(passwordTextField.getPassword());
+
             DBConnection.AccessDatabase();
             DBConnection.sql = "SELECT * FROM tabel_anggota WHERE username "
                     + "= '" + usernameTextField.getText() + "' AND password "
-                    + "= '" + passwordTextField.getText() + "';";
+                    + "= '" + passwordContainer + "';";
             DBConnection.statement = DBConnection.connection.createStatement();
             DBConnection.resultSet = DBConnection.statement.executeQuery
                                              (DBConnection.sql);
             DBConnection.resultSet.next();
             NIM = DBConnection.resultSet.getInt(4);
             
-        } catch (Exception exception) {
+        } catch (Exception exception) 
+        {
+            JOptionPane.showMessageDialog(null, "Failed to retrieve your NIM, please try again later");
         }
     }
     
     private boolean IsAdmin()
     {
-        if(adminUsername.equals(usernameTextField.getText()) && 
-                adminPassword.equals(passwordTextField.getText()))
+        //For security reason, we do not use getText() for password field.
+        String passwordContainer = String.valueOf(passwordTextField.getPassword());
+
+        if(adminUsername.equals(usernameTextField.getText()) && adminPassword.equals(passwordContainer))
         {
             return true;
             
@@ -295,45 +316,45 @@ public class Login extends javax.swing.JFrame {
         }
     }
     
-    public static void main(String args[]) {
-        
-        try {
-            
+    public static void main(String args[]) 
+    {    
+        try 
+        {      
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.
-                    UIManager.getInstalledLookAndFeels()) {
-                
-                if ("Nimbus".equals(info.getName())) {
-                    
+                    UIManager.getInstalledLookAndFeels())
+            {               
+                if ("Nimbus".equals(info.getName())) 
+                {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
             }
             
-        } catch (ClassNotFoundException ex) {
-            
+        } catch (ClassNotFoundException ex) 
+        {           
             java.util.logging.Logger.getLogger(Login.class.getName()).log
             (java.util.logging.Level.SEVERE, null, ex);
         
-        } catch (InstantiationException ex) {
-            
+        } catch (InstantiationException ex) 
+        {           
             java.util.logging.Logger.getLogger(Login.class.getName()).log
             (java.util.logging.Level.SEVERE, null, ex);
             
-        } catch (IllegalAccessException ex) {
-            
+        } catch (IllegalAccessException ex) 
+        {         
             java.util.logging.Logger.getLogger(Login.class.getName()).log
             (java.util.logging.Level.SEVERE, null, ex);
             
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) 
+        {        
             java.util.logging.Logger.getLogger(Login.class.getName()).log
-            (java.util.logging.Level.SEVERE, null, ex);
-            
+            (java.util.logging.Level.SEVERE, null, ex);           
         }
     
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            
-            public void run() {
+        java.awt.EventQueue.invokeLater(new Runnable() 
+        {          
+            public void run() 
+            {
                 new Login().setVisible(true);
             }
         });

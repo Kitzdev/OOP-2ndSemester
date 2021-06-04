@@ -1,31 +1,30 @@
-import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 public class Register extends javax.swing.JFrame {
     
     char sex;
     
-    public Register() {
-        
+    public Register() 
+    {       
         initComponents();
     }
     
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
+        headerPanel = new javax.swing.JPanel();
         minimizeButton = new javax.swing.JLabel();
         closeButton = new javax.swing.JLabel();
         headerLabel = new javax.swing.JLabel();
         headerLabelRegister = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
+        bodyPanel = new javax.swing.JPanel();
         namaLabel = new javax.swing.JLabel();
         NIMLabel = new javax.swing.JLabel();
         jenisKelaminLabel = new javax.swing.JLabel();
         newUsernameLabel = new javax.swing.JLabel();
         rePasswordLabel = new javax.swing.JLabel();
         passwordLabel = new javax.swing.JLabel();
-        bodyHeaderLabel2 = new javax.swing.JLabel();
+        createAccountLabel = new javax.swing.JLabel();
         namaTextField = new javax.swing.JTextField();
         NIMTextField = new javax.swing.JTextField();
         sexComboBox = new javax.swing.JComboBox<>();
@@ -34,17 +33,17 @@ public class Register extends javax.swing.JFrame {
         registerButton = new javax.swing.JButton();
         haveAccountButton = new javax.swing.JLabel();
         loginButton = new javax.swing.JButton();
-        bodyHeaderLabel3 = new javax.swing.JLabel();
-        passwordLabel2 = new javax.swing.JLabel();
+        insertDataLabel = new javax.swing.JLabel();
+        semesterLabel = new javax.swing.JLabel();
         newPasswordTextField = new javax.swing.JPasswordField();
         newRePasswordTextField = new javax.swing.JPasswordField();
-        jPanel3 = new javax.swing.JPanel();
+        dividerPanel = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(670, 500));
         getContentPane().setLayout(null);
 
-        jPanel1.setBackground(new java.awt.Color(255, 140, 0));
+        headerPanel.setBackground(new java.awt.Color(255, 140, 0));
 
         minimizeButton.setFont(new java.awt.Font("Verdana", 1, 36)); // NOI18N
         minimizeButton.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -65,11 +64,11 @@ public class Register extends javax.swing.JFrame {
         headerLabelRegister.setFont(new java.awt.Font("Verdana", 3, 14)); // NOI18N
         headerLabelRegister.setText("Register");
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+        javax.swing.GroupLayout headerPanelLayout = new javax.swing.GroupLayout(headerPanel);
+        headerPanel.setLayout(headerPanelLayout);
+        headerPanelLayout.setHorizontalGroup(
+            headerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, headerPanelLayout.createSequentialGroup()
                 .addGap(31, 31, 31)
                 .addComponent(headerLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -79,24 +78,24 @@ public class Register extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(closeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+        headerPanelLayout.setVerticalGroup(
+            headerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(headerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                 .addComponent(closeButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(minimizeButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
+            .addGroup(headerPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(headerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(headerLabel)
                     .addComponent(headerLabelRegister))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        getContentPane().add(jPanel1);
-        jPanel1.setBounds(0, 0, 740, 60);
+        getContentPane().add(headerPanel);
+        headerPanel.setBounds(0, 0, 740, 60);
 
-        jPanel2.setBackground(new java.awt.Color(255, 215, 0));
-        jPanel2.setPreferredSize(new java.awt.Dimension(720, 370));
+        bodyPanel.setBackground(new java.awt.Color(255, 215, 0));
+        bodyPanel.setPreferredSize(new java.awt.Dimension(720, 370));
 
         namaLabel.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         namaLabel.setText("Nama");
@@ -116,8 +115,8 @@ public class Register extends javax.swing.JFrame {
         passwordLabel.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         passwordLabel.setText("Password");
 
-        bodyHeaderLabel2.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
-        bodyHeaderLabel2.setText("Please create your account");
+        createAccountLabel.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        createAccountLabel.setText("Please create your account");
 
         namaTextField.setFont(new java.awt.Font("Verdana", 0, 15)); // NOI18N
 
@@ -149,151 +148,151 @@ public class Register extends javax.swing.JFrame {
             }
         });
 
-        bodyHeaderLabel3.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
-        bodyHeaderLabel3.setText("Please insert your data");
+        insertDataLabel.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        insertDataLabel.setText("Please insert your data");
 
-        passwordLabel2.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
-        passwordLabel2.setText("Semester");
+        semesterLabel.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        semesterLabel.setText("Semester");
 
-        jPanel3.setBackground(new java.awt.Color(255, 140, 0));
+        dividerPanel.setBackground(new java.awt.Color(255, 140, 0));
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout dividerPanelLayout = new javax.swing.GroupLayout(dividerPanel);
+        dividerPanel.setLayout(dividerPanelLayout);
+        dividerPanelLayout.setHorizontalGroup(
+            dividerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 20, Short.MAX_VALUE)
         );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        dividerPanelLayout.setVerticalGroup(
+            dividerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 0, Short.MAX_VALUE)
         );
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
+        javax.swing.GroupLayout bodyPanelLayout = new javax.swing.GroupLayout(bodyPanel);
+        bodyPanel.setLayout(bodyPanelLayout);
+        bodyPanelLayout.setHorizontalGroup(
+            bodyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(bodyPanelLayout.createSequentialGroup()
+                .addGroup(bodyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(bodyPanelLayout.createSequentialGroup()
                         .addGap(39, 39, 39)
-                        .addComponent(bodyHeaderLabel3))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(insertDataLabel))
+                    .addGroup(bodyPanelLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(bodyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(NIMLabel)
                             .addComponent(namaLabel))
                         .addGap(18, 18, 18)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(bodyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(namaTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
                             .addComponent(NIMTextField)))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
+                    .addGroup(bodyPanelLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(passwordLabel2)
+                        .addGroup(bodyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(bodyPanelLayout.createSequentialGroup()
+                                .addComponent(semesterLabel)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(semesterTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
+                            .addGroup(bodyPanelLayout.createSequentialGroup()
                                 .addComponent(jenisKelaminLabel)
                                 .addGap(18, 18, 18)
                                 .addComponent(sexComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(dividerPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(36, 36, 36)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addGroup(bodyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bodyPanelLayout.createSequentialGroup()
                         .addComponent(registerButton)
                         .addGap(89, 89, 89))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(bodyHeaderLabel2)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bodyPanelLayout.createSequentialGroup()
+                        .addComponent(createAccountLabel)
                         .addGap(35, 35, 35))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bodyPanelLayout.createSequentialGroup()
+                        .addGroup(bodyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(newUsernameLabel)
                             .addComponent(passwordLabel)
                             .addComponent(rePasswordLabel))
                         .addGap(28, 28, 28)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(bodyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(newRePasswordTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(newPasswordTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(newUsernameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(19, 19, 19))))
-            .addGroup(jPanel2Layout.createSequentialGroup()
+            .addGroup(bodyPanelLayout.createSequentialGroup()
                 .addGap(147, 147, 147)
                 .addComponent(haveAccountButton)
                 .addGap(47, 47, 47)
                 .addComponent(loginButton)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
+        bodyPanelLayout.setVerticalGroup(
+            bodyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(bodyPanelLayout.createSequentialGroup()
+                .addGroup(bodyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(bodyPanelLayout.createSequentialGroup()
                         .addGap(32, 32, 32)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(bodyHeaderLabel3)
-                                    .addComponent(bodyHeaderLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(bodyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(bodyPanelLayout.createSequentialGroup()
+                                .addGroup(bodyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(insertDataLabel)
+                                    .addComponent(createAccountLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(31, 31, 31)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addGroup(bodyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(newUsernameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(newUsernameLabel)
                                     .addComponent(namaTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(namaLabel))
                                 .addGap(26, 26, 26)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addGroup(bodyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(newPasswordTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(passwordLabel)
                                     .addComponent(NIMTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(NIMLabel))
                                 .addGap(27, 27, 27)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addGroup(bodyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jenisKelaminLabel)
                                     .addComponent(sexComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(14, 14, 14)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addGroup(bodyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(rePasswordLabel)
                                     .addComponent(newRePasswordTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(24, 24, 24))
-                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addGroup(bodyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(semesterTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(passwordLabel2)))
+                                .addComponent(semesterLabel)))
                         .addComponent(registerButton))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
+                    .addGroup(bodyPanelLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(dividerPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGap(19, 19, 19)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(bodyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(haveAccountButton)
                     .addComponent(loginButton))
                 .addGap(105, 105, 105))
         );
 
-        getContentPane().add(jPanel2);
-        jPanel2.setBounds(0, 60, 740, 390);
+        getContentPane().add(bodyPanel);
+        bodyPanel.setBounds(0, 60, 740, 390);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void closeButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closeButtonMouseClicked
-        
+    private void closeButtonMouseClicked(java.awt.event.MouseEvent evt) 
+    {//GEN-FIRST:event_closeButtonMouseClicked
         dispose();
         Login login = new Login();
         login.setVisible(true);
     }//GEN-LAST:event_closeButtonMouseClicked
 
-    private void registerButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_registerButtonMouseClicked
-       
-        if(((String)sexComboBox.getSelectedItem()) == "Male"){
-           
-           sex = 'M';
-           
-       } else
-       {
+    private void registerButtonMouseClicked(java.awt.event.MouseEvent evt) 
+    {//GEN-FIRST:event_registerButtonMouseClicked
+        if(((String)sexComboBox.getSelectedItem()) == "Male")
+        {          
+           sex = 'M'; 
+
+        } else
+        {
            sex = 'F';
-       }
+        }
        
         while(!IsRePasswordCorrect())
         {
@@ -301,29 +300,45 @@ public class Register extends javax.swing.JFrame {
                     + " must contain the same value");
         }
         
-        try {
-            
+        try 
+        {   
+            //For security reason, we do not use getText() for password field.
+            String passwordContainer = String.valueOf(newPasswordTextField.getPassword());
+
             DBConnection.AccessDatabase();
             DBConnection.sql = "INSERT INTO `tabel_anggota`(`username`, "
                     + "`password`, `nama_anggota`, `NIM_anggota`, "
                     + "`jenis_kelamin`, `semester_anggota`) VALUES ('" + 
                     newUsernameTextField.getText() + "','" + 
-                    newPasswordTextField.getText() + "','" +
+                    passwordContainer + "','" +
                     namaTextField.getText() + "','" + NIMTextField.getText() +
                     "','" + sex + "','" + semesterTextField.getText() + "')";
             DBConnection.statement = DBConnection.connection.createStatement();
             DBConnection.statement.executeQuery(DBConnection.sql);
             JOptionPane.showMessageDialog(null, "Data successly saved");
             
-        } catch (Exception exception) {
             
-            JOptionPane.showMessageDialog(null, "Something wrong happened");
+            int idMaster = SetIdMaster();
+            java.sql.Date sqlDate = new java.sql.Date(new java.util.Date().
+                                                  getTime());
+            DBConnection.AccessDatabase();
+            DBConnection.sql = "INSERT INTO `tabel_master`(`id_master`, "
+                               + "`NIM_anggota`, `periode`) VALUES ('" 
+                               + idMaster + "','" + NIMTextField.getText() 
+                               + "','" + sqlDate + "')";
+            DBConnection.statement = DBConnection.connection.createStatement();
+            DBConnection.statement.executeQuery(DBConnection.sql);
+            
+        } catch (Exception exception) 
+        {         
+            JOptionPane.showMessageDialog(null, "Something wrong happened, please try again" 
+                                                + "later");
             System.out.println(exception.getMessage());          
-        }
-        
+        }   
     }//GEN-LAST:event_registerButtonMouseClicked
 
-    private void loginButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginButtonMouseClicked
+    private void loginButtonMouseClicked(java.awt.event.MouseEvent evt) 
+    {//GEN-FIRST:event_loginButtonMouseClicked
         dispose();
         Login loginForm = new Login();
         loginForm.setVisible(true);
@@ -331,10 +346,11 @@ public class Register extends javax.swing.JFrame {
 
     private boolean IsRePasswordCorrect()
     {
-        String password = newPasswordTextField.getText();
-        String rePassword = newRePasswordTextField.getText();
+        //For security reason, we do not use getText() for password field.
+        String passwordContainer = String.valueOf(newPasswordTextField.getPassword());
+        String rePasswordContainer = String.valueOf(newRePasswordTextField.getPassword());
         
-        if(password.equals(rePassword))
+        if(passwordContainer.equals(rePasswordContainer))
         {
             return true;
             
@@ -344,44 +360,87 @@ public class Register extends javax.swing.JFrame {
         }
     }
     
-    public static void main(String args[]) {
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+   private int SetIdMaster()
+    {
+        int container = 0;
+        
+        try 
+        {
+            DBConnection.AccessDatabase();
+            DBConnection.sql = "SELECT * FROM tabel_master;";
+            DBConnection.statement = DBConnection.connection.createStatement();
+            DBConnection.resultSet = DBConnection.statement.executeQuery
+            (DBConnection.sql);
+            
+            if(DBConnection.resultSet.next())
+            {
+                container = DBConnection.resultSet.getInt(1);
+                
+                while(DBConnection.resultSet.next())
+                {
+                    container = DBConnection.resultSet.getInt(1);
+                }
+            }
+            
+        } catch (Exception exception) {
+            
+            JOptionPane.showMessageDialog(null, "Failed to retrieve data from "
+                + "database, please try again later");
+        }
+        
+        return ++container;
+    }
+    
+    public static void main(String args[]) 
+    {
+        try 
+        {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) 
+            {
+                if ("Nimbus".equals(info.getName())) 
+                {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
             }
-        } catch (ClassNotFoundException ex) {
+        } catch (ClassNotFoundException ex) 
+        {
             java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
+
+        } catch (InstantiationException ex) 
+        {
             java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
+
+        } catch (IllegalAccessException ex) 
+        {
             java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) 
+        {
             java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
+        java.awt.EventQueue.invokeLater(new Runnable() 
+        {
+            public void run() 
+            {
                 new Register().setVisible(true);
             }
-        });
-        
+        });       
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel NIMLabel;
     private javax.swing.JTextField NIMTextField;
-    private javax.swing.JLabel bodyHeaderLabel2;
-    private javax.swing.JLabel bodyHeaderLabel3;
+    private javax.swing.JPanel bodyPanel;
     private javax.swing.JLabel closeButton;
+    private javax.swing.JLabel createAccountLabel;
+    private javax.swing.JPanel dividerPanel;
     private javax.swing.JLabel haveAccountButton;
     private javax.swing.JLabel headerLabel;
     private javax.swing.JLabel headerLabelRegister;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel headerPanel;
+    private javax.swing.JLabel insertDataLabel;
     private javax.swing.JLabel jenisKelaminLabel;
     private javax.swing.JButton loginButton;
     private javax.swing.JLabel minimizeButton;
@@ -392,9 +451,9 @@ public class Register extends javax.swing.JFrame {
     private javax.swing.JLabel newUsernameLabel;
     private javax.swing.JTextField newUsernameTextField;
     private javax.swing.JLabel passwordLabel;
-    private javax.swing.JLabel passwordLabel2;
     private javax.swing.JLabel rePasswordLabel;
     private javax.swing.JButton registerButton;
+    private javax.swing.JLabel semesterLabel;
     private javax.swing.JTextField semesterTextField;
     private javax.swing.JComboBox<String> sexComboBox;
     // End of variables declaration//GEN-END:variables

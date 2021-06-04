@@ -1,5 +1,3 @@
-package OOP2ndSemester.UTS.NoDuaPropertyMethod.src;
-
 public class Rental 
 {
     private String NoPlat;

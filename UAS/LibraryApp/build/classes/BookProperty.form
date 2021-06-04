@@ -25,7 +25,7 @@
     <Property name="useNullLayout" type="boolean" value="true"/>
   </Layout>
   <SubComponents>
-    <Container class="javax.swing.JPanel" name="jPanel1">
+    <Container class="javax.swing.JPanel" name="headerPanel">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="0" green="8c" red="ff" type="rgb"/>
@@ -44,8 +44,8 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="headerLabel" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="headerLabelAdmin" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="463" max="32767" attributes="0"/>
+                  <Component id="bookPropertyLabel" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace pref="395" max="32767" attributes="0"/>
                   <Component id="minimizeButton" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="closeButton" min="-2" max="-2" attributes="0"/>
@@ -62,7 +62,7 @@
                           <Component id="closeButton" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="minimizeButton" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <Component id="headerLabelAdmin" min="-2" max="-2" attributes="0"/>
+                      <Component id="bookPropertyLabel" min="-2" max="-2" attributes="0"/>
                       <Component id="headerLabel" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
@@ -79,12 +79,12 @@
             <Property name="text" type="java.lang.String" value="Library"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="headerLabelAdmin">
+        <Component class="javax.swing.JLabel" name="bookPropertyLabel">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Verdana" size="14" style="3"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Book"/>
+            <Property name="text" type="java.lang.String" value="BookProperty"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="closeButton">
@@ -113,7 +113,7 @@
         </Component>
       </SubComponents>
     </Container>
-    <Container class="javax.swing.JPanel" name="jPanel2">
+    <Container class="javax.swing.JPanel" name="bodyPanel">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="0" green="d7" red="ff" type="rgb"/>
@@ -128,10 +128,10 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Component id="jScrollPane1" alignment="0" pref="710" max="32767" attributes="0"/>
+              <Component id="tabelBuku" alignment="0" pref="710" max="32767" attributes="0"/>
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="165" max="-2" attributes="0"/>
-                  <Component id="bodyLabel" min="-2" max="-2" attributes="0"/>
+                  <Component id="masukanKodeBukuLabel" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                   <Component id="kodeBukuTextField" min="-2" pref="163" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
@@ -151,10 +151,10 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
-                  <Component id="jScrollPane1" min="-2" pref="114" max="-2" attributes="0"/>
+                  <Component id="tabelBuku" min="-2" pref="114" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="bodyLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="masukanKodeBukuLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="kodeBukuTextField" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace pref="71" max="32767" attributes="0"/>
@@ -169,7 +169,7 @@
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Container class="javax.swing.JScrollPane" name="jScrollPane1">
+        <Container class="javax.swing.JScrollPane" name="tabelBuku">
           <AuxValues>
             <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
           </AuxValues>
@@ -205,7 +205,7 @@
             </Component>
           </SubComponents>
         </Container>
-        <Component class="javax.swing.JLabel" name="bodyLabel">
+        <Component class="javax.swing.JLabel" name="masukanKodeBukuLabel">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Verdana" size="14" style="0"/>
