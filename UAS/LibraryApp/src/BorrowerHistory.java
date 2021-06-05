@@ -69,7 +69,7 @@ public class BorrowerHistory extends javax.swing.JFrame
                 .addComponent(headerLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(borrowerHistoryLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 393, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 273, Short.MAX_VALUE)
                 .addComponent(minimizeButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(closeButton)
@@ -89,7 +89,7 @@ public class BorrowerHistory extends javax.swing.JFrame
         );
 
         getContentPane().add(headerPanel);
-        headerPanel.setBounds(0, 0, 730, 70);
+        headerPanel.setBounds(0, 0, 610, 70);
 
         bodyPanel.setBackground(new java.awt.Color(255, 215, 0));
 
@@ -120,18 +120,18 @@ public class BorrowerHistory extends javax.swing.JFrame
 
         borrowingHistoryTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "Kode Peminjaman", "Kode Pengembalian", "Kode Buku", "Tanggal Peminjaman", "Tanggal Pengembalian"
+                "Kode Pengembalian", "Kode Buku", "NIM Anggota", "Tanggal Pengembalian"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
+                java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.String.class
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -140,14 +140,14 @@ public class BorrowerHistory extends javax.swing.JFrame
         });
         borrowerHistoryTable.setViewportView(borrowingHistoryTable);
         if (borrowingHistoryTable.getColumnModel().getColumnCount() > 0) {
-            borrowingHistoryTable.getColumnModel().getColumn(0).setMinWidth(140);
-            borrowingHistoryTable.getColumnModel().getColumn(0).setMaxWidth(140);
-            borrowingHistoryTable.getColumnModel().getColumn(1).setMinWidth(150);
-            borrowingHistoryTable.getColumnModel().getColumn(1).setMaxWidth(150);
-            borrowingHistoryTable.getColumnModel().getColumn(2).setMinWidth(90);
-            borrowingHistoryTable.getColumnModel().getColumn(2).setMaxWidth(90);
-            borrowingHistoryTable.getColumnModel().getColumn(3).setMinWidth(160);
-            borrowingHistoryTable.getColumnModel().getColumn(3).setMaxWidth(160);
+            borrowingHistoryTable.getColumnModel().getColumn(0).setMinWidth(150);
+            borrowingHistoryTable.getColumnModel().getColumn(0).setMaxWidth(150);
+            borrowingHistoryTable.getColumnModel().getColumn(1).setMinWidth(90);
+            borrowingHistoryTable.getColumnModel().getColumn(1).setMaxWidth(90);
+            borrowingHistoryTable.getColumnModel().getColumn(2).setMinWidth(110);
+            borrowingHistoryTable.getColumnModel().getColumn(2).setMaxWidth(110);
+            borrowingHistoryTable.getColumnModel().getColumn(3).setMinWidth(170);
+            borrowingHistoryTable.getColumnModel().getColumn(3).setMaxWidth(170);
         }
 
         printReportButton.setText("Cetak Laporan");
@@ -167,19 +167,19 @@ public class BorrowerHistory extends javax.swing.JFrame
                         .addContainerGap()
                         .addComponent(backButton, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(bodyPanelLayout.createSequentialGroup()
-                        .addGap(112, 112, 112)
+                        .addGap(47, 47, 47)
                         .addComponent(cekBukuButton)
-                        .addGap(82, 82, 82)
+                        .addGap(59, 59, 59)
                         .addComponent(cekPeminjamanButton)
-                        .addGap(56, 56, 56)
+                        .addGap(60, 60, 60)
                         .addComponent(printReportButton))
                     .addGroup(bodyPanelLayout.createSequentialGroup()
-                        .addGap(182, 182, 182)
+                        .addGap(103, 103, 103)
                         .addComponent(insertCodeLabel)
-                        .addGap(45, 45, 45)
-                        .addComponent(kodeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(borrowerHistoryTable, javax.swing.GroupLayout.PREFERRED_SIZE, 725, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(30, 30, 30)
+                        .addComponent(kodeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(133, Short.MAX_VALUE))
+            .addComponent(borrowerHistoryTable)
         );
         bodyPanelLayout.setVerticalGroup(
             bodyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -190,18 +190,21 @@ public class BorrowerHistory extends javax.swing.JFrame
                 .addGroup(bodyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(insertCodeLabel)
                     .addComponent(kodeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
-                .addGroup(bodyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cekPeminjamanButton)
-                    .addComponent(cekBukuButton)
-                    .addComponent(printReportButton))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(backButton)
-                .addContainerGap())
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+                .addGroup(bodyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bodyPanelLayout.createSequentialGroup()
+                        .addComponent(backButton)
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bodyPanelLayout.createSequentialGroup()
+                        .addGroup(bodyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(cekBukuButton)
+                            .addComponent(cekPeminjamanButton)
+                            .addComponent(printReportButton))
+                        .addGap(75, 75, 75))))
         );
 
         getContentPane().add(bodyPanel);
-        bodyPanel.setBounds(0, 70, 730, 350);
+        bodyPanel.setBounds(0, 70, 610, 350);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -307,9 +310,9 @@ public class BorrowerHistory extends javax.swing.JFrame
     private void printReportButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_printReportButtonActionPerformed
         try
         {
-            JasperPrint jasperPrint = JasperFillManager.fillReport(getClass().
-                getResourceAsStream("BorrowerHistoryReport.jasper")
-                , null, DBConnection.AccessDatabaseWithReturn());
+            JasperPrint jasperPrint = net.sf.jasperreports.engine.JasperFillManager.fillReport(getClass().
+                                      getResourceAsStream("BorrowerHistoryReport.jasper")
+                                      , null, DBConnection.AccessDatabaseWithReturn());
             JasperViewer.viewReport(jasperPrint, false);
 
         } catch(Exception exception)
@@ -329,7 +332,6 @@ public class BorrowerHistory extends javax.swing.JFrame
                                      (DBConnection.sql);
             
             DefaultTableModel theTable = new DefaultTableModel();
-            theTable.addColumn("Kode Peminjaman");
             theTable.addColumn("Kode Pengembalian");
             theTable.addColumn("Kode Buku");
             theTable.addColumn("NIM anggota");
@@ -342,8 +344,7 @@ public class BorrowerHistory extends javax.swing.JFrame
                 theTable.addRow(new Object[]{DBConnection.resultSet.getInt(1),
                     DBConnection.resultSet.getInt(2), 
                     DBConnection.resultSet.getInt(3), 
-                    DBConnection.resultSet.getInt(4), 
-                    DBConnection.resultSet.getDate(5)});
+                    DBConnection.resultSet.getDate(4)});
                 row++;
             }
             

@@ -246,8 +246,8 @@ public class ReturnBook extends javax.swing.JFrame
 
             } else
             {
-                JOptionPane.showMessageDialog(null, "Cannot find book with that"
-                    + " code");
+                JOptionPane.showMessageDialog(null, "Invalid borrow code, please"
+                    + " insert a valid code");
             }
 
         } catch (Exception exception) 
