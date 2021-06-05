@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="86587b08-bf37-4b8e-8ab3-98bb8cf6265a">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" fontName="Arial" fontSize="26" isBold="true" pdfFontName="Helvetica-Bold"/>
+	<style name="SubTitle" forecolor="#666666" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT * FROM tabel_peminjaman;]]>
+	</queryString>
+	<field name="kode_peminjaman" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="kode_buku" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="NIM_peminjam" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="jumlah_peminjaman" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="tanggal_peminjaman" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="70" splitType="Stretch">
+			<image>
+				<reportElement uuid="9f368542-e558-4961-9d20-d52618edd1ec" x="275" y="0" width="300" height="64"/>
+				<imageExpression><![CDATA["leaf_banner_violet.png"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement uuid="90d434b3-150b-4e88-ab22-a0da8da7dbfe" style="Title" x="0" y="13" width="285" height="33"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Laporan Peminjaman]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="ec952196-550b-4c8c-8c02-46f37e80a74f" style="SubTitle" x="63" y="46" width="200" height="22"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[Daftar Peminjaman ]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="36" splitType="Stretch">
+			<line>
+				<reportElement uuid="8c7b4963-ef52-4206-897a-f63bfa34c714" positionType="FixRelativeToBottom" x="0" y="35" width="555" height="1"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement uuid="820e6c08-d8b5-42cc-9099-36c07388e7e7" style="Column header" x="0" y="19" width="111" height="15"/>
+				<textElement/>
+				<text><![CDATA[Kode Peminjaman]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="ee47bf1f-3b34-490e-a3c6-633fb4f5b668" style="Column header" x="111" y="19" width="111" height="15"/>
+				<textElement/>
+				<text><![CDATA[Kode Buku]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="cf0e84ff-2bdf-4c11-ae7f-6c180cf85ebb" style="Column header" x="222" y="19" width="111" height="15"/>
+				<textElement/>
+				<text><![CDATA[NIM Peminjam]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="b6cbd18d-feac-45ae-8a38-9a773449c5ee" style="Column header" x="333" y="19" width="111" height="15"/>
+				<textElement/>
+				<text><![CDATA[Jumlah Buku]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="f497f715-9f1e-4867-bc95-e185fe1887c9" style="Column header" x="444" y="19" width="111" height="15"/>
+				<textElement/>
+				<text><![CDATA[Tanggal Pinjam]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="16" splitType="Stretch">
+			<line>
+				<reportElement uuid="ef220a9c-7aef-433c-b106-d10b96b1937e" positionType="FixRelativeToBottom" x="0" y="15" width="555" height="1"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<textField>
+				<reportElement uuid="62a08572-adb2-4da4-a9ea-1a0d0d14462d" style="Detail" x="0" y="0" width="111" height="15"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{kode_peminjaman}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="dba9aeda-27d0-451f-9f28-979011d9f21c" style="Detail" x="111" y="0" width="111" height="15"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{kode_buku}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="53e34a54-7879-4af2-a656-fdc57fad92a5" style="Detail" x="222" y="0" width="111" height="15"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{NIM_peminjam}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="2b881296-f43e-4624-8271-6e02a37b527d" style="Detail" x="333" y="0" width="111" height="15"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{jumlah_peminjaman}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="f24c84bd-77d1-480e-80aa-e691576702e2" style="Detail" x="444" y="0" width="111" height="15"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{tanggal_peminjaman}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch">
+			<line>
+				<reportElement uuid="c9ce9b02-e6e2-4f87-99a2-64e59503677e" positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement uuid="bf054a03-754e-4fc4-a33e-ebd6240dc5aa" style="Column header" x="433" y="0" width="80" height="20"/>
+				<textElement textAlignment="Right">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement uuid="abaf7808-dbdc-4d29-9a36-395f94244e99" style="Column header" x="513" y="0" width="40" height="20"/>
+				<textElement>
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement uuid="cc8f1d55-fcfd-496a-bab7-7c212ff38c8b" style="Column header" x="0" y="0" width="197" height="20"/>
+				<textElement>
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

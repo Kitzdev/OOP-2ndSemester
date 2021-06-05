@@ -2,6 +2,9 @@ import java.util.Date;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.view.JasperViewer;
 
 public class BorrowerTable extends javax.swing.JFrame 
 {
@@ -12,8 +15,8 @@ public class BorrowerTable extends javax.swing.JFrame
     }
 
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() 
-    {
+    private void initComponents() {
+
         headerPanel = new javax.swing.JPanel();
         headerLabel = new javax.swing.JLabel();
         headerLabelAdmin = new javax.swing.JLabel();
@@ -27,6 +30,7 @@ public class BorrowerTable extends javax.swing.JFrame
         kodeTextField = new javax.swing.JTextField();
         cekPeminjamanButton = new javax.swing.JButton();
         cekBukuButton = new javax.swing.JButton();
+        printReportButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
@@ -42,10 +46,8 @@ public class BorrowerTable extends javax.swing.JFrame
         closeButton.setFont(new java.awt.Font("Verdana", 1, 36)); // NOI18N
         closeButton.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         closeButton.setText("X");
-        closeButton.addMouseListener(new java.awt.event.MouseAdapter() 
-        {
-            public void mouseClicked(java.awt.event.MouseEvent evt) 
-            {
+        closeButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
                 closeButtonMouseClicked(evt);
             }
         });
@@ -53,10 +55,8 @@ public class BorrowerTable extends javax.swing.JFrame
         minimizeButton.setFont(new java.awt.Font("Verdana", 1, 36)); // NOI18N
         minimizeButton.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         minimizeButton.setText("-");
-        minimizeButton.addMouseListener(new java.awt.event.MouseAdapter() 
-        {
-            public void mouseClicked(java.awt.event.MouseEvent evt) 
-            {
+        minimizeButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
                 minimizeButtonMouseClicked(evt);
             }
         });
@@ -110,8 +110,7 @@ public class BorrowerTable extends javax.swing.JFrame
                 java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.String.class
             };
 
-            public Class getColumnClass(int columnIndex) 
-            {
+            public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
             }
         });
@@ -129,10 +128,8 @@ public class BorrowerTable extends javax.swing.JFrame
 
         backButton.setFont(new java.awt.Font("Verdana", 0, 15)); // NOI18N
         backButton.setText("Back");
-        backButton.addActionListener(new java.awt.event.ActionListener() 
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt) 
-            {
+        backButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 backButtonActionPerformed(evt);
             }
         });
@@ -141,20 +138,23 @@ public class BorrowerTable extends javax.swing.JFrame
         insertCodeLabel.setText("Insert Code");
 
         cekPeminjamanButton.setText("Cek Peminjaman");
-        cekPeminjamanButton.addActionListener(new java.awt.event.ActionListener() 
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt) 
-            {
+        cekPeminjamanButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cekPeminjamanButtonActionPerformed(evt);
             }
         });
 
         cekBukuButton.setText("Cek Buku");
-        cekBukuButton.addActionListener(new java.awt.event.ActionListener() 
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt) 
-            {
+        cekBukuButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cekBukuButtonActionPerformed(evt);
+            }
+        });
+
+        printReportButton.setText("Cetak Laporan");
+        printReportButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                printReportButtonActionPerformed(evt);
             }
         });
 
@@ -169,16 +169,24 @@ public class BorrowerTable extends javax.swing.JFrame
                         .addContainerGap()
                         .addComponent(backButton, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(bodyPanelLayout.createSequentialGroup()
-                        .addGap(162, 162, 162)
-                        .addComponent(cekBukuButton)
-                        .addGap(152, 152, 152)
-                        .addComponent(cekPeminjamanButton))
-                    .addGroup(bodyPanelLayout.createSequentialGroup()
-                        .addGap(182, 182, 182)
-                        .addComponent(insertCodeLabel)
-                        .addGap(45, 45, 45)
-                        .addComponent(kodeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(bodyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(bodyPanelLayout.createSequentialGroup()
+                                .addGap(182, 182, 182)
+                                .addComponent(insertCodeLabel))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bodyPanelLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(cekBukuButton)
+                                .addGap(51, 51, 51)))
+                        .addGroup(bodyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(bodyPanelLayout.createSequentialGroup()
+                                .addGap(45, 45, 45)
+                                .addComponent(kodeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(bodyPanelLayout.createSequentialGroup()
+                                .addGap(17, 17, 17)
+                                .addComponent(cekPeminjamanButton)
+                                .addGap(59, 59, 59)
+                                .addComponent(printReportButton)))))
+                .addContainerGap(104, Short.MAX_VALUE))
         );
         bodyPanelLayout.setVerticalGroup(
             bodyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -189,10 +197,11 @@ public class BorrowerTable extends javax.swing.JFrame
                 .addGroup(bodyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(insertCodeLabel)
                     .addComponent(kodeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
-                .addGroup(bodyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(cekBukuButton, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(cekPeminjamanButton))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
+                .addGroup(bodyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cekBukuButton)
+                    .addComponent(cekPeminjamanButton)
+                    .addComponent(printReportButton))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(backButton)
                 .addContainerGap())
@@ -302,6 +311,20 @@ public class BorrowerTable extends javax.swing.JFrame
         }
     }//GEN-LAST:event_cekPeminjamanButtonActionPerformed
 
+    private void printReportButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_printReportButtonActionPerformed
+        try
+        {
+            JasperPrint jasperPrint = JasperFillManager.fillReport(getClass().
+                                      getResourceAsStream("BorrowReport.jasper")
+                                      , null, DBConnection.AccessDatabaseWithReturn());
+            JasperViewer.viewReport(jasperPrint, false);
+            
+        } catch(Exception exception)
+        {
+            JOptionPane.showMessageDialog(null, "Failed to create report file");
+        }
+    }//GEN-LAST:event_printReportButtonActionPerformed
+
     private void ShowData()
     {
         try {
@@ -361,6 +384,7 @@ public class BorrowerTable extends javax.swing.JFrame
     private javax.swing.JLabel insertCodeLabel;
     private javax.swing.JTextField kodeTextField;
     private javax.swing.JLabel minimizeButton;
+    private javax.swing.JButton printReportButton;
     private javax.swing.JTable theBorrowerTable;
     // End of variables declaration//GEN-END:variables
 }

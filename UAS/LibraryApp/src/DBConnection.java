@@ -5,10 +5,8 @@ import java.sql.Statement;
 import java.sql.ResultSet;
 import javax.swing.JOptionPane;
 
-
 public class DBConnection 
 {
-    
     public static Connection connection;
     public static Statement statement;
     public static ResultSet resultSet;
@@ -28,5 +26,27 @@ public class DBConnection
            JOptionPane.showMessageDialog(null, "Failed to connect to database");
            System.out.println(exceptionSentence);
         }
+    }
+    
+    public static Connection AccessDatabaseWithReturn() 
+    {
+        Connection connection = null;
+        String driver = "com.mysql.jdbc.Driver";
+        String url = "jdbc:mysql://localhost:3306/UASLibrary";
+        String user = "root";
+        String password = "";
+        if (connection == null) 
+        {
+            try 
+            {
+                Class.forName(driver);
+                connection = DriverManager.getConnection(url, user, password);
+                
+            } catch (ClassNotFoundException | SQLException error) 
+            {
+               System.exit(0);
+            }
+        }
+        return connection;
     }
 }

@@ -2,6 +2,8 @@ import java.util.Date;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.view.JasperViewer;
 
 public class BorrowerHistory extends javax.swing.JFrame
 {
@@ -27,6 +29,7 @@ public class BorrowerHistory extends javax.swing.JFrame
         cekBukuButton = new javax.swing.JButton();
         borrowerHistoryTable = new javax.swing.JScrollPane();
         borrowingHistoryTable = new javax.swing.JTable();
+        printReportButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
@@ -147,6 +150,13 @@ public class BorrowerHistory extends javax.swing.JFrame
             borrowingHistoryTable.getColumnModel().getColumn(3).setMaxWidth(160);
         }
 
+        printReportButton.setText("Cetak Laporan");
+        printReportButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                printReportButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout bodyPanelLayout = new javax.swing.GroupLayout(bodyPanel);
         bodyPanel.setLayout(bodyPanelLayout);
         bodyPanelLayout.setHorizontalGroup(
@@ -157,10 +167,12 @@ public class BorrowerHistory extends javax.swing.JFrame
                         .addContainerGap()
                         .addComponent(backButton, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(bodyPanelLayout.createSequentialGroup()
-                        .addGap(162, 162, 162)
+                        .addGap(112, 112, 112)
                         .addComponent(cekBukuButton)
-                        .addGap(152, 152, 152)
-                        .addComponent(cekPeminjamanButton))
+                        .addGap(82, 82, 82)
+                        .addComponent(cekPeminjamanButton)
+                        .addGap(56, 56, 56)
+                        .addComponent(printReportButton))
                     .addGroup(bodyPanelLayout.createSequentialGroup()
                         .addGap(182, 182, 182)
                         .addComponent(insertCodeLabel)
@@ -178,10 +190,11 @@ public class BorrowerHistory extends javax.swing.JFrame
                 .addGroup(bodyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(insertCodeLabel)
                     .addComponent(kodeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
-                .addGroup(bodyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(cekBukuButton, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(cekPeminjamanButton))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
+                .addGroup(bodyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cekPeminjamanButton)
+                    .addComponent(cekBukuButton)
+                    .addComponent(printReportButton))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(backButton)
                 .addContainerGap())
@@ -290,6 +303,20 @@ public class BorrowerHistory extends javax.swing.JFrame
         }
         
     }//GEN-LAST:event_cekPeminjamanButtonActionPerformed
+
+    private void printReportButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_printReportButtonActionPerformed
+        try
+        {
+            JasperPrint jasperPrint = JasperFillManager.fillReport(getClass().
+                getResourceAsStream("BorrowerHistoryReport.jasper")
+                , null, DBConnection.AccessDatabaseWithReturn());
+            JasperViewer.viewReport(jasperPrint, false);
+
+        } catch(Exception exception)
+        {
+            JOptionPane.showMessageDialog(null, "Failed to create report file");
+        }
+    }//GEN-LAST:event_printReportButtonActionPerformed
     
     private void ShowData()
     {       
@@ -354,5 +381,6 @@ public class BorrowerHistory extends javax.swing.JFrame
     private javax.swing.JLabel insertCodeLabel;
     private javax.swing.JTextField kodeTextField;
     private javax.swing.JLabel minimizeButton;
+    private javax.swing.JButton printReportButton;
     // End of variables declaration//GEN-END:variables
 }
