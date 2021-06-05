@@ -31,7 +31,7 @@ public class DBConnection
     public static Connection AccessDatabaseWithReturn() 
     {
         Connection connection = null;
-        String driver = "com.mysql.jdbc.Driver";
+        String driver = "com.mysql.cj.jdbc.Driver";
         String url = "jdbc:mysql://localhost:3306/UASLibrary";
         String user = "root";
         String password = "";
