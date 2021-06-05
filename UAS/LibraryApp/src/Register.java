@@ -298,44 +298,46 @@ public class Register extends javax.swing.JFrame
         {
             JOptionPane.showMessageDialog(null, "Password and Retype Password"
                     + " must contain the same value");
+        } else
+        {
+            try 
+            {   
+            //For security reason, we do not use getText() for password field.
+                String passwordContainer = String.valueOf(newPasswordTextField.getPassword());
+
+                DBConnection.AccessDatabase();
+                DBConnection.sql = "INSERT INTO `tabel_anggota`(`username`, "
+                        + "`password`, `nama_anggota`, `NIM_anggota`, "
+                        + "`jenis_kelamin`, `semester_anggota`) VALUES ('" + 
+                        newUsernameTextField.getText() + "','" + 
+                        passwordContainer + "','" +
+                        namaTextField.getText() + "','" + NIMTextField.getText() +
+                        "','" + sex + "','" + semesterTextField.getText() + "')";
+                DBConnection.statement = DBConnection.connection.createStatement();
+                DBConnection.statement.executeUpdate(DBConnection.sql);
+                JOptionPane.showMessageDialog(null, "Data successly saved");
+
+
+                int idMaster = SetIdMaster();
+
+                java.sql.Date sqlDate = new java.sql.Date(new java.util.Date().
+                                                      getTime());
+                DBConnection.AccessDatabase();
+                DBConnection.sql = "INSERT INTO `tabel_master`(`id_master`, "
+                                   + "`NIM_anggota`, `periode`) VALUES ('" 
+                                   + idMaster + "','" + NIMTextField.getText() 
+                                   + "','" + sqlDate + "')";
+                DBConnection.statement = DBConnection.connection.createStatement();
+                DBConnection.statement.executeUpdate(DBConnection.sql);
+            
+            } catch (Exception exception) 
+            {         
+                JOptionPane.showMessageDialog(null, "Something wrong happened, please try again" 
+                                                + "later");
+                System.out.println(exception.getMessage());          
+            }    
         }
         
-        try 
-        {   
-            //For security reason, we do not use getText() for password field.
-            String passwordContainer = String.valueOf(newPasswordTextField.getPassword());
-
-            DBConnection.AccessDatabase();
-            DBConnection.sql = "INSERT INTO `tabel_anggota`(`username`, "
-                    + "`password`, `nama_anggota`, `NIM_anggota`, "
-                    + "`jenis_kelamin`, `semester_anggota`) VALUES ('" + 
-                    newUsernameTextField.getText() + "','" + 
-                    passwordContainer + "','" +
-                    namaTextField.getText() + "','" + NIMTextField.getText() +
-                    "','" + sex + "','" + semesterTextField.getText() + "')";
-            DBConnection.statement = DBConnection.connection.createStatement();
-            DBConnection.statement.executeQuery(DBConnection.sql);
-            JOptionPane.showMessageDialog(null, "Data successly saved");
-            
-            
-            int idMaster = SetIdMaster();
-
-            java.sql.Date sqlDate = new java.sql.Date(new java.util.Date().
-                                                  getTime());
-            DBConnection.AccessDatabase();
-            DBConnection.sql = "INSERT INTO `tabel_master`(`id_master`, "
-                               + "`NIM_anggota`, `periode`) VALUES ('" 
-                               + idMaster + "','" + NIMTextField.getText() 
-                               + "','" + sqlDate + "')";
-            DBConnection.statement = DBConnection.connection.createStatement();
-            DBConnection.statement.executeQuery(DBConnection.sql);
-            
-        } catch (Exception exception) 
-        {         
-            JOptionPane.showMessageDialog(null, "Something wrong happened, please try again" 
-                                                + "later");
-            System.out.println(exception.getMessage());          
-        }   
     }//GEN-LAST:event_registerButtonMouseClicked
 
     private void loginButtonMouseClicked(java.awt.event.MouseEvent evt) 
