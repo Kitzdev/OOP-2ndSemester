@@ -294,7 +294,7 @@ public class Register extends javax.swing.JFrame
            sex = 'F';
         }
        
-        while(!IsRePasswordCorrect())
+        if(!IsRePasswordCorrect())
         {
             JOptionPane.showMessageDialog(null, "Password and Retype Password"
                     + " must contain the same value");
