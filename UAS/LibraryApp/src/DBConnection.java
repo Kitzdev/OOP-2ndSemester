@@ -6,7 +6,8 @@ import java.sql.ResultSet;
 import javax.swing.JOptionPane;
 
 
-public class DBConnection {
+public class DBConnection 
+{
     
     public static Connection connection;
     public static Statement statement;

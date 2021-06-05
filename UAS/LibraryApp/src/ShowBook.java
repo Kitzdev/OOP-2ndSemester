@@ -2,20 +2,20 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
-public class ShowBook extends javax.swing.JFrame {
-
+public class ShowBook extends javax.swing.JFrame 
+{
     int NIM;
     
-    public ShowBook(int NIM) {
-        
+    public ShowBook(int NIM) 
+    {
         this.NIM = NIM;
         initComponents();
         ShowData();
     }
 
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() {
-
+    private void initComponents() 
+    {
         jPanel1 = new javax.swing.JPanel();
         headerLabel = new javax.swing.JLabel();
         headerLabelAdmin = new javax.swing.JLabel();
@@ -43,8 +43,10 @@ public class ShowBook extends javax.swing.JFrame {
         closeButton.setFont(new java.awt.Font("Verdana", 1, 36)); // NOI18N
         closeButton.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         closeButton.setText("X");
-        closeButton.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
+        closeButton.addMouseListener(new java.awt.event.MouseAdapter() 
+        {
+            public void mouseClicked(java.awt.event.MouseEvent evt) 
+            {
                 closeButtonMouseClicked(evt);
             }
         });
@@ -52,8 +54,10 @@ public class ShowBook extends javax.swing.JFrame {
         minimizeButton.setFont(new java.awt.Font("Verdana", 1, 36)); // NOI18N
         minimizeButton.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         minimizeButton.setText("-");
-        minimizeButton.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
+        minimizeButton.addMouseListener(new java.awt.event.MouseAdapter() 
+        {
+            public void mouseClicked(java.awt.event.MouseEvent evt) 
+            {
                 minimizeButtonMouseClicked(evt);
             }
         });
@@ -119,8 +123,10 @@ public class ShowBook extends javax.swing.JFrame {
 
         backButton.setFont(new java.awt.Font("Verdana", 0, 15)); // NOI18N
         backButton.setText("Back");
-        backButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        backButton.addActionListener(new java.awt.event.ActionListener() 
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt) 
+            {
                 backButtonActionPerformed(evt);
             }
         });
@@ -129,8 +135,10 @@ public class ShowBook extends javax.swing.JFrame {
         insertCodeLabel.setText("Insert Code");
 
         cekBukuButton.setText("Cek Buku");
-        cekBukuButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        cekBukuButton.addActionListener(new java.awt.event.ActionListener() 
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt) 
+            {
                 cekBukuButtonActionPerformed(evt);
             }
         });
@@ -177,29 +185,31 @@ public class ShowBook extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void closeButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closeButtonMouseClicked
-
+    private void closeButtonMouseClicked(java.awt.event.MouseEvent evt) 
+    {//GEN-FIRST:event_closeButtonMouseClicked
         dispose();
         Admin admin = new Admin();
         admin.setVisible(true);
     }//GEN-LAST:event_closeButtonMouseClicked
 
-    private void minimizeButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_minimizeButtonMouseClicked
+    private void minimizeButtonMouseClicked(java.awt.event.MouseEvent evt) 
+    {//GEN-FIRST:event_minimizeButtonMouseClicked
         setState(JFrame.ICONIFIED);
     }//GEN-LAST:event_minimizeButtonMouseClicked
 
-    private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
-
+    private void backButtonActionPerformed(java.awt.event.ActionEvent evt) 
+    {//GEN-FIRST:event_backButtonActionPerformed
         dispose();
         MainMenu mainMenu = new MainMenu(NIM);
         mainMenu.setVisible(true);
     }//GEN-LAST:event_backButtonActionPerformed
 
-    private void cekBukuButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cekBukuButtonActionPerformed
-
-        try {
-
+    private void cekBukuButtonActionPerformed(java.awt.event.ActionEvent evt) 
+    {//GEN-FIRST:event_cekBukuButtonActionPerformed
+        try 
+        {
             int kodeBuku = Integer.parseInt(kodeTextField.getText());
+
             DBConnection.AccessDatabase();
             DBConnection.sql = "SELECT * FROM tabel_buku WHERE kode_buku = "
             + kodeBuku + ";";
@@ -227,8 +237,8 @@ public class ShowBook extends javax.swing.JFrame {
                     + " code");
             }
 
-        } catch (Exception exception) {
-
+        } catch (Exception exception) 
+        {
             JOptionPane.showMessageDialog(null, "Failed to retrieve data from "
                 + "database");
         }
@@ -236,8 +246,8 @@ public class ShowBook extends javax.swing.JFrame {
 
     private void ShowData()
     {
-        try {
-            
+        try 
+        {
             DBConnection.AccessDatabase();
             DBConnection.sql = "SELECT * FROM tabel_buku;";
             DBConnection.statement = DBConnection.connection.createStatement();
@@ -262,11 +272,12 @@ public class ShowBook extends javax.swing.JFrame {
         }
     }
     
-    public static void main(String args[]) {
-
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            
-            public void run() {
+    public static void main(String args[]) 
+    {
+        java.awt.EventQueue.invokeLater(new Runnable() 
+        {
+            public void run() 
+            {
             }
         });
     }

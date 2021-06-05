@@ -1,7 +1,7 @@
 import javax.swing.JOptionPane;
 
-public class Register extends javax.swing.JFrame {
-    
+public class Register extends javax.swing.JFrame 
+{
     char sex;
     
     public Register() 
@@ -319,6 +319,7 @@ public class Register extends javax.swing.JFrame {
             
             
             int idMaster = SetIdMaster();
+
             java.sql.Date sqlDate = new java.sql.Date(new java.util.Date().
                                                   getTime());
             DBConnection.AccessDatabase();
@@ -382,8 +383,8 @@ public class Register extends javax.swing.JFrame {
                 }
             }
             
-        } catch (Exception exception) {
-            
+        } catch (Exception exception) 
+        {    
             JOptionPane.showMessageDialog(null, "Failed to retrieve data from "
                 + "database, please try again later");
         }

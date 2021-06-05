@@ -1,17 +1,13 @@
-import java.time.LocalDate;
-import java.time.ZoneId;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
-public class BorrowBook extends javax.swing.JFrame {
-
+public class BorrowBook extends javax.swing.JFrame 
+{
     int NIM;
     
-    public BorrowBook(int NIM) {
-        
+    public BorrowBook(int NIM) 
+    {
         this.NIM = NIM;
         initComponents();
         ShowData();
@@ -227,51 +223,71 @@ public class BorrowBook extends javax.swing.JFrame {
             
             if(DBConnection.resultSet.next())
             {
-                bukuTersedia = DBConnection.resultSet.getInt(6);
+                DBConnection.AccessDatabase();
+                DBConnection.sql = "SELECT * FROM tabel_peminjaman WHERE "
+                                   + "NIM_peminjam = "+ NIM + ";";
+                DBConnection.statement = DBConnection.connection.createStatement();
+                DBConnection.resultSet = DBConnection.statement.executeQuery
+                (DBConnection.sql);
                 
-                if(jumlahBuku <= bukuTersedia)
+                if(DBConnection.resultSet.next())
                 {
-                    kodePeminjaman = SetKodePeminjaman();
+                    JOptionPane.showMessageDialog(null, "Hanya bisa meminjam "
+                                                  + "satu kali");
                     
+                } else
+                {
                     DBConnection.AccessDatabase();
-                    DBConnection.sql = "INSERT INTO `tabel_peminjaman`"
+                    DBConnection.sql = "SELECT * FROM tabel_buku WHERE kode_buku = "
+                               + kodeBuku + ";";
+                    DBConnection.statement = DBConnection.connection.createStatement();
+                    DBConnection.resultSet = DBConnection.statement.executeQuery
+                    (DBConnection.sql);
+            
+                    bukuTersedia = DBConnection.resultSet.getInt(6);
+                
+                    if(jumlahBuku <= bukuTersedia)
+                    {
+                        kodePeminjaman = SetKodePeminjaman();
+                    
+                        DBConnection.AccessDatabase();
+                        DBConnection.sql = "INSERT INTO `tabel_peminjaman`"
                                        + "(`kode_peminjaman`, `kode_buku`, "
                                        + "`NIM_peminjam`,"+ "`jumlah_peminjaman`, "
                                        + "`tanggal_peminjaman`) " + "VALUES ('" 
                                        + kodePeminjaman + "','" + kodeBuku + "','" 
                                        + NIM + "','" + 1 + "','" + sqlDate + "');";
-                    DBConnection.statement = DBConnection.connection.
+                        DBConnection.statement = DBConnection.connection.
                                              createStatement();
-                    DBConnection.statement.executeUpdate(DBConnection.sql);
+                        DBConnection.statement.executeUpdate(DBConnection.sql);
                     
-                    bukuTersedia--;
+                        bukuTersedia--;
             
-                    DBConnection.AccessDatabase();                   
-                    DBConnection.sql = "UPDATE `tabel_buku` SET `jumlah_buku` "
+                        DBConnection.AccessDatabase();                   
+                        DBConnection.sql = "UPDATE `tabel_buku` SET `jumlah_buku` "
                                        + "= '" + bukuTersedia + "' WHERE "
                                        + "kode_buku = '" + kodeBuku + "';";
-                    DBConnection.statement = DBConnection.connection.
+                        DBConnection.statement = DBConnection.connection.
                                              createStatement();
-                    DBConnection.statement.executeUpdate(DBConnection.sql);
+                        DBConnection.statement.executeUpdate(DBConnection.sql);
                     
-                    JOptionPane.showMessageDialog(null, "Book succesfully "
-                        + "borrowed!");
-            
-                } else
-                {
-                    JOptionPane.showMessageDialog(null, "Book with that count"
-                            + " is not available");
+                        JOptionPane.showMessageDialog(null, "Book succesfully "
+                                                      + "borrowed!");           
+                    } else
+                    {
+                        JOptionPane.showMessageDialog(null, "Book with that count"
+                                                      + " is not available");
+                    }
                 }
                 
             } else
             {
                 JOptionPane.showMessageDialog(null, "Cannot find book with that"
                     + " code");
-            }
-            
+            }            
 
-        } catch (Exception exception) {
-
+        } catch (Exception exception) 
+        {
             JOptionPane.showMessageDialog(null, "Failed to retrieve data from "
                 + "database");
         }

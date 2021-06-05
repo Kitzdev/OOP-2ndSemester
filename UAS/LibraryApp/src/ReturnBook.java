@@ -3,12 +3,12 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 
-public class ReturnBook extends javax.swing.JFrame {
-
+public class ReturnBook extends javax.swing.JFrame 
+{
     int NIM;
     
-    public ReturnBook(int NIM) {
-        
+    public ReturnBook(int NIM) 
+    {     
         this.NIM = NIM;
         initComponents();
         ShowData();
@@ -204,7 +204,6 @@ public class ReturnBook extends javax.swing.JFrame {
     }//GEN-LAST:event_backButtonActionPerformed
 
     private void kembalikanBukuButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kembalikanBukuButtonActionPerformed
-
         try 
         {
             int kodePeminjaman = Integer.parseInt(kodePeminjamanTextField.
@@ -251,8 +250,8 @@ public class ReturnBook extends javax.swing.JFrame {
                     + " code");
             }
 
-        } catch (Exception exception) {
-
+        } catch (Exception exception) 
+        {
             JOptionPane.showMessageDialog(null, "Failed to retrieve data from "
                 + "database");
         }
@@ -287,8 +286,8 @@ public class ReturnBook extends javax.swing.JFrame {
             
             borrowTable.setModel(returnTable);
             
-        } catch (Exception Exception) {
-            
+        } catch (Exception Exception) 
+        {            
             JOptionPane.showMessageDialog(null, "Failed to show data");
         }        
     }
@@ -315,8 +314,8 @@ public class ReturnBook extends javax.swing.JFrame {
                 }
             }
             
-        } catch (Exception exception) {
-            
+        } catch (Exception exception) 
+        {           
             JOptionPane.showMessageDialog(null, "Failed to retrieve data from "
                 + "database");
         }
@@ -324,11 +323,12 @@ public class ReturnBook extends javax.swing.JFrame {
         return ++container;
     }
     
-    public static void main(String args[]) {
-        
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            
-            public void run() {
+    public static void main(String args[]) 
+    {     
+        java.awt.EventQueue.invokeLater(new Runnable() 
+        {
+            public void run() 
+            {
             }
         });
     }

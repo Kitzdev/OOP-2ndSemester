@@ -1,14 +1,16 @@
 import javax.swing.JFrame;
 
-public class Admin extends javax.swing.JFrame {
+public class Admin extends javax.swing.JFrame 
+{
     
-    public Admin() {
+    public Admin() 
+    {
         initComponents();
     }
 
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() {
-
+    private void initComponents() 
+    {
         jPanel1 = new javax.swing.JPanel();
         headerLabel = new javax.swing.JLabel();
         headerLabelAdmin = new javax.swing.JLabel();
@@ -45,8 +47,10 @@ public class Admin extends javax.swing.JFrame {
         minimizeButton.setFont(new java.awt.Font("Verdana", 1, 36)); // NOI18N
         minimizeButton.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         minimizeButton.setText("-");
-        minimizeButton.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
+        minimizeButton.addMouseListener(new java.awt.event.MouseAdapter() 
+        {
+            public void mouseClicked(java.awt.event.MouseEvent evt) 
+            {
                 minimizeButtonMouseClicked(evt);
             }
         });
@@ -89,43 +93,55 @@ public class Admin extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(255, 215, 0));
 
         tambahBukuButton.setText("Tambah Buku");
-        tambahBukuButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        tambahBukuButton.addActionListener(new java.awt.event.ActionListener() 
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt) 
+            {
                 tambahBukuButtonActionPerformed(evt);
             }
         });
 
         cariBukuButton.setText("Cari Buku");
-        cariBukuButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        cariBukuButton.addActionListener(new java.awt.event.ActionListener() 
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt) 
+            {
                 cariBukuButtonActionPerformed(evt);
             }
         });
 
         ubahBukuButton.setText("Ubah Buku");
-        ubahBukuButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        ubahBukuButton.addActionListener(new java.awt.event.ActionListener() 
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt) 
+            {
                 ubahBukuButtonActionPerformed(evt);
             }
         });
 
         hapusBukuButton.setText("Hapus Buku");
-        hapusBukuButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        hapusBukuButton.addActionListener(new java.awt.event.ActionListener() 
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt) 
+            {
                 hapusBukuButtonActionPerformed(evt);
             }
         });
 
         dataPeminjamButton.setText("Data Peminjaman");
-        dataPeminjamButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        dataPeminjamButton.addActionListener(new java.awt.event.ActionListener() 
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt) 
+            {
                 dataPeminjamButtonActionPerformed(evt);
             }
         });
 
         historiPeminjamanButton.setText("Histori Peminjaman");
-        historiPeminjamanButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        historiPeminjamanButton.addActionListener(new java.awt.event.ActionListener() 
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt) 
+            {
                 historiPeminjamanButtonActionPerformed(evt);
             }
         });
@@ -178,62 +194,64 @@ public class Admin extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void closeButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closeButtonMouseClicked
-
+    private void closeButtonMouseClicked(java.awt.event.MouseEvent evt) 
+    {//GEN-FIRST:event_closeButtonMouseClicked
         dispose();
         Login login = new Login();
         login.setVisible(true);
     }//GEN-LAST:event_closeButtonMouseClicked
 
-    private void tambahBukuButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tambahBukuButtonActionPerformed
-        
+    private void tambahBukuButtonActionPerformed(java.awt.event.ActionEvent evt) 
+    {//GEN-FIRST:event_tambahBukuButtonActionPerformed
         dispose();
         AddBook addBook = new AddBook();
         addBook.setVisible(true);
     }//GEN-LAST:event_tambahBukuButtonActionPerformed
 
-    private void cariBukuButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cariBukuButtonActionPerformed
-       
+    private void cariBukuButtonActionPerformed(java.awt.event.ActionEvent evt) 
+    {//GEN-FIRST:event_cariBukuButtonActionPerformed  
         dispose();
         BookProperty bookProperty = new BookProperty();
         bookProperty.setVisible(true);
     }//GEN-LAST:event_cariBukuButtonActionPerformed
 
-    private void ubahBukuButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ubahBukuButtonActionPerformed
-        
+    private void ubahBukuButtonActionPerformed(java.awt.event.ActionEvent evt) 
+    {//GEN-FIRST:event_ubahBukuButtonActionPerformed
         dispose();
         BookProperty bookProperty = new BookProperty();
         bookProperty.setVisible(true);
     }//GEN-LAST:event_ubahBukuButtonActionPerformed
 
-    private void hapusBukuButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hapusBukuButtonActionPerformed
-        
+    private void hapusBukuButtonActionPerformed(java.awt.event.ActionEvent evt) 
+    {//GEN-FIRST:event_hapusBukuButtonActionPerformed
         dispose();
         BookProperty bookProperty = new BookProperty();
         bookProperty.setVisible(true);
     }//GEN-LAST:event_hapusBukuButtonActionPerformed
 
-    private void minimizeButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_minimizeButtonMouseClicked
+    private void minimizeButtonMouseClicked(java.awt.event.MouseEvent evt) 
+    {//GEN-FIRST:event_minimizeButtonMouseClicked
         setState(JFrame.ICONIFIED);
     }//GEN-LAST:event_minimizeButtonMouseClicked
 
-    private void dataPeminjamButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dataPeminjamButtonActionPerformed
-        
+    private void dataPeminjamButtonActionPerformed(java.awt.event.ActionEvent evt) 
+    {//GEN-FIRST:event_dataPeminjamButtonActionPerformed      
         dispose();
         BorrowerTable borrowerTable = new BorrowerTable();
         borrowerTable.setVisible(true);
     }//GEN-LAST:event_dataPeminjamButtonActionPerformed
 
-    private void historiPeminjamanButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_historiPeminjamanButtonActionPerformed
-        
+    private void historiPeminjamanButtonActionPerformed(java.awt.event.ActionEvent evt) 
+    {//GEN-FIRST:event_historiPeminjamanButtonActionPerformed  
         dispose();
         BorrowerHistory borrowerHistory = new BorrowerHistory();
         borrowerHistory.setVisible(true);
     }//GEN-LAST:event_historiPeminjamanButtonActionPerformed
 
-    public static void main(String args[]) {
-       
-        java.awt.EventQueue.invokeLater(new Runnable() {
+    public static void main(String args[]) 
+    {
+        java.awt.EventQueue.invokeLater(new Runnable() 
+        {
             public void run() {
                 new Admin().setVisible(true);
             }

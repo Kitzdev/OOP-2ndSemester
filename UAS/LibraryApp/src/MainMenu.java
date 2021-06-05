@@ -11,8 +11,8 @@ public class MainMenu extends javax.swing.JFrame
     }
     
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() {
-
+    private void initComponents() 
+    {
         headerPanel = new javax.swing.JPanel();
         headerLabel = new javax.swing.JLabel();
         headerLabelMainMenu = new javax.swing.JLabel();
@@ -38,8 +38,10 @@ public class MainMenu extends javax.swing.JFrame
         closeButton.setFont(new java.awt.Font("Verdana", 1, 36)); // NOI18N
         closeButton.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         closeButton.setText("X");
-        closeButton.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
+        closeButton.addMouseListener(new java.awt.event.MouseAdapter() 
+        {
+            public void mouseClicked(java.awt.event.MouseEvent evt) 
+            {
                 closeButtonMouseClicked(evt);
             }
         });
@@ -47,8 +49,10 @@ public class MainMenu extends javax.swing.JFrame
         minimizeButton.setFont(new java.awt.Font("Verdana", 1, 36)); // NOI18N
         minimizeButton.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         minimizeButton.setText("-");
-        minimizeButton.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
+        minimizeButton.addMouseListener(new java.awt.event.MouseAdapter() 
+        {
+            public void mouseClicked(java.awt.event.MouseEvent evt) 
+            {
                 minimizeButtonMouseClicked(evt);
             }
         });
@@ -91,29 +95,37 @@ public class MainMenu extends javax.swing.JFrame
         bodyPanel.setBackground(new java.awt.Color(255, 215, 0));
 
         cariBukuButton.setText("Cari Buku");
-        cariBukuButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        cariBukuButton.addActionListener(new java.awt.event.ActionListener() 
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt) 
+            {
                 cariBukuButtonActionPerformed(evt);
             }
         });
 
         historiPeminjamanButton.setText("Histori Peminjaman");
-        historiPeminjamanButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        historiPeminjamanButton.addActionListener(new java.awt.event.ActionListener() 
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt) 
+            {
                 historiPeminjamanButtonActionPerformed(evt);
             }
         });
 
         pinjamBukuButton.setText("Pinjam Buku");
-        pinjamBukuButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        pinjamBukuButton.addActionListener(new java.awt.event.ActionListener() 
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt) 
+            {
                 pinjamBukuButtonActionPerformed(evt);
             }
         });
 
         kembalikanBukuButton.setText("Kembalikan Buku");
-        kembalikanBukuButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        kembalikanBukuButton.addActionListener(new java.awt.event.ActionListener() 
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt) 
+            {
                 kembalikanBukuButtonActionPerformed(evt);
             }
         });
@@ -159,40 +171,41 @@ public class MainMenu extends javax.swing.JFrame
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void closeButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closeButtonMouseClicked
-
+    private void closeButtonMouseClicked(java.awt.event.MouseEvent evt) 
+    {//GEN-FIRST:event_closeButtonMouseClicked
         dispose();
         Login login = new Login();
         login.setVisible(true);
     }//GEN-LAST:event_closeButtonMouseClicked
 
-    private void minimizeButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_minimizeButtonMouseClicked
+    private void minimizeButtonMouseClicked(java.awt.event.MouseEvent evt) 
+    {//GEN-FIRST:event_minimizeButtonMouseClicked
         setState(JFrame.ICONIFIED);
     }//GEN-LAST:event_minimizeButtonMouseClicked
 
-    private void cariBukuButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cariBukuButtonActionPerformed
-
+    private void cariBukuButtonActionPerformed(java.awt.event.ActionEvent evt) 
+    {//GEN-FIRST:event_cariBukuButtonActionPerformed
         dispose();
         ShowBook showBook = new ShowBook(NIM);
         showBook.setVisible(true);
     }//GEN-LAST:event_cariBukuButtonActionPerformed
 
-    private void pinjamBukuButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pinjamBukuButtonActionPerformed
-        
+    private void pinjamBukuButtonActionPerformed(java.awt.event.ActionEvent evt) 
+    {//GEN-FIRST:event_pinjamBukuButtonActionPerformed
         dispose();
         BorrowBook borrowBook = new BorrowBook(NIM);
         borrowBook.setVisible(true);
     }//GEN-LAST:event_pinjamBukuButtonActionPerformed
 
-    private void historiPeminjamanButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_historiPeminjamanButtonActionPerformed
-        
+    private void historiPeminjamanButtonActionPerformed(java.awt.event.ActionEvent evt) 
+    {//GEN-FIRST:event_historiPeminjamanButtonActionPerformed
         dispose();
         BorrowingHistory borrowingHistory = new BorrowingHistory(NIM);
         borrowingHistory.setVisible(true);
     }//GEN-LAST:event_historiPeminjamanButtonActionPerformed
 
-    private void kembalikanBukuButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kembalikanBukuButtonActionPerformed
-        
+    private void kembalikanBukuButtonActionPerformed(java.awt.event.ActionEvent evt) 
+    {//GEN-FIRST:event_kembalikanBukuButtonActionPerformed
         dispose();
         ReturnBook returnBook = new ReturnBook(NIM);
         returnBook.setVisible(true);
