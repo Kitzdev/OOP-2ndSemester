@@ -16,11 +16,13 @@ public class UpdateBook extends javax.swing.JFrame
         penerbitBukuTextField.setText(penerbitBuku);
         halamanBukuTextField.setText(Integer.toString(halamanBuku));
         jumlahBukuTextField.setText(Integer.toString(jumlahBuku));
+        
+        judulBukuTextField.requestFocus();
     }
 
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() 
-    {
+    private void initComponents() {
+
         headerPanel = new javax.swing.JPanel();
         headerLabel = new javax.swing.JLabel();
         headerLabelUpdateBook = new javax.swing.JLabel();
@@ -53,10 +55,8 @@ public class UpdateBook extends javax.swing.JFrame
         closeButton.setFont(new java.awt.Font("Verdana", 1, 36)); // NOI18N
         closeButton.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         closeButton.setText("X");
-        closeButton.addMouseListener(new java.awt.event.MouseAdapter() 
-        {
-            public void mouseClicked(java.awt.event.MouseEvent evt) 
-            {
+        closeButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
                 closeButtonMouseClicked(evt);
             }
         });
@@ -64,10 +64,8 @@ public class UpdateBook extends javax.swing.JFrame
         minimizeButton.setFont(new java.awt.Font("Verdana", 1, 36)); // NOI18N
         minimizeButton.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         minimizeButton.setText("-");
-        minimizeButton.addMouseListener(new java.awt.event.MouseAdapter() 
-        {
-            public void mouseClicked(java.awt.event.MouseEvent evt) 
-            {
+        minimizeButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
                 minimizeButtonMouseClicked(evt);
             }
         });
@@ -134,11 +132,9 @@ public class UpdateBook extends javax.swing.JFrame
 
         halamanBukuTextField.setFont(new java.awt.Font("Verdana", 0, 15)); // NOI18N
 
-        updateBookButton.setText("Update Book");
-        updateBookButton.addActionListener(new java.awt.event.ActionListener() 
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt) 
-            {
+        updateBookButton.setText("Ubah Buku");
+        updateBookButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 updateBookButtonActionPerformed(evt);
             }
         });
@@ -247,7 +243,7 @@ public class UpdateBook extends javax.swing.JFrame
 
         } catch (Exception exception) 
         {
-            JOptionPane.showMessageDialog(null, "Failed to retrieve data from "
+            JOptionPane.showMessageDialog(null, "Gagal mendapatkan data dari "
                     + "database");
         }
     }//GEN-LAST:event_updateBookButtonActionPerformed

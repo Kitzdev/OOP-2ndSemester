@@ -10,11 +10,12 @@ public class Login extends javax.swing.JFrame
     public Login() 
     {
         initComponents();
+        usernameTextField.requestFocus();
     }
     
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() 
-    {
+    private void initComponents() {
+
         headerPanel = new javax.swing.JPanel();
         closeButton = new javax.swing.JLabel();
         minmimizeButton = new javax.swing.JLabel();
@@ -40,20 +41,16 @@ public class Login extends javax.swing.JFrame
         closeButton.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         closeButton.setText("X");
         closeButton.setToolTipText("");
-        closeButton.addMouseListener(new java.awt.event.MouseAdapter() 
-        {
-            public void mouseClicked(java.awt.event.MouseEvent evt) 
-            {
+        closeButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
                 closeButtonMouseClicked(evt);
             }
         });
 
         minmimizeButton.setFont(new java.awt.Font("Arial", 1, 48)); // NOI18N
         minmimizeButton.setText("-");
-        minmimizeButton.addMouseListener(new java.awt.event.MouseAdapter() 
-        {
-            public void mouseClicked(java.awt.event.MouseEvent evt) 
-            {
+        minmimizeButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
                 minmimizeButtonMouseClicked(evt);
             }
         });
@@ -106,27 +103,23 @@ public class Login extends javax.swing.JFrame
         bodyHeader2.setText("Please insert your Username and password");
 
         loginButton.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
-        loginButton.setText("Login");
-        loginButton.addActionListener(new java.awt.event.ActionListener() 
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt) 
-            {
+        loginButton.setText("Masuk");
+        loginButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 loginButtonActionPerformed(evt);
             }
         });
 
         registerButton.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
-        registerButton.setText("Register");
-        registerButton.addActionListener(new java.awt.event.ActionListener() 
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt) 
-            {
+        registerButton.setText("Daftar");
+        registerButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 registerButtonActionPerformed(evt);
             }
         });
 
         bodyFooter.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
-        bodyFooter.setText("Not a member yet?");
+        bodyFooter.setText("Belum menjadi member?");
 
         usernameLabel.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         usernameLabel.setText("Username");
@@ -143,13 +136,8 @@ public class Login extends javax.swing.JFrame
         bodyPanelLayout.setHorizontalGroup(
             bodyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(bodyPanelLayout.createSequentialGroup()
-                .addGroup(bodyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(bodyPanelLayout.createSequentialGroup()
-                        .addGap(79, 79, 79)
-                        .addComponent(bodyHeader1))
-                    .addGroup(bodyPanelLayout.createSequentialGroup()
-                        .addGap(141, 141, 141)
-                        .addComponent(loginButton)))
+                .addGap(79, 79, 79)
+                .addComponent(bodyHeader1)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bodyPanelLayout.createSequentialGroup()
                 .addContainerGap(59, Short.MAX_VALUE)
@@ -157,10 +145,10 @@ public class Login extends javax.swing.JFrame
                 .addGap(53, 53, 53))
             .addGroup(bodyPanelLayout.createSequentialGroup()
                 .addGroup(bodyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(bodyPanelLayout.createSequentialGroup()
-                        .addGap(23, 23, 23)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, bodyPanelLayout.createSequentialGroup()
+                        .addContainerGap()
                         .addComponent(bodyFooter)
-                        .addGap(38, 38, 38)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(registerButton, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(bodyPanelLayout.createSequentialGroup()
                         .addGap(47, 47, 47)
@@ -168,11 +156,12 @@ public class Login extends javax.swing.JFrame
                             .addComponent(passwordLabel)
                             .addComponent(usernameLabel))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(bodyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(passwordTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 181, Short.MAX_VALUE)
-                            .addComponent(usernameTextField))
-                        .addGap(10, 10, 10)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(bodyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(loginButton)
+                            .addGroup(bodyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(passwordTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 181, Short.MAX_VALUE)
+                                .addComponent(usernameTextField)))))
+                .addContainerGap(42, Short.MAX_VALUE))
         );
         bodyPanelLayout.setVerticalGroup(
             bodyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -189,9 +178,9 @@ public class Login extends javax.swing.JFrame
                 .addGroup(bodyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(passwordLabel)
                     .addComponent(passwordTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(21, 21, 21)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
                 .addComponent(loginButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addGroup(bodyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(bodyFooter)
                     .addComponent(registerButton))
@@ -205,7 +194,7 @@ public class Login extends javax.swing.JFrame
     }// </editor-fold>//GEN-END:initComponents
 
     private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) 
-    {//GEN-FIRST:event_loginButtonActionPerformed      
+    {                                                  
         try
         {           
             //For security reason, we do not use getText() for password field.
@@ -231,8 +220,8 @@ public class Login extends javax.swing.JFrame
                 
             } else if(rowCount == 0)
             {           
-                JOptionPane.showMessageDialog(null, "Username or Password "
-                        + "input is wrong");
+                JOptionPane.showMessageDialog(null, "Username atau Password "
+                        + "tidak sesuai!");
                 
             } else 
             {              
@@ -246,13 +235,13 @@ public class Login extends javax.swing.JFrame
             
         } catch(Exception exception)
         {           
-            JOptionPane.showMessageDialog(null, "Something wrong happened");
+            JOptionPane.showMessageDialog(null, "Gagal terkoneksi dengan database");
             System.out.println(exception.getMessage());
         }
-    }//GEN-LAST:event_loginButtonActionPerformed
+    }                                           
 
     private void registerButtonActionPerformed(java.awt.event.ActionEvent evt) 
-    {//GEN-FIRST:event_registerButtonActionPerformed     
+    {                                                    
         try 
         {           
             usernameTextField.setText("");
@@ -263,20 +252,20 @@ public class Login extends javax.swing.JFrame
             
         } catch (Exception exception) 
         {           
-            JOptionPane.showMessageDialog(null, "Failed close Statement");
+            JOptionPane.showMessageDialog(null, "Gagal terkoneksi dengan database");
             System.out.println(exception.getMessage());
         }
-    }//GEN-LAST:event_registerButtonActionPerformed
+    }                                              
 
     private void closeButtonMouseClicked(java.awt.event.MouseEvent evt) 
-    {//GEN-FIRST:event_closeButtonMouseClicked       
+    {                                                
         System.exit(0);
-    }//GEN-LAST:event_closeButtonMouseClicked
+    }                                        
 
     private void minmimizeButtonMouseClicked(java.awt.event.MouseEvent evt) 
-    {//GEN-FIRST:event_minmimizeButtonMouseClicked      
+    {                                                   
         setState(JFrame.ICONIFIED);
-    }//GEN-LAST:event_minmimizeButtonMouseClicked
+    }                                            
 
     private void setNIM()
     {
@@ -297,7 +286,8 @@ public class Login extends javax.swing.JFrame
             
         } catch (Exception exception) 
         {
-            JOptionPane.showMessageDialog(null, "Failed to retrieve your NIM, please try again later");
+            JOptionPane.showMessageDialog(null, "Gagal mendapatkan NIM anda, "
+                    + "silahkan ulangi beberapa saat lagi");
         }
     }
     

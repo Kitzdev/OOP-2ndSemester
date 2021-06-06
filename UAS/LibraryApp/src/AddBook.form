@@ -290,7 +290,7 @@
         </Component>
         <Component class="javax.swing.JButton" name="addBookButton">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Add Book"/>
+            <Property name="text" type="java.lang.String" value="Tambah Buku"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="addBookButtonActionPerformed"/>

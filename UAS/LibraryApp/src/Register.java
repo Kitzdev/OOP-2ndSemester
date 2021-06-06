@@ -132,7 +132,7 @@ public class Register extends javax.swing.JFrame
         newUsernameTextField.setFont(new java.awt.Font("Verdana", 0, 15)); // NOI18N
 
         registerButton.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
-        registerButton.setText("Register");
+        registerButton.setText("Daftar");
         registerButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 registerButtonMouseClicked(evt);
@@ -143,7 +143,7 @@ public class Register extends javax.swing.JFrame
         haveAccountButton.setText("Already have an account?");
 
         loginButton.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
-        loginButton.setText("Login");
+        loginButton.setText("Masuk");
         loginButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 loginButtonMouseClicked(evt);
@@ -298,8 +298,8 @@ public class Register extends javax.swing.JFrame
        
         if(!IsRePasswordCorrect())
         {
-            JOptionPane.showMessageDialog(null, "Password and Retype Password"
-                    + " must contain the same value");
+            JOptionPane.showMessageDialog(null, "Password dan Retype Password"
+                    + " harus bernilai sama");
             
         } else if(!IsNIMAvailable())
         {
@@ -323,7 +323,7 @@ public class Register extends javax.swing.JFrame
                         "','" + sex + "','" + semesterTextField.getText() + "')";
                 DBConnection.statement = DBConnection.connection.createStatement();
                 DBConnection.statement.executeUpdate(DBConnection.sql);
-                JOptionPane.showMessageDialog(null, "Data successly saved");
+                JOptionPane.showMessageDialog(null, "Data berhasil disimpan");
 
 
                 int idMaster = SetIdMaster();
@@ -340,12 +340,15 @@ public class Register extends javax.swing.JFrame
             
             } catch (Exception exception) 
             {         
-                JOptionPane.showMessageDialog(null, "Something wrong happened, please try again" 
-                                                + "later");
+                JOptionPane.showMessageDialog(null, "Gagal terkoneksi dengan database, "
+                        + "silahkan ulangi beberapa saat lagi");
                 System.out.println(exception.getMessage());          
             }    
         }
         
+        dispose();
+        Login loginForm = new Login();
+        loginForm.setVisible(true);
     }//GEN-LAST:event_registerButtonMouseClicked
 
     private void loginButtonMouseClicked(java.awt.event.MouseEvent evt) 
@@ -390,7 +393,7 @@ public class Register extends javax.swing.JFrame
             
         } catch (Exception exception) 
         {
-            JOptionPane.showMessageDialog(null, "Failed to check NIM availability");
+            JOptionPane.showMessageDialog(null, "Gagal memeriksa ketersediaan NIM");
         }   
         
          return false;
@@ -420,8 +423,8 @@ public class Register extends javax.swing.JFrame
             
         } catch (Exception exception) 
         {    
-            JOptionPane.showMessageDialog(null, "Failed to retrieve data from "
-                + "database, please try again later");
+            JOptionPane.showMessageDialog(null, "Gagal mendapatkan data dari "
+                + "database, silahkan ulangi beberapa saat lagi");
         }
         
         return ++container;

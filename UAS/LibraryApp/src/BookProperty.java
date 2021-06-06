@@ -235,13 +235,13 @@ public class BookProperty extends javax.swing.JFrame
                 
             } else
             {
-                JOptionPane.showMessageDialog(null, "Cannot find book with that"
-                        + " code");
+                JOptionPane.showMessageDialog(null, "Tidak dapat menemukan buku"
+                        + " dengan kode tersebut");
             }
 
         } catch (Exception exception) 
         {           
-            JOptionPane.showMessageDialog(null, "Failed to retrieve data from "
+            JOptionPane.showMessageDialog(null, "Gagal mendapatkan data dari "
                     + "database");
         }
     }//GEN-LAST:event_cariBukuButtonActionPerformed
@@ -281,13 +281,13 @@ public class BookProperty extends javax.swing.JFrame
                 
             } else
             {
-                JOptionPane.showMessageDialog(null, "Cannot find book with that"
-                        + " code");
+                JOptionPane.showMessageDialog(null, "Tidak dapat menemukan buku"
+                        + " dengan kode tersebut");
             }
               
         } catch(Exception exception)
         {
-            JOptionPane.showMessageDialog(null, "Failed to retrieve data from"
+            JOptionPane.showMessageDialog(null, "Gagal mendapatkan data dari "
                     + "database");
         }                                
     }//GEN-LAST:event_ubahBukuButtonActionPerformed
@@ -313,19 +313,19 @@ public class BookProperty extends javax.swing.JFrame
                                          ();
                 DBConnection.statement.executeUpdate(DBConnection.sql);
 
-                JOptionPane.showMessageDialog(null, "Book has been deleted");
+                JOptionPane.showMessageDialog(null, "Buku berhasil dihapus!");
                 
             } else
             {
-                JOptionPane.showMessageDialog(null, "Cannot find book with that"
-                        + " code");
+                 JOptionPane.showMessageDialog(null, "Tidak dapat menemukan buku"
+                        + " dengan kode tersebut");            
             }
             
             ShowData();
             
         } catch (Exception exception) 
         {        
-            JOptionPane.showMessageDialog(null, "Failed to retrieve data from "
+            JOptionPane.showMessageDialog(null, "Gagal mendapatkan data dari "
                     + "database");
         }
     }//GEN-LAST:event_hapusBukuButtonActionPerformed
@@ -359,7 +359,7 @@ public class BookProperty extends javax.swing.JFrame
             
         } catch (Exception Exception) 
         {
-            JOptionPane.showMessageDialog(null, "Failed to retrieve data from "
+            JOptionPane.showMessageDialog(null, "Gagal mendapatkan data dari "
                     + "database");
         }
     }

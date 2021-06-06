@@ -12,6 +12,7 @@ public class BorrowerTable extends javax.swing.JFrame
     {
         initComponents();
         ShowData();
+        kodeTextField.requestFocus();
     }
 
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -127,7 +128,7 @@ public class BorrowerTable extends javax.swing.JFrame
         }
 
         backButton.setFont(new java.awt.Font("Verdana", 0, 15)); // NOI18N
-        backButton.setText("Back");
+        backButton.setText("Kembali");
         backButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 backButtonActionPerformed(evt);
@@ -135,7 +136,7 @@ public class BorrowerTable extends javax.swing.JFrame
         });
 
         insertCodeLabel.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
-        insertCodeLabel.setText("Insert Code");
+        insertCodeLabel.setText("Masukkan Kode");
 
         cekPeminjamanButton.setText("Cek Peminjaman");
         cekPeminjamanButton.addActionListener(new java.awt.event.ActionListener() {
@@ -186,7 +187,7 @@ public class BorrowerTable extends javax.swing.JFrame
                                 .addComponent(cekPeminjamanButton)
                                 .addGap(59, 59, 59)
                                 .addComponent(printReportButton)))))
-                .addContainerGap(104, Short.MAX_VALUE))
+                .addContainerGap(77, Short.MAX_VALUE))
         );
         bodyPanelLayout.setVerticalGroup(
             bodyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -261,13 +262,13 @@ public class BorrowerTable extends javax.swing.JFrame
                 
             } else
             {
-                JOptionPane.showMessageDialog(null, "Cannot find book with that"
-                        + " code");
+                JOptionPane.showMessageDialog(null, "Tidak dapat menemukan buku"
+                        + " dengan kode tersebut");
             }
             
         } catch (Exception exception) 
         {  
-            JOptionPane.showMessageDialog(null, "Failed to retrieve data from "
+            JOptionPane.showMessageDialog(null, "Gagal mendapatkan data dari "
                     + "database");
         }
     }//GEN-LAST:event_cekBukuButtonActionPerformed
@@ -300,13 +301,13 @@ public class BorrowerTable extends javax.swing.JFrame
                 
             } else
             {
-                JOptionPane.showMessageDialog(null, "Cannot find book with that"
-                        + " code");
+                JOptionPane.showMessageDialog(null, "Tidak dapat menemukan buku"
+                        + " dengan kode tersebut");
             }
             
         } catch (Exception exception) 
         {
-            JOptionPane.showMessageDialog(null, "Failed to retrieve data from "
+            JOptionPane.showMessageDialog(null, "Gagal mendapatkan data dari "
                                           + "database");
         }
     }//GEN-LAST:event_cekPeminjamanButtonActionPerformed
@@ -321,7 +322,7 @@ public class BorrowerTable extends javax.swing.JFrame
             
         } catch(Exception exception)
         {
-            JOptionPane.showMessageDialog(null, "Failed to create report file");
+            JOptionPane.showMessageDialog(null, "Gagal menampilkan file report");
         }
     }//GEN-LAST:event_printReportButtonActionPerformed
 
@@ -354,7 +355,7 @@ public class BorrowerTable extends javax.swing.JFrame
             
         } catch (Exception Exception) 
         {
-            JOptionPane.showMessageDialog(null, "Failed to retrieve data from "
+            JOptionPane.showMessageDialog(null, "Gagal mendapatkan data dari "
                     + "database");
         }
         

@@ -13,11 +13,12 @@ public class BorrowBook extends javax.swing.JFrame
         this.NIM = NIM;
         initComponents();
         ShowData();
+        kodeBukuTextField.requestFocus();
     }
 
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() 
-    {
+    private void initComponents() {
+
         jPanel1 = new javax.swing.JPanel();
         headerLabel = new javax.swing.JLabel();
         headerLabelAdmin = new javax.swing.JLabel();
@@ -47,10 +48,8 @@ public class BorrowBook extends javax.swing.JFrame
         closeButton.setFont(new java.awt.Font("Verdana", 1, 36)); // NOI18N
         closeButton.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         closeButton.setText("X");
-        closeButton.addMouseListener(new java.awt.event.MouseAdapter() 
-        {
-            public void mouseClicked(java.awt.event.MouseEvent evt) 
-            {
+        closeButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
                 closeButtonMouseClicked(evt);
             }
         });
@@ -58,10 +57,8 @@ public class BorrowBook extends javax.swing.JFrame
         minimizeButton.setFont(new java.awt.Font("Verdana", 1, 36)); // NOI18N
         minimizeButton.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         minimizeButton.setText("-");
-        minimizeButton.addMouseListener(new java.awt.event.MouseAdapter() 
-        {
-            public void mouseClicked(java.awt.event.MouseEvent evt) 
-            {
+        minimizeButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
                 minimizeButtonMouseClicked(evt);
             }
         });
@@ -111,42 +108,36 @@ public class BorrowBook extends javax.swing.JFrame
                 "Kode Buku", "Judul Buku", "Penulis Buku"
             }
         ) {
-            Class[] types = new Class [] 
-            {
+            Class[] types = new Class [] {
                 java.lang.Integer.class, java.lang.String.class, java.lang.Object.class
             };
 
-            public Class getColumnClass(int columnIndex) 
-            {
+            public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
             }
         });
         jScrollPane1.setViewportView(theBookTable);
 
         backButton.setFont(new java.awt.Font("Verdana", 0, 15)); // NOI18N
-        backButton.setText("Back");
-        backButton.addActionListener(new java.awt.event.ActionListener() 
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt) 
-            {
+        backButton.setText("Kembali");
+        backButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 backButtonActionPerformed(evt);
             }
         });
 
         insertCodeLabel.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
-        insertCodeLabel.setText("Book Code");
+        insertCodeLabel.setText("Kode Buku");
 
         pinjamBukuButton.setText("Pinjam Buku");
-        pinjamBukuButton.addActionListener(new java.awt.event.ActionListener() 
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt) 
-            {
+        pinjamBukuButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 pinjamBukuButtonActionPerformed(evt);
             }
         });
 
         insertCodeLabel1.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
-        insertCodeLabel1.setText("Book Count");
+        insertCodeLabel1.setText("Jumlah Buku");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -277,8 +268,8 @@ public class BorrowBook extends javax.swing.JFrame
                                              createStatement();
                         DBConnection.statement.executeUpdate(DBConnection.sql);
                         
-                        JOptionPane.showMessageDialog(null, "Book succesfully "
-                                                      + "borrowed!");
+                        JOptionPane.showMessageDialog(null, "Buku berhasil "
+                                                      + "dipinjam!");
                         
                         try
                         {
@@ -289,25 +280,25 @@ public class BorrowBook extends javax.swing.JFrame
 
                         } catch(Exception exception)
                         {
-                            JOptionPane.showMessageDialog(null, "Failed to create report file");
+                            JOptionPane.showMessageDialog(null, "Gagal menampilkan file report");
                         }
                         
                     } else
                     {
-                        JOptionPane.showMessageDialog(null, "Book with that count"
-                                                      + " is not available");
+                        JOptionPane.showMessageDialog(null, "Buku dengan jumlah"
+                                                      + " tersebut tidak tersedia");
                     }
                 }
                 
             } else
             {
-                JOptionPane.showMessageDialog(null, "Cannot find book with that"
-                    + " code");
+                JOptionPane.showMessageDialog(null, "Tidak dapat menemukan buku"
+                                              + " dengan kode tersebut");
             }            
 
         } catch (Exception exception) 
         {
-            JOptionPane.showMessageDialog(null, "Failed to retrieve data from "
+            JOptionPane.showMessageDialog(null, "Gagal mendapatkan data dari "
                 + "database");
         }
     }//GEN-LAST:event_pinjamBukuButtonActionPerformed
@@ -337,7 +328,7 @@ public class BorrowBook extends javax.swing.JFrame
             
         } catch (Exception exception) {
             
-            JOptionPane.showMessageDialog(null, "Failed to retrieve data from "
+            JOptionPane.showMessageDialog(null, "Gagal mendapatkan data dari "
                 + "database");
         }
         
@@ -370,7 +361,7 @@ public class BorrowBook extends javax.swing.JFrame
             
         } catch (Exception exception) {
             
-            JOptionPane.showMessageDialog(null, "Failed to retrieve data from "
+            JOptionPane.showMessageDialog(null, "Gagal mendapatkan data dari "
                     + "database");
         }
     }

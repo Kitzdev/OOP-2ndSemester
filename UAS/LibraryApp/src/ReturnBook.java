@@ -12,6 +12,7 @@ public class ReturnBook extends javax.swing.JFrame
         this.NIM = NIM;
         initComponents();
         ShowData();
+        kodePeminjamanTextField.requestFocus();
     }
 
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -125,7 +126,7 @@ public class ReturnBook extends javax.swing.JFrame
         }
 
         backButton.setFont(new java.awt.Font("Verdana", 0, 15)); // NOI18N
-        backButton.setText("Back");
+        backButton.setText("Kembali");
         backButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 backButtonActionPerformed(evt);
@@ -242,17 +243,17 @@ public class ReturnBook extends javax.swing.JFrame
                 DBConnection.statement = DBConnection.connection.
                                          createStatement();
                 DBConnection.statement.executeUpdate(DBConnection.sql);
-                JOptionPane.showMessageDialog(null, "Book succesfully returned");
+                JOptionPane.showMessageDialog(null, "Book berhasil dikembalikan");
 
             } else
             {
-                JOptionPane.showMessageDialog(null, "Invalid borrow code, please"
-                    + " insert a valid code");
+                JOptionPane.showMessageDialog(null, "Kode yang dimasukan salah, mohon"
+                    + " masukkan kode yang valid");
             }
 
         } catch (Exception exception) 
         {
-            JOptionPane.showMessageDialog(null, "Failed to retrieve data from "
+            JOptionPane.showMessageDialog(null, "Gagal mendapatkan data dari "
                 + "database");
         }
         
@@ -288,7 +289,7 @@ public class ReturnBook extends javax.swing.JFrame
             
         } catch (Exception Exception) 
         {            
-            JOptionPane.showMessageDialog(null, "Failed to show data");
+            JOptionPane.showMessageDialog(null, "Gagal menampilkan data");
         }        
     }
     
@@ -316,7 +317,7 @@ public class ReturnBook extends javax.swing.JFrame
             
         } catch (Exception exception) 
         {           
-            JOptionPane.showMessageDialog(null, "Failed to retrieve data from "
+            JOptionPane.showMessageDialog(null, "Gagal mendapatkan data dari "
                 + "database");
         }
         

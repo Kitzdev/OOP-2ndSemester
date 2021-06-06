@@ -12,6 +12,7 @@ public class BorrowingHistory extends javax.swing.JFrame
         this.NIM = NIM;
         initComponents();
         ShowData();
+        kodeTextField.requestFocus();
     }
 
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -93,7 +94,7 @@ public class BorrowingHistory extends javax.swing.JFrame
         bodyPanel.setBackground(new java.awt.Color(255, 215, 0));
 
         backButton2.setFont(new java.awt.Font("Verdana", 0, 15)); // NOI18N
-        backButton2.setText("Back");
+        backButton2.setText("Kembali");
         backButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 backButton2ActionPerformed(evt);
@@ -101,7 +102,7 @@ public class BorrowingHistory extends javax.swing.JFrame
         });
 
         insertCodeLabel.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
-        insertCodeLabel.setText("Insert Code");
+        insertCodeLabel.setText("Masukkan Kode");
 
         cekBukuButton.setText("Cek Buku");
         cekBukuButton.addActionListener(new java.awt.event.ActionListener() {
@@ -156,7 +157,7 @@ public class BorrowingHistory extends javax.swing.JFrame
                     .addGroup(bodyPanelLayout.createSequentialGroup()
                         .addGap(231, 231, 231)
                         .addComponent(cekBukuButton)))
-                .addContainerGap(116, Short.MAX_VALUE))
+                .addContainerGap(89, Short.MAX_VALUE))
         );
         bodyPanelLayout.setVerticalGroup(
             bodyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -229,13 +230,13 @@ public class BorrowingHistory extends javax.swing.JFrame
 
             } else
             {
-                JOptionPane.showMessageDialog(null, "Cannot find book with that"
-                    + " code");
+                JOptionPane.showMessageDialog(null, "Tidak dapat menemukan buku"
+                        + " dengan kode tersebut");
             }
 
         } catch (Exception exception) 
         {
-            JOptionPane.showMessageDialog(null, "Failed to retrieve data from "
+            JOptionPane.showMessageDialog(null, "Gagal mendapatkan data dari "
                 + "database");
         }
     }//GEN-LAST:event_cekBukuButtonActionPerformed
@@ -271,7 +272,7 @@ public class BorrowingHistory extends javax.swing.JFrame
             
         } catch (Exception Exception) 
         {
-            JOptionPane.showMessageDialog(null, "Failed to retrieve data from "
+            JOptionPane.showMessageDialog(null, "Gagal mendapatkan data dari "
                     + "database");
         }
     }

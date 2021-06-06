@@ -6,11 +6,12 @@ public class AddBook extends javax.swing.JFrame
     public AddBook() 
     {
         initComponents();
+        judulBukuTextField.requestFocus();
     }
 
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() 
-    {
+    private void initComponents() {
+
         headerPanel = new javax.swing.JPanel();
         headerLabel = new javax.swing.JLabel();
         headerLabelAddBook = new javax.swing.JLabel();
@@ -43,10 +44,8 @@ public class AddBook extends javax.swing.JFrame
         closeButton.setFont(new java.awt.Font("Verdana", 1, 36)); // NOI18N
         closeButton.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         closeButton.setText("X");
-        closeButton.addMouseListener(new java.awt.event.MouseAdapter() 
-        {
-            public void mouseClicked(java.awt.event.MouseEvent evt) 
-            {
+        closeButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
                 closeButtonMouseClicked(evt);
             }
         });
@@ -54,10 +53,8 @@ public class AddBook extends javax.swing.JFrame
         minimizeButton.setFont(new java.awt.Font("Verdana", 1, 36)); // NOI18N
         minimizeButton.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         minimizeButton.setText("-");
-        minimizeButton.addMouseListener(new java.awt.event.MouseAdapter() 
-        {
-            public void mouseClicked(java.awt.event.MouseEvent evt) 
-            {
+        minimizeButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
                 minimizeButtonMouseClicked(evt);
             }
         });
@@ -124,11 +121,9 @@ public class AddBook extends javax.swing.JFrame
 
         halamanBukuTextField.setFont(new java.awt.Font("Verdana", 0, 15)); // NOI18N
 
-        addBookButton.setText("Add Book");
-        addBookButton.addActionListener(new java.awt.event.ActionListener() 
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt) 
-            {
+        addBookButton.setText("Tambah Buku");
+        addBookButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addBookButtonActionPerformed(evt);
             }
         });
@@ -236,8 +231,8 @@ public class AddBook extends javax.swing.JFrame
             
         } catch (Exception exception) 
         {
-            JOptionPane.showMessageDialog(null, "Failed to add book, "
-                                          + "please try again later");
+            JOptionPane.showMessageDialog(null, "Gagal menambahkan buku, "
+                                          + "silahkan ulang beberapa saat lagi");
         }
     }//GEN-LAST:event_addBookButtonActionPerformed
 
@@ -270,7 +265,7 @@ public class AddBook extends javax.swing.JFrame
             
         } catch (Exception exception) {
             
-            JOptionPane.showMessageDialog(null, "Failed to retrieve data from "
+            JOptionPane.showMessageDialog(null, "Gagal mendapatkan data dari "
                 + "database");
         }
         

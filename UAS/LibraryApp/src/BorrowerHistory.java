@@ -11,6 +11,7 @@ public class BorrowerHistory extends javax.swing.JFrame
     {
         initComponents();
         ShowData();
+        kodeTextField.requestFocus();        
     }
 
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -78,23 +79,23 @@ public class BorrowerHistory extends javax.swing.JFrame
         headerPanelLayout.setVerticalGroup(
             headerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, headerPanelLayout.createSequentialGroup()
-                .addContainerGap(13, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(headerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(headerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(closeButton)
                         .addComponent(minimizeButton))
                     .addComponent(borrowerHistoryLabel)
                     .addComponent(headerLabel))
-                .addContainerGap())
+                .addGap(21, 21, 21))
         );
 
         getContentPane().add(headerPanel);
-        headerPanel.setBounds(0, 0, 610, 70);
+        headerPanel.setBounds(0, 0, 610, 78);
 
         bodyPanel.setBackground(new java.awt.Color(255, 215, 0));
 
         backButton.setFont(new java.awt.Font("Verdana", 0, 15)); // NOI18N
-        backButton.setText("Back");
+        backButton.setText("Kembali");
         backButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 backButtonActionPerformed(evt);
@@ -102,7 +103,7 @@ public class BorrowerHistory extends javax.swing.JFrame
         });
 
         insertCodeLabel.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
-        insertCodeLabel.setText("Insert Code");
+        insertCodeLabel.setText("Masukkan Kode");
 
         cekPeminjamanButton.setText("Cek Peminjaman");
         cekPeminjamanButton.addActionListener(new java.awt.event.ActionListener() {
@@ -257,13 +258,13 @@ public class BorrowerHistory extends javax.swing.JFrame
 
             } else
             {
-                JOptionPane.showMessageDialog(null, "Cannot find book with that"
-                    + " code");
+                JOptionPane.showMessageDialog(null, "Tidak dapat menemukan buku"
+                        + " dengan kode tersebut");
             }
 
         } catch (Exception exception) 
         {
-            JOptionPane.showMessageDialog(null, "Failed to retrieve data from "
+            JOptionPane.showMessageDialog(null, "Gagal mendapatkan data dari "
                 + "database");
         }
     }//GEN-LAST:event_cekBukuButtonActionPerformed
@@ -296,13 +297,13 @@ public class BorrowerHistory extends javax.swing.JFrame
                 
             } else
             {
-                JOptionPane.showMessageDialog(null, "Cannot find book with that"
-                        + " code");
+                JOptionPane.showMessageDialog(null, "Tidak dapat menemukan buku"
+                        + " dengan kode tersebut");
             }
             
         } catch (Exception exception) 
         {
-            JOptionPane.showMessageDialog(null, "Failed to retrieve data from "
+            JOptionPane.showMessageDialog(null, "Gagal mendapatkan data dari "
                     + "database");
         }
         
@@ -318,7 +319,7 @@ public class BorrowerHistory extends javax.swing.JFrame
 
         } catch(Exception exception)
         {
-            JOptionPane.showMessageDialog(null, "Failed to create report file");
+            JOptionPane.showMessageDialog(null, "Gagal menampilkan file report");
         }
     }//GEN-LAST:event_printReportButtonActionPerformed
     
@@ -350,7 +351,7 @@ public class BorrowerHistory extends javax.swing.JFrame
             
         } catch (Exception Exception) 
         {
-            JOptionPane.showMessageDialog(null, "Failed to retrieve data from "
+            JOptionPane.showMessageDialog(null, "Gagal mendapatkan data dari "
                     + "database");
         }
     }
