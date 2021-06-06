@@ -1,3 +1,5 @@
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 public class Register extends javax.swing.JFrame 
@@ -298,6 +300,12 @@ public class Register extends javax.swing.JFrame
         {
             JOptionPane.showMessageDialog(null, "Password and Retype Password"
                     + " must contain the same value");
+            
+        } else if(!IsNIMAvailable())
+        {
+            JOptionPane.showMessageDialog(null, "NIM " + NIMTextField.getText()
+                                          + " already available");
+            
         } else
         {
             try 
@@ -362,6 +370,31 @@ public class Register extends javax.swing.JFrame
             return false;
         }
     }
+    
+    private boolean IsNIMAvailable()
+    {
+        try 
+        {        
+            int NIM = Integer.parseInt(NIMTextField.getText());
+            
+            DBConnection.AccessDatabase();
+            DBConnection.sql = "SELECT * FROM tabel_anggota WHERE NIM_anggota = " + NIM + ";";
+            DBConnection.statement = DBConnection.connection.createStatement();
+            DBConnection.resultSet = DBConnection.statement.executeQuery
+                                     (DBConnection.sql);
+            
+            if(!DBConnection.resultSet.next())
+            {
+                return true;
+            } 
+            
+        } catch (Exception exception) 
+        {
+            JOptionPane.showMessageDialog(null, "Failed to check NIM availability");
+        }   
+        
+         return false;
+    }  
     
    private int SetIdMaster()
     {

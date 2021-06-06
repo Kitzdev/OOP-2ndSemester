@@ -37,7 +37,7 @@
 			<staticText>
 				<reportElement uuid="90d434b3-150b-4e88-ab22-a0da8da7dbfe" style="Title" x="0" y="13" width="285" height="33"/>
 				<textElement verticalAlignment="Middle"/>
-				<text><![CDATA[Laporan Peminjaman]]></text>
+				<text><![CDATA[The Library]]></text>
 			</staticText>
 			<staticText>
 				<reportElement uuid="ec952196-550b-4c8c-8c02-46f37e80a74f" style="SubTitle" x="63" y="46" width="200" height="22"/>

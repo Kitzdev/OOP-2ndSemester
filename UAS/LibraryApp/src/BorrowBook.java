@@ -1,6 +1,8 @@
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.view.JasperViewer;
 
 public class BorrowBook extends javax.swing.JFrame 
 {
@@ -14,8 +16,8 @@ public class BorrowBook extends javax.swing.JFrame
     }
 
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() {
-
+    private void initComponents() 
+    {
         jPanel1 = new javax.swing.JPanel();
         headerLabel = new javax.swing.JLabel();
         headerLabelAdmin = new javax.swing.JLabel();
@@ -45,8 +47,10 @@ public class BorrowBook extends javax.swing.JFrame
         closeButton.setFont(new java.awt.Font("Verdana", 1, 36)); // NOI18N
         closeButton.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         closeButton.setText("X");
-        closeButton.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
+        closeButton.addMouseListener(new java.awt.event.MouseAdapter() 
+        {
+            public void mouseClicked(java.awt.event.MouseEvent evt) 
+            {
                 closeButtonMouseClicked(evt);
             }
         });
@@ -54,8 +58,10 @@ public class BorrowBook extends javax.swing.JFrame
         minimizeButton.setFont(new java.awt.Font("Verdana", 1, 36)); // NOI18N
         minimizeButton.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         minimizeButton.setText("-");
-        minimizeButton.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
+        minimizeButton.addMouseListener(new java.awt.event.MouseAdapter() 
+        {
+            public void mouseClicked(java.awt.event.MouseEvent evt) 
+            {
                 minimizeButtonMouseClicked(evt);
             }
         });
@@ -105,11 +111,13 @@ public class BorrowBook extends javax.swing.JFrame
                 "Kode Buku", "Judul Buku", "Penulis Buku"
             }
         ) {
-            Class[] types = new Class [] {
+            Class[] types = new Class [] 
+            {
                 java.lang.Integer.class, java.lang.String.class, java.lang.Object.class
             };
 
-            public Class getColumnClass(int columnIndex) {
+            public Class getColumnClass(int columnIndex) 
+            {
                 return types [columnIndex];
             }
         });
@@ -117,8 +125,10 @@ public class BorrowBook extends javax.swing.JFrame
 
         backButton.setFont(new java.awt.Font("Verdana", 0, 15)); // NOI18N
         backButton.setText("Back");
-        backButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        backButton.addActionListener(new java.awt.event.ActionListener() 
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt) 
+            {
                 backButtonActionPerformed(evt);
             }
         });
@@ -127,8 +137,10 @@ public class BorrowBook extends javax.swing.JFrame
         insertCodeLabel.setText("Book Code");
 
         pinjamBukuButton.setText("Pinjam Buku");
-        pinjamBukuButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        pinjamBukuButton.addActionListener(new java.awt.event.ActionListener() 
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt) 
+            {
                 pinjamBukuButtonActionPerformed(evt);
             }
         });
@@ -172,7 +184,7 @@ public class BorrowBook extends javax.swing.JFrame
                     .addComponent(jumlahBukuTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(insertCodeLabel1)
                     .addComponent(kodeBukuTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
                 .addComponent(pinjamBukuButton)
                 .addGap(2, 2, 2)
                 .addComponent(backButton)
@@ -185,26 +197,27 @@ public class BorrowBook extends javax.swing.JFrame
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void closeButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closeButtonMouseClicked
-
+    private void closeButtonMouseClicked(java.awt.event.MouseEvent evt) 
+    {//GEN-FIRST:event_closeButtonMouseClicked
         dispose();
         MainMenu mainMenu = new MainMenu(NIM);
         mainMenu.setVisible(true);
     }//GEN-LAST:event_closeButtonMouseClicked
 
-    private void minimizeButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_minimizeButtonMouseClicked
-        
+    private void minimizeButtonMouseClicked(java.awt.event.MouseEvent evt) 
+    {//GEN-FIRST:event_minimizeButtonMouseClicked
         setState(JFrame.ICONIFIED);
     }//GEN-LAST:event_minimizeButtonMouseClicked
 
-    private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
-
+    private void backButtonActionPerformed(java.awt.event.ActionEvent evt) 
+    {//GEN-FIRST:event_backButtonActionPerformed
         dispose();
         MainMenu mainMenu = new MainMenu(NIM);
         mainMenu.setVisible(true);
     }//GEN-LAST:event_backButtonActionPerformed
 
-    private void pinjamBukuButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pinjamBukuButtonActionPerformed
+    private void pinjamBukuButtonActionPerformed(java.awt.event.ActionEvent evt) 
+    {//GEN-FIRST:event_pinjamBukuButtonActionPerformed
         java.sql.Date sqlDate = new java.sql.Date(new java.util.Date().
                                                   getTime());
         int kodePeminjaman;
@@ -239,13 +252,13 @@ public class BorrowBook extends javax.swing.JFrame
                 {
                     DBConnection.AccessDatabase();
                     DBConnection.sql = "SELECT * FROM tabel_buku WHERE kode_buku = "
-                               + kodeBuku + ";";
+                                       + kodeBuku + ";";
                     DBConnection.statement = DBConnection.connection.createStatement();
                     DBConnection.resultSet = DBConnection.statement.executeQuery
-                    (DBConnection.sql);
-            
+                                             (DBConnection.sql);
+
                     bukuTersedia = DBConnection.resultSet.getInt(6);
-                
+                                                  
                     if(jumlahBuku <= bukuTersedia)
                     {
                         kodePeminjaman = SetKodePeminjaman();
@@ -256,11 +269,11 @@ public class BorrowBook extends javax.swing.JFrame
                                        + "`NIM_peminjam`,"+ "`jumlah_peminjaman`, "
                                        + "`tanggal_peminjaman`) " + "VALUES ('" 
                                        + kodePeminjaman + "','" + kodeBuku + "','" 
-                                       + NIM + "','" + 1 + "','" + sqlDate + "');";
+                                       + NIM + "','" + jumlahBuku + "','" + sqlDate + "');";
                         DBConnection.statement = DBConnection.connection.
                                              createStatement();
                         DBConnection.statement.executeUpdate(DBConnection.sql);
-                    
+                        
                         bukuTersedia--;
             
                         DBConnection.AccessDatabase();                   
@@ -270,9 +283,22 @@ public class BorrowBook extends javax.swing.JFrame
                         DBConnection.statement = DBConnection.connection.
                                              createStatement();
                         DBConnection.statement.executeUpdate(DBConnection.sql);
-                    
+                        
                         JOptionPane.showMessageDialog(null, "Book succesfully "
-                                                      + "borrowed!");           
+                                                      + "borrowed!");
+                        
+                        try
+                        {
+                            JasperPrint jasperPrint = JasperFillManager.fillReport(getClass().
+                                      getResourceAsStream("BorrowingReport.jasper")
+                                      , null, DBConnection.AccessDatabaseWithReturn());
+                            JasperViewer.viewReport(jasperPrint, false);
+
+                        } catch(Exception exception)
+                        {
+                            JOptionPane.showMessageDialog(null, "Failed to create report file");
+                        }
+                        
                     } else
                     {
                         JOptionPane.showMessageDialog(null, "Book with that count"
@@ -304,7 +330,7 @@ public class BorrowBook extends javax.swing.JFrame
             DBConnection.sql = "SELECT * FROM tabel_peminjaman;";
             DBConnection.statement = DBConnection.connection.createStatement();
             DBConnection.resultSet = DBConnection.statement.executeQuery
-            (DBConnection.sql);
+                                     (DBConnection.sql);
             
             if(DBConnection.resultSet.next())
             {

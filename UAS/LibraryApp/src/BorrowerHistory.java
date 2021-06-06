@@ -337,15 +337,12 @@ public class BorrowerHistory extends javax.swing.JFrame
             theTable.addColumn("NIM anggota");
             theTable.addColumn("Tanggal Pengembalian");
             
-            int row = 1;
-            
             while(DBConnection.resultSet.next())
             {
                 theTable.addRow(new Object[]{DBConnection.resultSet.getInt(1),
                     DBConnection.resultSet.getInt(2), 
                     DBConnection.resultSet.getInt(3), 
                     DBConnection.resultSet.getDate(4)});
-                row++;
             }
             
             borrowingHistoryTable.setModel(theTable);

@@ -34,7 +34,7 @@
 			<staticText>
 				<reportElement uuid="3f227fb1-dc50-4961-a650-9b5892a9351a" style="Title" x="0" y="13" width="263" height="33"/>
 				<textElement verticalAlignment="Middle"/>
-				<text><![CDATA[Histori Peminjaman]]></text>
+				<text><![CDATA[The Library]]></text>
 			</staticText>
 			<staticText>
 				<reportElement uuid="671edc22-68db-4d40-a42c-71fe6ba32cde" style="SubTitle" x="36" y="42" width="215" height="22"/>

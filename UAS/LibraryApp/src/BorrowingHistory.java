@@ -15,20 +15,20 @@ public class BorrowingHistory extends javax.swing.JFrame
     }
 
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() 
-    {
+    private void initComponents() {
+
         headerPanel = new javax.swing.JPanel();
         headerLabel = new javax.swing.JLabel();
         borrowingHistoryLabel = new javax.swing.JLabel();
         closeButton = new javax.swing.JLabel();
         minimizeButton = new javax.swing.JLabel();
         bodyPanel = new javax.swing.JPanel();
-        table = new javax.swing.JScrollPane();
-        borrowingHistoryTable = new javax.swing.JTable();
         backButton2 = new javax.swing.JButton();
         insertCodeLabel = new javax.swing.JLabel();
         kodeTextField = new javax.swing.JTextField();
         cekBukuButton = new javax.swing.JButton();
+        borrowerHistoryTable = new javax.swing.JScrollPane();
+        borrowingHistoryTable = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
@@ -44,10 +44,8 @@ public class BorrowingHistory extends javax.swing.JFrame
         closeButton.setFont(new java.awt.Font("Verdana", 1, 36)); // NOI18N
         closeButton.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         closeButton.setText("X");
-        closeButton.addMouseListener(new java.awt.event.MouseAdapter() 
-        {
-            public void mouseClicked(java.awt.event.MouseEvent evt) 
-            {
+        closeButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
                 closeButtonMouseClicked(evt);
             }
         });
@@ -55,10 +53,8 @@ public class BorrowingHistory extends javax.swing.JFrame
         minimizeButton.setFont(new java.awt.Font("Verdana", 1, 36)); // NOI18N
         minimizeButton.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         minimizeButton.setText("-");
-        minimizeButton.addMouseListener(new java.awt.event.MouseAdapter() 
-        {
-            public void mouseClicked(java.awt.event.MouseEvent evt) 
-            {
+        minimizeButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
                 minimizeButtonMouseClicked(evt);
             }
         });
@@ -72,7 +68,7 @@ public class BorrowingHistory extends javax.swing.JFrame
                 .addComponent(headerLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(borrowingHistoryLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 385, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 225, Short.MAX_VALUE)
                 .addComponent(minimizeButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(closeButton)
@@ -92,52 +88,14 @@ public class BorrowingHistory extends javax.swing.JFrame
         );
 
         getContentPane().add(headerPanel);
-        headerPanel.setBounds(0, 0, 730, 70);
+        headerPanel.setBounds(0, 0, 570, 70);
 
         bodyPanel.setBackground(new java.awt.Color(255, 215, 0));
 
-        borrowingHistoryTable.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
-            },
-            new String [] {
-                "Kode Pengembalian", "Kode Buku", "Jumlah Peminjaman", "Tanggal Peminjaman", "Tanggal Pengembalian"
-            }
-        ) {
-            Class[] types = new Class [] 
-            {
-                java.lang.Integer.class, java.lang.String.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
-            };
-
-            public Class getColumnClass(int columnIndex)
-            {
-                return types [columnIndex];
-            }
-        });
-        table.setViewportView(borrowingHistoryTable);
-        if (borrowingHistoryTable.getColumnModel().getColumnCount() > 0) {
-            borrowingHistoryTable.getColumnModel().getColumn(0).setMinWidth(150);
-            borrowingHistoryTable.getColumnModel().getColumn(0).setMaxWidth(150);
-            borrowingHistoryTable.getColumnModel().getColumn(1).setMinWidth(90);
-            borrowingHistoryTable.getColumnModel().getColumn(1).setMaxWidth(90);
-            borrowingHistoryTable.getColumnModel().getColumn(2).setMinWidth(150);
-            borrowingHistoryTable.getColumnModel().getColumn(2).setMaxWidth(150);
-            borrowingHistoryTable.getColumnModel().getColumn(3).setMinWidth(160);
-            borrowingHistoryTable.getColumnModel().getColumn(3).setMaxWidth(160);
-            borrowingHistoryTable.getColumnModel().getColumn(4).setMinWidth(170);
-            borrowingHistoryTable.getColumnModel().getColumn(4).setMaxWidth(170);
-        }
-
         backButton2.setFont(new java.awt.Font("Verdana", 0, 15)); // NOI18N
         backButton2.setText("Back");
-        backButton2.addActionListener(new java.awt.event.ActionListener() 
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt) 
-            {
+        backButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 backButton2ActionPerformed(evt);
             }
         });
@@ -146,58 +104,84 @@ public class BorrowingHistory extends javax.swing.JFrame
         insertCodeLabel.setText("Insert Code");
 
         cekBukuButton.setText("Cek Buku");
-        cekBukuButton.addActionListener(new java.awt.event.ActionListener() 
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt) 
-            {
+        cekBukuButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cekBukuButtonActionPerformed(evt);
             }
         });
+
+        borrowingHistoryTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Kode Pengembalian", "Kode Buku", "NIM Anggota", "Tanggal Pengembalian"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.String.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        borrowerHistoryTable.setViewportView(borrowingHistoryTable);
+        if (borrowingHistoryTable.getColumnModel().getColumnCount() > 0) {
+            borrowingHistoryTable.getColumnModel().getColumn(1).setMinWidth(100);
+            borrowingHistoryTable.getColumnModel().getColumn(1).setMaxWidth(100);
+            borrowingHistoryTable.getColumnModel().getColumn(2).setMinWidth(110);
+            borrowingHistoryTable.getColumnModel().getColumn(2).setMaxWidth(110);
+        }
 
         javax.swing.GroupLayout bodyPanelLayout = new javax.swing.GroupLayout(bodyPanel);
         bodyPanel.setLayout(bodyPanelLayout);
         bodyPanelLayout.setHorizontalGroup(
             bodyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(borrowerHistoryTable)
             .addGroup(bodyPanelLayout.createSequentialGroup()
                 .addGroup(bodyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(bodyPanelLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(backButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(bodyPanelLayout.createSequentialGroup()
-                        .addGap(177, 177, 177)
+                        .addGap(112, 112, 112)
                         .addComponent(insertCodeLabel)
-                        .addGap(55, 55, 55)
-                        .addGroup(bodyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(kodeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(cekBukuButton))))
-                .addContainerGap(235, Short.MAX_VALUE))
-            .addComponent(table)
+                        .addGap(79, 79, 79)
+                        .addComponent(kodeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(bodyPanelLayout.createSequentialGroup()
+                        .addGap(231, 231, 231)
+                        .addComponent(cekBukuButton)))
+                .addContainerGap(116, Short.MAX_VALUE))
         );
         bodyPanelLayout.setVerticalGroup(
             bodyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(bodyPanelLayout.createSequentialGroup()
-                .addGap(32, 32, 32)
-                .addComponent(table, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
+                .addGap(29, 29, 29)
+                .addComponent(borrowerHistoryTable, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(31, 31, 31)
                 .addGroup(bodyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(insertCodeLabel)
                     .addComponent(kodeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
                 .addComponent(cekBukuButton)
-                .addGap(18, 18, 18)
+                .addGap(28, 28, 28)
                 .addComponent(backButton2)
                 .addContainerGap())
         );
 
         getContentPane().add(bodyPanel);
-        bodyPanel.setBounds(0, 70, 730, 360);
+        bodyPanel.setBounds(0, 70, 570, 360);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void closeButtonMouseClicked(java.awt.event.MouseEvent evt) 
     {//GEN-FIRST:event_closeButtonMouseClicked
-
         dispose();
         Admin admin = new Admin();
         admin.setVisible(true);
@@ -273,20 +257,14 @@ public class BorrowingHistory extends javax.swing.JFrame
             DefaultTableModel theTable = new DefaultTableModel();
             theTable.addColumn("Kode Pengembalian");
             theTable.addColumn("Kode Buku");
-            theTable.addColumn("Jumlah Peminjaman");
-            theTable.addColumn("Tanggal Peminjaman");
+            theTable.addColumn("NIM anggota");
             theTable.addColumn("Tanggal Pengembalian");
             
-            int row = 1;
-            
             while(DBConnection.resultSet.next())
-            {
-                jumlahPeminjaman = SetJumlahPeminjaman(row);
-                tanggalPeminjaman = SetTanggalPeminjaman(row);
+            {   
                 theTable.addRow(new Object[]{DBConnection.resultSet.getInt
-                (1),DBConnection.resultSet.getInt(2), jumlahPeminjaman, 
-                tanggalPeminjaman, DBConnection.resultSet.getDate(4)});
-                row++;
+                (1),DBConnection.resultSet.getInt(2), DBConnection.resultSet.getInt
+                (3), DBConnection.resultSet.getDate(4)});
             }
             
             borrowingHistoryTable.setModel(theTable);
@@ -296,66 +274,6 @@ public class BorrowingHistory extends javax.swing.JFrame
             JOptionPane.showMessageDialog(null, "Failed to retrieve data from "
                     + "database");
         }
-    }
-    
-    private int SetJumlahPeminjaman(int row)
-    {
-        int container = 0;
-        
-        try 
-        {      
-            DBConnection.AccessDatabase();
-            DBConnection.sql = "SELECT * FROM tabel_peminjaman WHERE "
-                               + "NIM_peminjam = " + NIM + ";";
-            DBConnection.statement = DBConnection.connection.createStatement();
-            DBConnection.resultSet = DBConnection.statement.executeQuery
-                                     (DBConnection.sql);
-            while(row != 0)
-            {
-                DBConnection.resultSet.next();
-                row--;
-            }
-            
-            container = DBConnection.resultSet.getInt(4);                       
-            
-        } catch (Exception Exception) 
-        {
-            JOptionPane.showMessageDialog(null, "Failed to retrieve data from "
-                    + "database");
-        }
-        
-        return container;
-    }
-    
-    
-    private Date SetTanggalPeminjaman(int row)
-    {
-        Date date = new Date();
-        
-        try 
-        {           
-            DBConnection.AccessDatabase();
-            DBConnection.sql = "SELECT * FROM tabel_peminjaman "+ "WHERE "
-                               + "NIM_peminjam = " + NIM + ";";
-            DBConnection.statement = DBConnection.connection.createStatement();
-            DBConnection.resultSet = DBConnection.statement.executeQuery
-                                     (DBConnection.sql);
-            
-            while(row != 0)
-            {
-                DBConnection.resultSet.next();
-                row--;
-            }
-            
-            date = DBConnection.resultSet.getDate(5);           
-            
-        } catch (Exception Exception) 
-        {
-            JOptionPane.showMessageDialog(null, "Failed to retrieve data from "
-                    + "database");
-        }
-
-        return date;
     }
      
     public static void main(String args[]) 
@@ -371,6 +289,7 @@ public class BorrowingHistory extends javax.swing.JFrame
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backButton2;
     private javax.swing.JPanel bodyPanel;
+    private javax.swing.JScrollPane borrowerHistoryTable;
     private javax.swing.JLabel borrowingHistoryLabel;
     private javax.swing.JTable borrowingHistoryTable;
     private javax.swing.JButton cekBukuButton;
@@ -380,6 +299,5 @@ public class BorrowingHistory extends javax.swing.JFrame
     private javax.swing.JLabel insertCodeLabel;
     private javax.swing.JTextField kodeTextField;
     private javax.swing.JLabel minimizeButton;
-    private javax.swing.JScrollPane table;
     // End of variables declaration//GEN-END:variables
 }
