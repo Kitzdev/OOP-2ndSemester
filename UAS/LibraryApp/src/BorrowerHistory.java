@@ -26,7 +26,7 @@ public class BorrowerHistory extends javax.swing.JFrame
         backButton = new javax.swing.JButton();
         insertCodeLabel = new javax.swing.JLabel();
         kodeTextField = new javax.swing.JTextField();
-        cekPeminjamanButton = new javax.swing.JButton();
+        cekPengembalianButton = new javax.swing.JButton();
         cekBukuButton = new javax.swing.JButton();
         borrowerHistoryTable = new javax.swing.JScrollPane();
         borrowingHistoryTable = new javax.swing.JTable();
@@ -105,10 +105,10 @@ public class BorrowerHistory extends javax.swing.JFrame
         insertCodeLabel.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         insertCodeLabel.setText("Masukkan Kode");
 
-        cekPeminjamanButton.setText("Cek Peminjaman");
-        cekPeminjamanButton.addActionListener(new java.awt.event.ActionListener() {
+        cekPengembalianButton.setText("Cek Pengembalian");
+        cekPengembalianButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cekPeminjamanButtonActionPerformed(evt);
+                cekPengembalianButtonActionPerformed(evt);
             }
         });
 
@@ -165,21 +165,21 @@ public class BorrowerHistory extends javax.swing.JFrame
             .addGroup(bodyPanelLayout.createSequentialGroup()
                 .addGroup(bodyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(bodyPanelLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(backButton, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(bodyPanelLayout.createSequentialGroup()
                         .addGap(47, 47, 47)
                         .addComponent(cekBukuButton)
                         .addGap(59, 59, 59)
-                        .addComponent(cekPeminjamanButton)
+                        .addComponent(cekPengembalianButton)
                         .addGap(60, 60, 60)
                         .addComponent(printReportButton))
                     .addGroup(bodyPanelLayout.createSequentialGroup()
                         .addGap(103, 103, 103)
                         .addComponent(insertCodeLabel)
                         .addGap(30, 30, 30)
-                        .addComponent(kodeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(133, Short.MAX_VALUE))
+                        .addComponent(kodeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(bodyPanelLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(backButton, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(118, Short.MAX_VALUE))
             .addComponent(borrowerHistoryTable)
         );
         bodyPanelLayout.setVerticalGroup(
@@ -199,7 +199,7 @@ public class BorrowerHistory extends javax.swing.JFrame
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bodyPanelLayout.createSequentialGroup()
                         .addGroup(bodyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(cekBukuButton)
-                            .addComponent(cekPeminjamanButton)
+                            .addComponent(cekPengembalianButton)
                             .addComponent(printReportButton))
                         .addGap(75, 75, 75))))
         );
@@ -269,15 +269,15 @@ public class BorrowerHistory extends javax.swing.JFrame
         }
     }//GEN-LAST:event_cekBukuButtonActionPerformed
 
-    private void cekPeminjamanButtonActionPerformed(java.awt.event.ActionEvent evt) 
+    private void cekPengembalianButtonActionPerformed(java.awt.event.ActionEvent evt) 
     {//GEN-FIRST:event_cekPeminjamanButtonActionPerformed
         try 
         {
-            int kodePeminjaman = Integer.parseInt(kodeTextField.getText());
+            int kodePengembalian = Integer.parseInt(kodeTextField.getText());
 
             DBConnection.AccessDatabase();
-            DBConnection.sql = "SELECT * FROM tabel_peminjaman WHERE "
-                    + "kode_peminjaman = " + kodePeminjaman + ";";
+            DBConnection.sql = "SELECT * FROM tabel_pengembalian WHERE "
+                    + "kode_pengembalian = " + kodePengembalian + ";";
             DBConnection.statement = DBConnection.connection.createStatement();
             DBConnection.resultSet = DBConnection.statement.executeQuery
                                             (DBConnection.sql);
@@ -286,18 +286,16 @@ public class BorrowerHistory extends javax.swing.JFrame
             {
                 int kodeBuku = DBConnection.resultSet.getInt(2);
                 int NIMPeminjam = DBConnection.resultSet.getInt(3);
-                int jumlahPeminjaman = DBConnection.resultSet.getInt(4);
-                Date tanggalPeminjaman = DBConnection.resultSet.getDate(5);
+                Date tanggalPengembalian = DBConnection.resultSet.getDate(4);
 
-                JOptionPane.showMessageDialog(null, "Kode Peminjaman = " 
-                        + kodePeminjaman + "\nKode Buku= " + kodeBuku + 
-                        "\nNIM Peminjam = " + + NIMPeminjam + 
-                        "\njumlahPeminjaman = " + jumlahPeminjaman + 
-                        "\nTanggal Peminjaman = " + tanggalPeminjaman);
+                JOptionPane.showMessageDialog(null, "Kode Pengembalian = " 
+                        + kodePengembalian + "\nKode Buku= " + kodeBuku + 
+                        "\nNIM Peminjam = " + + NIMPeminjam +  
+                        "\nTanggal Pengembalian = " + tanggalPengembalian);
                 
             } else
             {
-                JOptionPane.showMessageDialog(null, "Tidak dapat menemukan buku"
+                JOptionPane.showMessageDialog(null, "Tidak dapat menemukan pengembalian"
                         + " dengan kode tersebut");
             }
             
@@ -374,7 +372,7 @@ public class BorrowerHistory extends javax.swing.JFrame
     private javax.swing.JScrollPane borrowerHistoryTable;
     private javax.swing.JTable borrowingHistoryTable;
     private javax.swing.JButton cekBukuButton;
-    private javax.swing.JButton cekPeminjamanButton;
+    private javax.swing.JButton cekPengembalianButton;
     private javax.swing.JLabel closeButton;
     private javax.swing.JLabel headerLabel;
     private javax.swing.JPanel headerPanel;

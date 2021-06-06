@@ -345,10 +345,6 @@ public class Register extends javax.swing.JFrame
                 System.out.println(exception.getMessage());          
             }    
         }
-        
-        dispose();
-        Login loginForm = new Login();
-        loginForm.setVisible(true);
     }//GEN-LAST:event_registerButtonMouseClicked
 
     private void loginButtonMouseClicked(java.awt.event.MouseEvent evt) 

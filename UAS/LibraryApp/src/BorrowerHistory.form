@@ -131,14 +131,10 @@
               <Group type="102" attributes="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="backButton" min="-2" pref="75" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
                           <Component id="cekBukuButton" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
-                          <Component id="cekPeminjamanButton" min="-2" max="-2" attributes="0"/>
+                          <Component id="cekPengembalianButton" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
                           <Component id="printReportButton" min="-2" max="-2" attributes="0"/>
                       </Group>
@@ -148,8 +144,12 @@
                           <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                           <Component id="kodeTextField" min="-2" pref="180" max="-2" attributes="0"/>
                       </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="backButton" min="-2" pref="100" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
-                  <EmptySpace pref="133" max="32767" attributes="0"/>
+                  <EmptySpace pref="118" max="32767" attributes="0"/>
               </Group>
               <Component id="borrowerHistoryTable" max="32767" attributes="0"/>
           </Group>
@@ -173,7 +173,7 @@
                       <Group type="102" alignment="1" attributes="0">
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="cekBukuButton" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="cekPeminjamanButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="cekPengembalianButton" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="printReportButton" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="75" max="-2" attributes="0"/>
@@ -205,12 +205,12 @@
         </Component>
         <Component class="javax.swing.JTextField" name="kodeTextField">
         </Component>
-        <Component class="javax.swing.JButton" name="cekPeminjamanButton">
+        <Component class="javax.swing.JButton" name="cekPengembalianButton">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Cek Peminjaman"/>
+            <Property name="text" type="java.lang.String" value="Cek Pengembalian"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cekPeminjamanButtonActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cekPengembalianButtonActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="cekBukuButton">

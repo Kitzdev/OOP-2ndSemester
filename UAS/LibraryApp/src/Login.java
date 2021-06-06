@@ -214,6 +214,7 @@ public class Login extends javax.swing.JFrame
             {                
                 usernameTextField.setText("");
                 passwordTextField.setText("");
+                JOptionPane.showMessageDialog(null, "Selamat datang Admin!");
                 dispose();
                 Admin admin = new Admin();
                 admin.setVisible(true);
