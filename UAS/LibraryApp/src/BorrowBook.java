@@ -236,6 +236,8 @@ public class BorrowBook extends javax.swing.JFrame
             
             if(DBConnection.resultSet.next())
             {
+                bukuTersedia = DBConnection.resultSet.getInt(6);
+                
                 DBConnection.AccessDatabase();
                 DBConnection.sql = "SELECT * FROM tabel_peminjaman WHERE "
                                    + "NIM_peminjam = "+ NIM + ";";
@@ -249,16 +251,7 @@ public class BorrowBook extends javax.swing.JFrame
                                                   + "satu kali");
                     
                 } else
-                {
-                    DBConnection.AccessDatabase();
-                    DBConnection.sql = "SELECT * FROM tabel_buku WHERE kode_buku = "
-                                       + kodeBuku + ";";
-                    DBConnection.statement = DBConnection.connection.createStatement();
-                    DBConnection.resultSet = DBConnection.statement.executeQuery
-                                             (DBConnection.sql);
-
-                    bukuTersedia = DBConnection.resultSet.getInt(6);
-                                                  
+                {                                                                    
                     if(jumlahBuku <= bukuTersedia)
                     {
                         kodePeminjaman = SetKodePeminjaman();
@@ -289,7 +282,7 @@ public class BorrowBook extends javax.swing.JFrame
                         
                         try
                         {
-                            JasperPrint jasperPrint = JasperFillManager.fillReport(getClass().
+                            JasperPrint jasperPrint = net.sf.jasperreports.engine.JasperFillManager.fillReport(getClass().
                                       getResourceAsStream("BorrowingReport.jasper")
                                       , null, DBConnection.AccessDatabaseWithReturn());
                             JasperViewer.viewReport(jasperPrint, false);
@@ -368,7 +361,7 @@ public class BorrowBook extends javax.swing.JFrame
             
             while(DBConnection.resultSet.next())
             {
-                bookTable.addRow(new Object[]{DBConnection.resultSet.getString
+                bookTable.addRow(new Object[]{DBConnection.resultSet.getInt
                 (1),DBConnection.resultSet.getString(2), 
                 DBConnection.resultSet.getString(3)});
             }

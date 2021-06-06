@@ -233,6 +233,7 @@ public class BorrowerHistory extends javax.swing.JFrame
         try 
         {
             int kodeBuku = Integer.parseInt(kodeTextField.getText());
+            
             DBConnection.AccessDatabase();
             DBConnection.sql = "SELECT * FROM tabel_buku WHERE kode_buku = "
             + kodeBuku + ";";

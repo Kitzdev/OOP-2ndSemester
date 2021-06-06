@@ -2,9 +2,7 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 public class AddBook extends javax.swing.JFrame 
-{
-    int kodeBuku;
-    
+{   
     public AddBook() 
     {
         initComponents();
@@ -215,18 +213,17 @@ public class AddBook extends javax.swing.JFrame
     {//GEN-FIRST:event_addBookButtonActionPerformed
         try 
         {            
-            setKodeBuku();
+            int kodeBuku = SetKodeBuku();
             
             DBConnection.AccessDatabase();
-            DBConnection.sql = "INSERT INTO tabel_buku (`kode_buku`, "
-                               + "`judul_buku`, `penulis_buku`, `penerbit_"
-                               + "buku`, "+ "`halaman_buku`, `jumlah_buku`) "
-                               + "VALUES "+ "('" + kodeBuku + "','" 
-                               + judulBukuTextField.getText() + "','" 
-                               + penulisBukuTextField.getText() + "','"
-                               + penerbitBukuTextField.getText() + "','" 
-                               + halamanBukuTextField.getText() + "','"
-                               + jumlahBukuTextField.getText() +"');";   
+            DBConnection.sql = "INSERT INTO `tabel_buku` (`kode_buku`, "
+                    + "`judul_buku`, `penulis_buku`, `penerbit_buku`, "
+                    + "`halaman_buku`, `jumlah_buku`) VALUES ('" + kodeBuku 
+                    + "','" + judulBukuTextField.getText() + "','" 
+                    + penulisBukuTextField.getText() + "','" 
+                    + penerbitBukuTextField.getText() + "','" 
+                    + halamanBukuTextField.getText() + "','" 
+                    + jumlahBukuTextField.getText() + "');";   
             DBConnection.statement = DBConnection.connection.createStatement();
             DBConnection.statement.executeUpdate(DBConnection.sql);
             
@@ -249,39 +246,35 @@ public class AddBook extends javax.swing.JFrame
         setState(JFrame.ICONIFIED);
     }//GEN-LAST:event_minimizeButtonMouseClicked
 
-    private void setKodeBuku()
+    private int SetKodeBuku()
     {
+        int container = 0;
+        
         try 
-        {  
+        {
             DBConnection.AccessDatabase();
-            DBConnection.sql = "SELECT kode_buku FROM tabel_buku;";
+            DBConnection.sql = "SELECT * FROM tabel_buku;";
             DBConnection.statement = DBConnection.connection.createStatement();
             DBConnection.resultSet = DBConnection.statement.executeQuery
-                                                (DBConnection.sql);
-            DBConnection.resultSet.next();
+                                     (DBConnection.sql);
             
-            int rowCount = DBConnection.resultSet.getRow();
-            
-            if(rowCount == 0)
+            if(DBConnection.resultSet.next())
             {
-                kodeBuku = 0;
-                System.out.println("Selesai1");
+                container = DBConnection.resultSet.getInt(1);
                 
-            } else
-            {
                 while(DBConnection.resultSet.next())
                 {
-                    kodeBuku = DBConnection.resultSet.getInt(1);
+                    container = DBConnection.resultSet.getInt(1);
                 }
-                
-                kodeBuku++;
-                System.out.println("Selesai");
             }
-  
+            
         } catch (Exception exception) {
             
-            JOptionPane.showMessageDialog(null, "Something wrong happened");
+            JOptionPane.showMessageDialog(null, "Failed to retrieve data from "
+                + "database");
         }
+        
+        return ++container;
     }
     
     public static void main(String args[]) 

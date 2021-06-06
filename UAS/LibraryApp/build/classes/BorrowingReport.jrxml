@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="9b141dd9-da58-4560-b363-f8d4dfb75d45">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
 	<style name="Title" fontName="Arial" fontSize="26" isBold="true" pdfFontName="Helvetica-Bold"/>
 	<style name="SubTitle" forecolor="#666666" fontName="Arial" fontSize="18"/>
 	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
@@ -34,12 +37,12 @@
 			<staticText>
 				<reportElement uuid="1a1f3e2b-4793-4ce5-9d9f-6a0b64bf2610" style="Title" x="0" y="13" width="263" height="33"/>
 				<textElement verticalAlignment="Middle"/>
-				<text><![CDATA[Leaf Red Title]]></text>
+				<text><![CDATA[The Library]]></text>
 			</staticText>
 			<staticText>
 				<reportElement uuid="acc9bf09-95e1-402a-ba7c-f6a08e8182bf" style="SubTitle" x="117" y="46" width="157" height="22"/>
 				<textElement/>
-				<text><![CDATA[Leaf Red SubTitle]]></text>
+				<text><![CDATA[Bukti Peminjaman]]></text>
 			</staticText>
 		</band>
 	</title>
